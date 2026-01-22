@@ -1,22 +1,22 @@
 import React, { memo, useMemo } from "react";
-import { Button as StyledButton } from "./style";
+import * as S from "./style";
 
 export interface IButtonProps {
-  /** 'button' | 'submit' | 'reset' */
+  /** 버튼 타입: 'button' | 'submit' | 'reset' */
   type?: "button" | "submit" | "reset";
-  /** href */
+  /** 링크 URL */
   href?: string;
-  /** children */
+  /** 자식 요소 */
   children?: React.ReactNode;
-  /** className */
+  /** CSS 클래스명 */
   className?: string;
-  /** disabled */
+  /** 비활성화 여부 */
   disabled?: boolean;
-  /** target */
+  /** 링크 타겟 */
   target?: string;
-  /** icon */
+  /** 아이콘 */
   icon?: React.ReactNode;
-  /** onClick */
+  /** 클릭 이벤트 핸들러 */
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
@@ -45,10 +45,10 @@ const Button: React.FC<IButtonProps> = ({
   );
 
   return (
-    <StyledButton {...buttonProps} as={href ? "a" : "button"}>
+    <S.Button {...buttonProps} as={href ? "a" : "button"}>
       {icon && icon}
       {children}
-    </StyledButton>
+    </S.Button>
   );
 };
 
