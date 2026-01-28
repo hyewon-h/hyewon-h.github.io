@@ -10,6 +10,7 @@ import Text from "../components/common/Text";
 import Select from "../components/common/Select";
 import Tabs from "../components/common/Tabs";
 import Accordion from "../components/common/Accordion";
+import TextEditor from "../components/common/TextEditor";
 
 const TestPage: React.FC = () => {
   // Button
@@ -119,6 +120,122 @@ const TestPage: React.FC = () => {
           width={100}
           height={100}
         />
+      </TestSection>
+      <TestSection>
+        <h2>TextEditor</h2>
+        <TextEditor placeholder="해시태그 입력 테스트" />
+      </TestSection>
+
+      <TestSection>
+        <h2>ItemsScrollBar</h2>
+        <div style={{ width: "100%", overflow: "hidden" }}>
+          {/* 예시: 5개의 아이템을 가로 스크롤로 보여줌 */}
+          <React.Suspense fallback={null}>
+            {(() => {
+              const ItemsScrollBar =
+                require("../components/common/ItemsScrollBar").default;
+              return (
+                <ItemsScrollBar
+                  perView={3}
+                  gap={12}
+                  offsetLR={16}
+                  snap
+                  scrollInit
+                >
+                  {Array.from({ length: 7 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="item"
+                      style={{
+                        background: "#e0e7ef",
+                        borderRadius: 8,
+                        minHeight: 80,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontWeight: 600,
+                        fontSize: 18,
+                        color: "#2a3a4a",
+                        boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
+                      }}
+                    >
+                      Item {i + 1}
+                    </div>
+                  ))}
+                </ItemsScrollBar>
+              );
+            })()}
+          </React.Suspense>
+        </div>
+      </TestSection>
+
+      <TestSection>
+        <h2>ItemsSwiper</h2>
+        <div style={{ width: "100%", maxWidth: 400 }}>
+          {/* 예시: 3개의 슬라이드 */}
+          <React.Suspense fallback={null}>
+            {(() => {
+              const ItemsSwiper =
+                require("../components/common/ItemsSwiper").default;
+              return (
+                <ItemsSwiper
+                  slidesPerView={1}
+                  pagination
+                  loop
+                  autoplay={{ delay: 2000 }}
+                >
+                  {[
+                    <div
+                      key="slide1"
+                      style={{
+                        height: 120,
+                        background: "#f8d7da",
+                        borderRadius: 8,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontWeight: 600,
+                        fontSize: 20,
+                      }}
+                    >
+                      Slide 1
+                    </div>,
+                    <div
+                      key="slide2"
+                      style={{
+                        height: 120,
+                        background: "#d1e7dd",
+                        borderRadius: 8,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontWeight: 600,
+                        fontSize: 20,
+                      }}
+                    >
+                      Slide 2
+                    </div>,
+                    <div
+                      key="slide3"
+                      style={{
+                        height: 120,
+                        background: "#cff4fc",
+                        borderRadius: 8,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontWeight: 600,
+                        fontSize: 20,
+                      }}
+                    >
+                      Slide 3
+                    </div>,
+                  ]}
+                </ItemsSwiper>
+              );
+            })()}
+          </React.Suspense>
+        </div>
       </TestSection>
     </TestPageWrapper>
   );
