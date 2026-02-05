@@ -11,6 +11,7 @@ import Select from "../components/common/Select";
 import Tabs from "../components/common/Tabs";
 import Accordion from "../components/common/Accordion";
 import TextEditor from "../components/common/TextEditor";
+// import ShinyText from "../components/common/ShinyText";
 
 const TestPage: React.FC = () => {
   // Button
@@ -39,6 +40,16 @@ const TestPage: React.FC = () => {
   return (
     <TestPageWrapper>
       <h1>공통 컴포넌트 테스트</h1>
+      {/* <TestSection>
+        <h2>ShinyText</h2>
+        <ShinyText
+          text="✨ ShinyText 효과 테스트!"
+          speed={2}
+          color="#b5b5b5"
+          shineColor="#fff700"
+          spread={120}
+        />
+      </TestSection> */}
       <TestSection>
         <h2>Button</h2>
         <Button onClick={() => alert("Button Clicked!")}>버튼</Button>
