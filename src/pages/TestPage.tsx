@@ -11,7 +11,7 @@ import Select from "../components/common/Select";
 import Tabs from "../components/common/Tabs";
 import Accordion from "../components/common/Accordion";
 import TextEditor from "../components/common/TextEditor";
-// import ShinyText from "../components/common/ShinyText";
+import CustomSelect from "../components/common/CustomSelect";
 
 const TestPage: React.FC = () => {
   // Button
@@ -30,6 +30,32 @@ const TestPage: React.FC = () => {
     { label: "Tab 1", content: <div>Tab 1 Content</div> },
     { label: "Tab 2", content: <div>Tab 2 Content</div> },
     { label: "Tab 3", content: <div>Tab 3 Content</div> },
+  ];
+
+  // CustomSelect
+  const [customSelectValue, setCustomSelectValue] = useState("");
+  const customSelectOptions = [
+    { value: "", label: "", optionvalue: "" },
+    {
+      value: "1",
+      label: "색상/사이즈 선택1",
+      optionvalue: "색상/사이즈 선택1",
+    },
+    {
+      value: "2",
+      label: "색상/사이즈 선택2",
+      optionvalue: "색상/사이즈 선택2",
+      deliveryDate: "내일 도착",
+      surcharge: "+2,000원",
+      restockBtn: true,
+      restockUrl: "https://example.com/restock",
+    },
+    {
+      value: "3",
+      label: "품절 옵션",
+      optionvalue: "품절 옵션",
+      disabled: true,
+    },
   ];
   // Accordion
   const panels = [
@@ -96,6 +122,15 @@ const TestPage: React.FC = () => {
           ]}
           value={selectValue}
           onChange={(e) => setSelectValue(e.target.value)}
+        />
+      </TestSection>
+      <TestSection>
+        <h2>CustomSelect</h2>
+        <CustomSelect
+          options={customSelectOptions}
+          value={customSelectValue}
+          onChange={setCustomSelectValue}
+          placeholder="옵션 선택"
         />
       </TestSection>
       <TestSection>

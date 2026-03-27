@@ -46,14 +46,14 @@ export const Box = styled.div`
     border-radius: ${mixin.pxToVw("24")};
     text-align: center;
     padding: ${mixin.pxToVw("5 10")};
-    font-family: ${({ theme }) => theme.fontFamily.light};
+    font-family: ${({ theme }) => theme.fontFamily.default};
     font-weight: 300;
     font-size: ${mixin.pxToVw("12")};
     line-height: ${mixin.pxToVw("16")};
     color: rgba(255, 255, 255, 0.6);
     letter-spacing: 0.2px;
     .swiper-pagination-current {
-      font-family: ${({ theme }) => theme.fontFamily.semibold};
+      font-family: ${({ theme }) => theme.fontFamily.default};
       font-weight: 500;
       color: rgba(255, 255, 255, 1);
     }

@@ -30,30 +30,14 @@ const media = {
   x5l: `(min-width: ${deviceSizes.x5l})`,
 };
 
-const fontFamily = {
-  thin: `"ProximaNova-Thin", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "맑은 고딕", sans-serif;`,
-  light: `"ProximaNova-Light", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "맑은 고딕", sans-serif;`,
-  regular: `"ProximaNova-Regular", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "맑은 고딕", sans-serif;`,
-  medium: `"ProximaNova-Medium", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "맑은 고딕", sans-serif;`,
-  semibold: `"ProximaNova-Semibold", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "맑은 고딕", sans-serif;`,
-  bold: `"ProximaNova-bold", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "맑은 고딕", sans-serif;`,
-  serif: `"Castoro", "NotoSerifKR-Semibold", serif;`,
-  orbit: `"Orbit", sans-serif;`,
-  gowunDodum: `"GowunDodum", sans-serif;`,
-  spaceGrotesk: `"SpaceGrotesk", "Pretendard Variable", Pretendard, sans-serif;`,
-};
+const pretendard = `"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif`;
 
-const fontFamilyDesktop = {
-  thin: `"ProximaNova-Thin", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;`,
-  light: `"ProximaNova-Light", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;`,
-  regular: `"ProximaNova-Regular", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;`,
-  medium: `"ProximaNova-Medium", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;`,
-  semibold: `"ProximaNova-Semibold", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;`,
-  bold: `"ProximaNova-bold", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;`,
+const fontFamily = {
+  default: `${pretendard};`,
   serif: `"Castoro", "NotoSerifKR-Semibold", serif;`,
   orbit: `"Orbit", sans-serif;`,
   gowunDodum: `"GowunDodum", sans-serif;`,
-  spaceGrotesk: `"SpaceGrotesk", "Pretendard Variable", Pretendard, sans-serif;`,
+  spaceGrotesk: `"SpaceGrotesk", ${pretendard};`,
 };
 
 const colors = {
@@ -89,12 +73,7 @@ const colors = {
 
 const theme: DefaultTheme = {
   fontFamily: {
-    thin: `${fontFamily.thin}`,
-    light: `${fontFamily.light}`,
-    regular: `${fontFamily.regular}`,
-    medium: `${fontFamily.medium}`,
-    semibold: `${fontFamily.semibold}`,
-    bold: `${fontFamily.bold}`,
+    default: `${fontFamily.default}`,
     serif: `${fontFamily.serif}`,
     orbit: `${fontFamily.orbit}`,
     gowunDodum: `${fontFamily.gowunDodum}`,
@@ -106,16 +85,11 @@ const theme: DefaultTheme = {
 
 const themeDesktop: DefaultTheme = {
   fontFamily: {
-    thin: `${fontFamilyDesktop.thin}`,
-    light: `${fontFamilyDesktop.light}`,
-    regular: `${fontFamilyDesktop.regular}`,
-    medium: `${fontFamilyDesktop.medium}`,
-    semibold: `${fontFamilyDesktop.semibold}`,
-    bold: `${fontFamilyDesktop.bold}`,
-    serif: `${fontFamilyDesktop.serif}`,
-    orbit: `${fontFamilyDesktop.orbit}`,
-    gowunDodum: `${fontFamilyDesktop.gowunDodum}`,
-    spaceGrotesk: `${fontFamilyDesktop.spaceGrotesk}`,
+    default: `${fontFamily.default}`,
+    serif: `${fontFamily.serif}`,
+    orbit: `${fontFamily.orbit}`,
+    gowunDodum: `${fontFamily.gowunDodum}`,
+    spaceGrotesk: `${fontFamily.spaceGrotesk}`,
   },
   colors,
   media,

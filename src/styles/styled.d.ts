@@ -3,12 +3,7 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     fontFamily: {
-      thin: string;
-      light: string;
-      regular: string;
-      medium: string;
-      semibold: string;
-      bold: string;
+      default: string;
       serif: string;
       orbit: string;
       gowunDodum: string;
