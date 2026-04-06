@@ -1,5 +1,5 @@
 import React, { useState, ReactNode } from "react";
-import { TabsWrapper, TabList, TabButton, TabPanel } from "./style";
+import * as S from "./style";
 
 export interface Tab {
   label: string;
@@ -15,20 +15,20 @@ const Tabs: React.FC<TabsProps> = ({ tabs, initialIndex = 0 }) => {
   const [activeIndex, setActiveIndex] = useState(initialIndex);
 
   return (
-    <TabsWrapper>
-      <TabList>
+    <S.TabsWrapper>
+      <S.TabList>
         {tabs.map((tab, idx) => (
-          <TabButton
+          <S.TabButton
             key={tab.label}
             active={activeIndex === idx}
             onClick={() => setActiveIndex(idx)}
           >
             {tab.label}
-          </TabButton>
+          </S.TabButton>
         ))}
-      </TabList>
-      <TabPanel>{tabs[activeIndex]?.content}</TabPanel>
-    </TabsWrapper>
+      </S.TabList>
+      <S.TabPanel>{tabs[activeIndex]?.content}</S.TabPanel>
+    </S.TabsWrapper>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Wrapper, Header, OptionsList, Option } from "./style";
+import * as S from "./style";
 
 export interface CustomSelectOption {
   value: string;
@@ -67,20 +67,20 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
   );
 
   return (
-    <Wrapper
+    <S.Wrapper
       className={`custom_select_wrapper ${className} ${disabled ? "disabled" : ""} ${open ? "active" : ""}`}
       ref={wrapperRef}
     >
-      <Header
+      <S.Header
         className={`custom_select_header${!value ? " placeholder" : ""}`}
         onClick={() => !disabled && setOpen((v) => !v)}
       >
         {headerText}
-      </Header>
+      </S.Header>
       {open && (
-        <OptionsList className="custom_select_options">
+        <S.OptionsList className="custom_select_options">
           {filteredOptions.map((opt) => (
-            <Option
+            <S.Option
               key={opt.optionvalue ?? opt.value}
               className={`custom_select_option${opt.disabled ? " disabled" : ""}${opt.deliveryDate ? " scheduled_delivery" : ""}`}
               onClick={() => handleOptionClick(opt)}
@@ -102,11 +102,11 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
                   재입고 알림
                 </button>
               )}
-            </Option>
+            </S.Option>
           ))}
-        </OptionsList>
+        </S.OptionsList>
       )}
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 

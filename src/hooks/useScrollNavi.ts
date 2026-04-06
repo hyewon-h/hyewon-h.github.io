@@ -16,7 +16,7 @@ export const useScrollNavi = (
   sectionIds: string[],
   options?: UseScrollNaviOptions,
 ) => {
-  const [activeSection, setActiveSection] = useState(sectionIds[0]);
+  const [activeSection, setActiveSection] = useState(sectionIds[0] ?? '');
   const isManualScrolling = useRef(false);
   const throttleTimer = useRef<NodeJS.Timeout | null>(null);
 
@@ -28,7 +28,7 @@ export const useScrollNavi = (
   // 현재 스크롤 위치에서 활성 섹션 찾기
   const findActiveSection = useCallback(() => {
     const scrollY = window.scrollY;
-    let currentSection = sectionIds[0];
+    let currentSection = sectionIds[0] ?? '';
 
     // 각 섹션을 순회하며 현재 위치 계산
     for (const id of sectionIds) {

@@ -38,6 +38,10 @@ export const GlobalStyles = createGlobalStyle`
   /* base - a */
   a,a:link,a:visited,a:hover,a:focus,a:active{text-decoration:none;}
   /* ------------- layout */
+  html {
+    scroll-behavior: smooth;
+  }
+
   html, body {
     min-height: 100%;
     

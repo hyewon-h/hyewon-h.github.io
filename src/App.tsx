@@ -1,17 +1,17 @@
-// import logo from './logo.svg';
-
-// import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "@/components/layout";
 import HomePage from "./pages/HomePage";
 import TestPage from "./pages/TestPage";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/TestPage" element={<TestPage />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/TestPage" element={<TestPage />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 }

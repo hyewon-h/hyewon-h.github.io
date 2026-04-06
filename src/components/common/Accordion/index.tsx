@@ -1,10 +1,5 @@
 import React, { useState, ReactNode } from "react";
-import {
-  AccordionWrapper,
-  AccordionItem,
-  AccordionHeader,
-  AccordionContent,
-} from "./style";
+import * as S from "./style";
 
 export interface AccordionPanel {
   title: string;
@@ -33,18 +28,18 @@ const Accordion: React.FC<AccordionProps> = ({
   };
 
   return (
-    <AccordionWrapper>
+    <S.AccordionWrapper>
       {panels.map((panel, idx) => (
-        <AccordionItem key={panel.title}>
-          <AccordionHeader onClick={() => togglePanel(idx)}>
+        <S.AccordionItem key={panel.title}>
+          <S.AccordionHeader onClick={() => togglePanel(idx)}>
             {panel.title}
-          </AccordionHeader>
-          <AccordionContent open={openIndexes.includes(idx)}>
+          </S.AccordionHeader>
+          <S.AccordionContent open={openIndexes.includes(idx)}>
             {panel.content}
-          </AccordionContent>
-        </AccordionItem>
+          </S.AccordionContent>
+        </S.AccordionItem>
       ))}
-    </AccordionWrapper>
+    </S.AccordionWrapper>
   );
 };
 
