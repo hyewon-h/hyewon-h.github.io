@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useScrollNavi } from '@/hooks/useScrollNavi';
-import { useToggle } from '@/hooks/useToggle';
-import { useClickOutside } from '@/hooks/useClickOutside';
-import { profile } from '@/data/profile';
-import Navigation, { NAV_ITEMS } from '../Navigation';
-import * as S from './style';
+import { useEffect, useRef, useState } from "react";
+import { useScrollNavi } from "@/hooks/useScrollNavi";
+import { useToggle } from "@/hooks/useToggle";
+import { useClickOutside } from "@/hooks/useClickOutside";
+import { profile } from "@/data/profile";
+import Navigation, { NAV_ITEMS } from "../Navigation";
+import * as S from "./style";
 
 const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
 
-const Header: React.FC = () => {
+const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { activeSection, scrollToSection } = useScrollNavi(SECTION_IDS);
   const { value: isMobileNavOpen, setTrue: openMobileNav, setFalse: closeMobileNav } = useToggle();
@@ -18,14 +18,14 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // 모바일 nav 열릴 때 스크롤 방지
   useEffect(() => {
-    document.body.style.overflow = isMobileNavOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    document.body.style.overflow = isMobileNavOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [isMobileNavOpen]);
 
   return (
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
             {profile.nameEn}
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
 
           <S.HamburgerButton
             type="button"
-            aria-label={isMobileNavOpen ? '메뉴 닫기' : '메뉴 열기'}
+            aria-label={isMobileNavOpen ? "메뉴 닫기" : "메뉴 열기"}
             aria-expanded={isMobileNavOpen}
             onClick={isMobileNavOpen ? closeMobileNav : openMobileNav}
           >

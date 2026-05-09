@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import { mixin } from "@/styles/index";
+import styled from "styled-components";
 
 export const AboutSection = styled.section`
   padding: 120px 24px;
@@ -33,9 +34,9 @@ export const AboutGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 64px;
 
-  @media (max-width: 768px) {
+  @media ${({ theme }) => theme.media.smMax} {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: ${mixin.pxToVw("48")};
   }
 `;
 
@@ -74,9 +75,9 @@ export const CareerItem = styled.li`
   grid-template-columns: 120px 1fr;
   gap: 16px;
 
-  @media (max-width: 480px) {
+  @media ${({ theme }) => theme.media.smMax} {
     grid-template-columns: 1fr;
-    gap: 6px;
+    gap: ${mixin.pxToVw("6")};
   }
 `;
 

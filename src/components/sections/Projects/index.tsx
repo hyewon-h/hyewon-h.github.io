@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { projects } from '@/data/projects';
-import { workProjects } from '@/data/workProjects';
-import { WorkProjectCategory } from '@/data/types';
-import * as S from './style';
+import { memo, useState } from "react";
+import { projects } from "@/data/projects";
+import { workProjects } from "@/data/workProjects";
+import { WorkProjectCategory } from "@/data/types";
+import * as S from "./style";
 
 const WORK_CATEGORIES: WorkProjectCategory[] = [
-  '대규모 프로젝트',
-  '주요 기능 개선',
-  '마케팅 & 광고',
+  "대규모 프로젝트",
+  "주요 기능 개선",
+  "마케팅 & 광고",
 ];
 
-type ProjectTab = 'portfolio' | 'work';
+type ProjectTab = "portfolio" | "work";
 
-const Projects: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<ProjectTab>('portfolio');
+const Projects = () => {
+  const [activeTab, setActiveTab] = useState<ProjectTab>("portfolio");
   const [openWorkId, setOpenWorkId] = useState<number | null>(null);
 
   const toggleWork = (id: number) => {
@@ -28,20 +28,20 @@ const Projects: React.FC = () => {
 
         <S.TabBar>
           <S.TabButton
-            $isActive={activeTab === 'portfolio'}
-            onClick={() => setActiveTab('portfolio')}
+            $isActive={activeTab === "portfolio"}
+            onClick={() => setActiveTab("portfolio")}
           >
             포트폴리오
           </S.TabButton>
           <S.TabButton
-            $isActive={activeTab === 'work'}
-            onClick={() => setActiveTab('work')}
+            $isActive={activeTab === "work"}
+            onClick={() => setActiveTab("work")}
           >
             회사 프로젝트
           </S.TabButton>
         </S.TabBar>
 
-        {activeTab === 'portfolio' && (
+        {activeTab === "portfolio" && (
           <S.PortfolioGrid>
             {projects.length === 0 ? (
               <S.EmptyState>
@@ -52,7 +52,10 @@ const Projects: React.FC = () => {
               projects.map((project) => (
                 <S.ProjectCard key={project.id}>
                   {project.thumbnailUrl && (
-                    <S.ProjectThumbnail src={project.thumbnailUrl} alt={project.title} />
+                    <S.ProjectThumbnail
+                      src={project.thumbnailUrl}
+                      alt={project.title}
+                    />
                   )}
                   <S.ProjectCardBody>
                     <S.ProjectTitle>{project.title}</S.ProjectTitle>
@@ -64,12 +67,20 @@ const Projects: React.FC = () => {
                     </S.ProjectTags>
                     <S.ProjectLinks>
                       {project.githubUrl && (
-                        <S.ProjectLink href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <S.ProjectLink
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           GitHub
                         </S.ProjectLink>
                       )}
                       {project.siteUrl && (
-                        <S.ProjectLink href={project.siteUrl} target="_blank" rel="noopener noreferrer">
+                        <S.ProjectLink
+                          href={project.siteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           Live
                         </S.ProjectLink>
                       )}
@@ -81,7 +92,7 @@ const Projects: React.FC = () => {
           </S.PortfolioGrid>
         )}
 
-        {activeTab === 'work' && (
+        {activeTab === "work" && (
           <S.WorkList>
             {WORK_CATEGORIES.map((category) => {
               const categoryProjects = workProjects.filter(
@@ -150,4 +161,4 @@ const Projects: React.FC = () => {
   );
 };
 
-export default Projects;
+export default memo(Projects);

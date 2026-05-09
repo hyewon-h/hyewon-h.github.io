@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const HeaderWrapper = styled.header<{ $isScrolled: boolean }>`
   position: fixed;
@@ -8,10 +8,10 @@ export const HeaderWrapper = styled.header<{ $isScrolled: boolean }>`
   z-index: 100;
   height: 60px;
   background-color: ${({ $isScrolled }) =>
-    $isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent'};
-  backdrop-filter: ${({ $isScrolled }) => ($isScrolled ? 'blur(8px)' : 'none')};
+    $isScrolled ? "rgba(255, 255, 255, 0.95)" : "transparent"};
+  backdrop-filter: ${({ $isScrolled }) => ($isScrolled ? "blur(8px)" : "none")};
   box-shadow: ${({ $isScrolled }) =>
-    $isScrolled ? '0 1px 0 rgba(0, 0, 0, 0.08)' : 'none'};
+    $isScrolled ? "0 1px 0 rgba(0, 0, 0, 0.08)" : "none"};
   transition: background-color 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
 
   @media ${({ theme }) => theme.media.pc} {
@@ -98,7 +98,7 @@ export const MobileNav = styled.div<{ $isOpen: boolean }>`
   z-index: 102;
   width: 260px;
   background-color: ${({ theme }) => theme.colors.white};
-  transform: translateX(${({ $isOpen }) => ($isOpen ? '0' : '100%')});
+  transform: translateX(${({ $isOpen }) => ($isOpen ? "0" : "100%")});
   transition: transform 0.3s ease;
 
   @media ${({ theme }) => theme.media.pc} {

@@ -1,8 +1,8 @@
-import React from 'react';
-import { profile } from '@/data/profile';
-import * as S from './style';
+import { memo } from "react";
+import { profile } from "@/data/profile";
+import * as S from "./style";
 
-const Footer: React.FC = () => {
+const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
@@ -39,4 +39,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);

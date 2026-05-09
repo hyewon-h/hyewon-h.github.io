@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import { mixin } from "@/styles/index";
+import styled from "styled-components";
 
 export const HeroSection = styled.section`
   display: flex;
@@ -111,8 +112,8 @@ export const ScrollIndicator = styled.button`
   cursor: pointer;
   padding: 0;
 
-  @media (max-width: 600px) {
-    margin-top: 48px;
+  @media ${({ theme }) => theme.media.smMax} {
+    margin-top: ${mixin.pxToVw("48")};
   }
 `;
 

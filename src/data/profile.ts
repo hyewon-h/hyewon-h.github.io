@@ -6,7 +6,7 @@ export const profile: Profile = {
   role: 'Web Publisher',
   tagline: '사용자 경험을 꼼꼼하게 만드는 웹 퍼블리셔입니다.',
   description:
-    '시맨틱 마크업과 접근성을 중요하게 생각하며, 디자인을 정확하게 구현하는 것을 즐깁니다. (임시 소개 문구입니다.)',
-  email: '', // TODO: 이메일 추가
+    '시맨틱 마크업과 접근성을 중요하게 생각하며, 디자인을 정확하게 구현하는 것을 즐깁니다.',
+  email: 'honghyewon1011@gmail.com',
   github: 'https://github.com/hyewon-h',
 };

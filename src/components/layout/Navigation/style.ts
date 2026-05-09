@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const NavList = styled.ul`
   display: flex;
@@ -17,7 +17,8 @@ export const NavLink = styled.a<{ $isActive: boolean }>`
   padding: 8px 12px;
   font-size: 15px;
   font-weight: ${({ $isActive }) => ($isActive ? 600 : 400)};
-  color: ${({ $isActive, theme }) => ($isActive ? theme.colors.primary : theme.colors.gray700)};
+  color: ${({ $isActive, theme }) =>
+    $isActive ? theme.colors.primary : theme.colors.gray700};
   border-radius: 6px;
   transition: color 0.2s, background-color 0.2s;
 

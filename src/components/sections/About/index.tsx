@@ -1,9 +1,9 @@
-import React from 'react';
-import { profile } from '@/data/profile';
-import { careers } from '@/data/career';
-import * as S from './style';
+import { memo } from "react";
+import { profile } from "@/data/profile";
+import { careers } from "@/data/career";
+import * as S from "./style";
 
-const About: React.FC = () => {
+const About = () => {
   return (
     <S.AboutSection id="about">
       <S.AboutInner>
@@ -40,4 +40,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About;
+export default memo(About);

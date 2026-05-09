@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const FooterWrapper = styled.footer`
   background-color: ${({ theme }) => theme.colors.gray900};

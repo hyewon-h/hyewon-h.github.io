@@ -1,15 +1,15 @@
-import React from 'react';
-import { skills } from '@/data/skills';
-import { SkillLevel } from '@/data/types';
-import * as S from './style';
+import { memo } from "react";
+import { skills } from "@/data/skills";
+import { SkillLevel } from "@/data/types";
+import * as S from "./style";
 
 const LEVEL_LABEL: Record<SkillLevel, string> = {
-  high: '상',
-  mid: '중',
-  low: '하',
+  high: "상",
+  mid: "중",
+  low: "하",
 };
 
-const Skills: React.FC = () => {
+const Skills = () => {
   return (
     <S.SkillsSection id="skills">
       <S.SkillsInner>
@@ -38,4 +38,4 @@ const Skills: React.FC = () => {
   );
 };
 
-export default Skills;
+export default memo(Skills);

@@ -1,5 +1,6 @@
-import styled from 'styled-components';
-import { SkillLevel } from '@/data/types';
+import { mixin } from "@/styles/index";
+import styled from "styled-components";
+import { SkillLevel } from "@/data/types";
 
 export const SkillsSection = styled.section`
   padding: 120px 24px;
@@ -34,9 +35,9 @@ export const SkillsGrid = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 
-  @media (max-width: 600px) {
+  @media ${({ theme }) => theme.media.smMax} {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: ${mixin.pxToVw("32")};
   }
 `;
 
@@ -78,15 +79,15 @@ export const SkillName = styled.span`
 `;
 
 const levelColors: Record<SkillLevel, string> = {
-  high: '#3b82f6',
-  mid: '#06b6d4',
-  low: '#9ca3af',
+  high: "#3b82f6",
+  mid: "#06b6d4",
+  low: "#9ca3af",
 };
 
 const levelBgColors: Record<SkillLevel, string> = {
-  high: '#eff6ff',
-  mid: '#ecfeff',
-  low: '#f9fafb',
+  high: "#eff6ff",
+  mid: "#ecfeff",
+  low: "#f9fafb",
 };
 
 export const SkillLevelBadge = styled.span<{ $level: SkillLevel }>`

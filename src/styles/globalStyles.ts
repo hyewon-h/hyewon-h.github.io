@@ -74,7 +74,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .instrument-serif {
-    font-family: 'Instrument Serif', 'DM Sans', serif;
+    font-family: 'Instrument Serif', serif;
   }
 
   .no-scroll {

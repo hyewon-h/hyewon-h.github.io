@@ -1,11 +1,11 @@
-import React from 'react';
-import { profile } from '@/data/profile';
-import * as S from './style';
+import { memo } from "react";
+import { profile } from "@/data/profile";
+import * as S from "./style";
 
-const Hero: React.FC = () => {
+const Hero = () => {
   const handleScrollDown = () => {
-    const aboutSection = document.getElementById('about');
-    aboutSection?.scrollIntoView({ behavior: 'smooth' });
+    const aboutSection = document.getElementById("about");
+    aboutSection?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -44,4 +44,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero;
+export default memo(Hero);

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ProjectsSection = styled.section`
   padding: 120px 24px;
@@ -45,7 +45,7 @@ export const TabButton = styled.button<{ $isActive: boolean }>`
   border: none;
   border-bottom: 2px solid
     ${({ theme, $isActive }) =>
-      $isActive ? theme.colors.primary : 'transparent'};
+      $isActive ? theme.colors.primary : "transparent"};
   background: none;
   cursor: pointer;
   margin-bottom: -1px;
@@ -211,7 +211,7 @@ export const WorkItemPeriod = styled.span`
 export const WorkItemChevron = styled.span<{ $isOpen: boolean }>`
   font-size: 22px;
   color: ${({ theme }) => theme.colors.gray400};
-  transform: rotate(${({ $isOpen }) => ($isOpen ? '90deg' : '0deg')});
+  transform: rotate(${({ $isOpen }) => ($isOpen ? "90deg" : "0deg")});
   transition: transform 0.2s ease;
   flex-shrink: 0;
 `;
@@ -258,7 +258,7 @@ export const WorkSubList = styled.ul`
     position: relative;
 
     &::before {
-      content: '·';
+      content: "·";
       position: absolute;
       left: 4px;
       color: ${({ theme }) => theme.colors.primary};

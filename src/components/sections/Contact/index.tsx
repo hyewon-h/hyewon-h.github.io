@@ -1,8 +1,8 @@
-import React from 'react';
-import { profile } from '@/data/profile';
-import * as S from './style';
+import { memo } from "react";
+import { profile } from "@/data/profile";
+import * as S from "./style";
 
-const Contact: React.FC = () => {
+const Contact = () => {
   return (
     <S.ContactSection id="contact">
       <S.ContactInner>
@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
               rel="noopener noreferrer"
             >
               <S.LinkLabel>GitHub</S.LinkLabel>
-              <S.LinkValue>{profile.github.replace('https://', '')}</S.LinkValue>
+              <S.LinkValue>{profile.github.replace("https://", "")}</S.LinkValue>
             </S.ContactLink>
 
             {profile.email && (
@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
                 rel="noopener noreferrer"
               >
                 <S.LinkLabel>Blog</S.LinkLabel>
-                <S.LinkValue>{profile.blog.replace('https://', '')}</S.LinkValue>
+                <S.LinkValue>{profile.blog.replace("https://", "")}</S.LinkValue>
               </S.ContactLink>
             )}
           </S.ContactLinks>
@@ -48,4 +48,4 @@ const Contact: React.FC = () => {
   );
 };
 
-export default Contact;
+export default memo(Contact);
