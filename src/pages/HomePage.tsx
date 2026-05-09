@@ -1,11 +1,19 @@
-// HomePage.tsx (권장)
-import React from "react";
+import React from 'react';
+import Hero from '@/components/sections/Hero';
+import About from '@/components/sections/About';
+import Skills from '@/components/sections/Skills';
+import Projects from '@/components/sections/Projects';
+import Contact from '@/components/sections/Contact';
 
 const HomePage: React.FC = () => {
   return (
-    <div>
-      <h1>Page font test</h1>
-    </div>
+    <>
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
+    </>
   );
 };
 

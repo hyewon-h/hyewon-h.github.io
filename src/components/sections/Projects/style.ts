@@ -1,0 +1,285 @@
+import styled from 'styled-components';
+
+export const ProjectsSection = styled.section`
+  padding: 120px 24px;
+  background: ${({ theme }) => theme.colors.surface};
+`;
+
+export const ProjectsInner = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+`;
+
+export const SectionLabel = styled.span`
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.primary};
+  margin-bottom: 12px;
+`;
+
+export const SectionTitle = styled.h2`
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.gray900};
+  margin: 0 0 40px;
+  letter-spacing: -0.02em;
+`;
+
+// Tab
+export const TabBar = styled.div`
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray200};
+  margin-bottom: 48px;
+`;
+
+export const TabButton = styled.button<{ $isActive: boolean }>`
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: ${({ $isActive }) => ($isActive ? 600 : 400)};
+  color: ${({ theme, $isActive }) =>
+    $isActive ? theme.colors.gray900 : theme.colors.gray500};
+  border: none;
+  border-bottom: 2px solid
+    ${({ theme, $isActive }) =>
+      $isActive ? theme.colors.primary : 'transparent'};
+  background: none;
+  cursor: pointer;
+  margin-bottom: -1px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.gray700};
+  }
+`;
+
+// Portfolio grid
+export const PortfolioGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+`;
+
+export const EmptyState = styled.div`
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 80px 0;
+`;
+
+export const EmptyIcon = styled.span`
+  font-size: 40px;
+`;
+
+export const EmptyText = styled.p`
+  font-size: 15px;
+  color: ${({ theme }) => theme.colors.gray400};
+  margin: 0;
+`;
+
+export const ProjectCard = styled.article`
+  background: ${({ theme }) => theme.colors.background};
+  border: 1px solid ${({ theme }) => theme.colors.gray100};
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+`;
+
+export const ProjectThumbnail = styled.img`
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+`;
+
+export const ProjectCardBody = styled.div`
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+export const ProjectTitle = styled.h3`
+  font-size: 17px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.gray900};
+  margin: 0;
+`;
+
+export const ProjectDesc = styled.p`
+  font-size: 14px;
+  line-height: 1.6;
+  color: ${({ theme }) => theme.colors.gray600};
+  margin: 0;
+`;
+
+export const ProjectTags = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+`;
+
+export const ProjectLinks = styled.div`
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+`;
+
+export const ProjectLink = styled.a`
+  font-size: 13px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.primary};
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+// Work projects
+export const WorkList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+`;
+
+export const WorkCategory = styled.div``;
+
+export const WorkCategoryTitle = styled.h3`
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.gray400};
+  margin: 0 0 16px;
+`;
+
+export const WorkItem = styled.div`
+  border: 1px solid ${({ theme }) => theme.colors.gray100};
+  border-radius: 10px;
+  overflow: hidden;
+  background: ${({ theme }) => theme.colors.background};
+  margin-bottom: 8px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+export const WorkItemHeader = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 16px;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.gray50};
+  }
+`;
+
+export const WorkItemMeta = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
+
+export const WorkItemTitle = styled.span`
+  font-size: 16px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.gray800};
+`;
+
+export const WorkItemPeriod = styled.span`
+  font-size: 13px;
+  color: ${({ theme }) => theme.colors.gray400};
+`;
+
+export const WorkItemChevron = styled.span<{ $isOpen: boolean }>`
+  font-size: 22px;
+  color: ${({ theme }) => theme.colors.gray400};
+  transform: rotate(${({ $isOpen }) => ($isOpen ? '90deg' : '0deg')});
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+`;
+
+export const WorkItemBody = styled.div`
+  padding: 0 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-top: 1px solid ${({ theme }) => theme.colors.gray100};
+`;
+
+export const WorkSummary = styled.p`
+  font-size: 15px;
+  line-height: 1.7;
+  color: ${({ theme }) => theme.colors.gray600};
+  margin: 16px 0 0;
+`;
+
+export const WorkSubSection = styled.div``;
+
+export const WorkSubTitle = styled.h4`
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.gray400};
+  margin: 0 0 10px;
+`;
+
+export const WorkSubList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: ${({ theme }) => theme.colors.gray600};
+    padding-left: 14px;
+    position: relative;
+
+    &::before {
+      content: '·';
+      position: absolute;
+      left: 4px;
+      color: ${({ theme }) => theme.colors.primary};
+      font-weight: 700;
+    }
+  }
+`;
+
+export const WorkTags = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+`;
+
+// Shared
+export const Tag = styled.span`
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.gray600};
+  background: ${({ theme }) => theme.colors.gray100};
+  padding: 3px 8px;
+  border-radius: 4px;
+`;
