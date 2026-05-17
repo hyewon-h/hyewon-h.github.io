@@ -14,9 +14,7 @@ export const Label = styled.span`
 `;
 
 export const TitleText = styled.h2`
-  font-size: clamp(28px, 5vw, 40px);
+  font-size: 40px;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.gray900};
-  margin: 0 0 56px;
-  letter-spacing: -0.02em;
 `;

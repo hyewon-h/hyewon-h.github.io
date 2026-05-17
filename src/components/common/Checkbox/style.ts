@@ -1,8 +1,8 @@
 import styled from "styled-components";
+import { mixin } from "@/styles/index";
 
 export const CheckboxWrapper = styled.label`
-  display: inline-flex;
-  align-items: center;
+  ${mixin.flex({ display: "inline-flex", align: "center" })};
   gap: 8px;
   cursor: pointer;
   position: relative;
@@ -27,9 +27,7 @@ export const CheckboxCustom = styled.div`
   border-radius: 4px;
   position: relative;
   transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${mixin.flex({ align: "center", justify: "center" })};
 
   ${CheckboxInput}:checked + & {
     background: ${({ theme }) => theme.colors?.primary || "#3b82f6"};

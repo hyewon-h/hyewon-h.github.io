@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { css, keyframes } from 'styled-components';
+import { css, keyframes } from "styled-components";
 
 export const topShow = keyframes`
   0% { transform: translateY(-100%); }
@@ -43,15 +43,15 @@ export const blink = keyframes`
 
 export const pxToRem = (size: string, standard = 16): string =>
   size
-    ?.split(' ')
-    ?.map(v => `${Number(v) / standard}rem`)
-    ?.join(' ');
+    ?.split(" ")
+    ?.map((v) => `${Number(v) / standard}rem`)
+    ?.join(" ");
 
 export const pxToVw = (size: string, standard = 375) =>
   size
-    ?.split(' ')
-    ?.map(v => `${(Number(v) / standard) * 100}vw`)
-    ?.join(' ');
+    ?.split(" ")
+    ?.map((v) => `${(Number(v) / standard) * 100}vw`)
+    ?.join(" ");
 
 export const getSizeBox = (w: number, h: number) =>
   `width: ${w}px; height: ${h}px;`;
@@ -74,16 +74,16 @@ export const ellipsis = (line = 1) => css`
   -webkit-line-clamp: ${line};
   -webkit-box-orient: vertical;
   -webkit-box-align: initial;
-  word-break: ${line === 1 ? 'break-all' : 'keep-all'};
+  word-break: ${line === 1 ? "break-all" : "keep-all"};
   overflow-wrap: break-word;
 `;
 
 export const flex = ({
-  display = 'flex',
-  direction = 'row',
-  wrap = 'nowrap',
-  align = 'center',
-  justify = 'center',
+  display = "flex",
+  direction = "row",
+  wrap = "nowrap",
+  align = "flex-start",
+  justify = "flex-start",
 }) => css`
   display: ${display};
   flex-direction: ${direction};

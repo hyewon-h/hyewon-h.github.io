@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mixin } from "@/styles/index";
 
 export const HeaderWrapper = styled.header<{ $isScrolled: boolean }>`
   position: fixed;
@@ -23,9 +24,7 @@ export const HeaderWrapper = styled.header<{ $isScrolled: boolean }>`
 `;
 
 export const HeaderInner = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${mixin.flex({ align: "center", justify: "space-between" })};
   height: 100%;
   max-width: 1326px;
   margin: 0 auto;
@@ -59,9 +58,7 @@ export const DesktopNav = styled.div`
 `;
 
 export const HamburgerButton = styled.button`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${mixin.flex({ direction: "column", justify: "center" })};
   gap: 5px;
   width: 40px;
   height: 40px;
@@ -108,8 +105,7 @@ export const MobileNav = styled.div<{ $isOpen: boolean }>`
 `;
 
 export const MobileNavInner = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${mixin.flex({ direction: "column" })};
   height: 100%;
   padding: 20px;
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mixin } from "@/styles/index";
 
 export const ContactSection = styled.section`
   min-height: 100vh;
@@ -12,8 +13,7 @@ export const ContactInner = styled.div`
 `;
 
 export const ContactBody = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${mixin.flex({ direction: "column" })};
   gap: 40px;
   max-width: 560px;
 `;
@@ -26,14 +26,12 @@ export const ContactMessage = styled.p`
 `;
 
 export const ContactLinks = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${mixin.flex({ direction: "column" })};
   gap: 16px;
 `;
 
 export const ContactLink = styled.a`
-  display: flex;
-  align-items: center;
+  ${mixin.flex({ align: "center" })};
   gap: 16px;
   text-decoration: none;
   padding: 16px 20px;

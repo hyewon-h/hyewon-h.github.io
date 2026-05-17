@@ -86,7 +86,7 @@ export const Box = styled.div`
     }
   }
 
-  @media ${({ theme }) => theme.media.xl} {
+  @media ${({ theme }) => theme.media.pc} {
     .swiper-button-prev,
     .swiper-button-next {
       display: block;

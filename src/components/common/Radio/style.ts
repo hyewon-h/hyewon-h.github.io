@@ -1,8 +1,8 @@
 import styled from "styled-components";
+import { mixin } from "@/styles/index";
 
 export const RadioWrapper = styled.label`
-  display: inline-flex;
-  align-items: center;
+  ${mixin.flex({ display: "inline-flex", align: "center" })};
   gap: 8px;
   cursor: pointer;
   position: relative;

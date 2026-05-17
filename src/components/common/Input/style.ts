@@ -1,12 +1,12 @@
 import styled from "styled-components";
+import { mixin } from "@/styles/index";
 
 interface IInputFieldProps {
   $error?: boolean;
 }
 
 export const InputWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${mixin.flex({ direction: "column" })};
   gap: 4px;
 `;
 

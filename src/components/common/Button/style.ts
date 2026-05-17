@@ -8,7 +8,7 @@ interface IButtonProps {
 }
 
 export const Button = styled.button<IButtonProps>`
-  // ${mixin.flex({ display: "inline-flex" })};
+  ${mixin.flex({ display: "inline-flex" })};
 
   font-family: inherit;
   font-size: inherit;

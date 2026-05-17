@@ -12,11 +12,7 @@ export const SkillsInner = styled.div`
   margin: 0 auto;
 `;
 
-export const SkillsGrid = styled.div`
-  @media ${({ theme }) => theme.media.smMax} {
-    gap: ${mixin.pxToVw("32")};
-  }
-`;
+export const SkillsGrid = styled.div``;
 
 export const SkillCategory = styled.div`
   padding: 28px;
@@ -34,15 +30,12 @@ export const SkillList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
+  ${mixin.flex({ direction: "column" })};
   gap: 12px;
 `;
 
 export const SkillItem = styled.li`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${mixin.flex({ align: "center", justify: "space-between" })};
 `;
 
 export const SkillName = styled.span`

@@ -1,17 +1,15 @@
 import { mixin } from "@/styles/index";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const HeroSection = styled.section`
-  display: flex;
-  align-items: center;
+  ${mixin.flex({ align: "center" })};
   min-height: 100vh;
   padding: 0 24px;
   background: ${({ theme }) => theme.colors.background};
 `;
 
 export const HeroInner = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${mixin.flex({ direction: "column" })};
   width: 100%;
   max-width: 1326px;
   margin: 0 auto;
@@ -19,8 +17,7 @@ export const HeroInner = styled.div`
 `;
 
 export const HeroContent = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${mixin.flex({ direction: "column" })};
   gap: 20px;
 `;
 
@@ -53,16 +50,13 @@ export const HeroDescription = styled.p`
 `;
 
 export const HeroCTA = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  ${mixin.flex({ wrap: "wrap" })};
   gap: 12px;
   margin-top: 12px;
 `;
 
-const baseButton = `
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+const baseButton = css`
+  ${mixin.flex({ display: "inline-flex", align: "center", justify: "center" })};
   height: 48px;
   padding: 0 28px;
   font-size: 15px;
@@ -97,8 +91,7 @@ export const CTAButtonOutline = styled.a`
 `;
 
 export const ScrollIndicator = styled.button`
-  display: flex;
-  justify-content: center;
+  ${mixin.flex({ justify: "center" })};
   margin-top: 80px;
   background: none;
   border: none;

@@ -1,8 +1,8 @@
 import styled from "styled-components";
+import { mixin } from "@/styles/index";
 
 export const NavList = styled.ul`
-  display: flex;
-  align-items: center;
+  ${mixin.flex({ align: "center" })};
   gap: 8px;
 
   @media ${({ theme }) => theme.media.pc} {

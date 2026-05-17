@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mixin } from "@/styles/index";
 
 export const ProjectsSection = styled.section`
   min-height: 100vh;
@@ -13,7 +14,7 @@ export const ProjectsInner = styled.div`
 
 // Tab
 export const TabBar = styled.div`
-  display: flex;
+  ${mixin.flex({})};
   gap: 4px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray200};
   margin-bottom: 48px;
@@ -48,9 +49,7 @@ export const PortfolioGrid = styled.div`
 
 export const EmptyState = styled.div`
   grid-column: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${mixin.flex({ direction: "column", align: "center", justify: "center" })};
   gap: 16px;
   padding: 80px 0;
 `;
@@ -84,8 +83,7 @@ export const ProjectThumbnail = styled.img`
 
 export const ProjectCardBody = styled.div`
   padding: 20px;
-  display: flex;
-  flex-direction: column;
+  ${mixin.flex({ direction: "column" })};
   gap: 10px;
 `;
 
@@ -104,13 +102,12 @@ export const ProjectDesc = styled.p`
 `;
 
 export const ProjectTags = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  ${mixin.flex({ wrap: "wrap" })};
   gap: 6px;
 `;
 
 export const ProjectLinks = styled.div`
-  display: flex;
+  ${mixin.flex({})};
   gap: 8px;
   margin-top: 4px;
 `;
@@ -128,8 +125,7 @@ export const ProjectLink = styled.a`
 
 // Work projects
 export const WorkList = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${mixin.flex({ direction: "column", align: "stretch" })};
   gap: 48px;
 `;
 
@@ -155,9 +151,7 @@ export const WorkItem = styled.div`
 `;
 
 export const WorkItemHeader = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${mixin.flex({ align: "center", justify: "space-between" })};
   width: 100%;
   padding: 20px 24px;
   background: none;
@@ -172,8 +166,7 @@ export const WorkItemHeader = styled.button`
 `;
 
 export const WorkItemMeta = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${mixin.flex({ direction: "column" })};
   gap: 4px;
 `;
 
@@ -198,8 +191,7 @@ export const WorkItemChevron = styled.span<{ $isOpen: boolean }>`
 
 export const WorkItemBody = styled.div`
   padding: 0 24px 24px;
-  display: flex;
-  flex-direction: column;
+  ${mixin.flex({ direction: "column" })};
   gap: 20px;
   border-top: 1px solid ${({ theme }) => theme.colors.gray100};
 `;
@@ -225,8 +217,7 @@ export const WorkSubList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
+  ${mixin.flex({ direction: "column" })};
   gap: 6px;
 
   li {
@@ -247,8 +238,7 @@ export const WorkSubList = styled.ul`
 `;
 
 export const WorkTags = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  ${mixin.flex({ wrap: "wrap" })};
   gap: 6px;
 `;
 

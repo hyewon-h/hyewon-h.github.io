@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mixin } from "@/styles/index";
 
 export const Wrapper = styled.div`
   position: relative;
@@ -87,8 +88,7 @@ export const OptionsList = styled.div`
 
 export const Option = styled.div`
   position: relative;
-  display: flex;
-  align-items: center;
+  ${mixin.flex({ align: "center" })};
   gap: 0 0.5rem;
   font-size: 0.875rem;
   padding: 0.84375rem 1rem;
@@ -126,9 +126,7 @@ export const Option = styled.div`
 export const RestockAlarmBtn = styled.button`
   width: 5.25rem;
   height: 1.375rem;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  ${mixin.flex({ display: "inline-flex", justify: "center", align: "center" })};
   gap: 0 0.1875rem;
   font-size: 0.75rem;
   border: 1px solid #000;

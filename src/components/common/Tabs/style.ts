@@ -1,11 +1,12 @@
 import styled, { css } from "styled-components";
+import { mixin } from "@/styles/index";
 
 export const TabsWrapper = styled.div`
   width: 100%;
 `;
 
 export const TabList = styled.div`
-  display: flex;
+  ${mixin.flex({})};
   border-bottom: 1px solid #eee;
 `;
 

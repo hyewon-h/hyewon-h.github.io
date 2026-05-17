@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mixin } from "@/styles/index";
 
 export const FooterWrapper = styled.footer`
   background-color: ${({ theme }) => theme.colors.gray900};
@@ -6,9 +7,7 @@ export const FooterWrapper = styled.footer`
 `;
 
 export const FooterInner = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${mixin.flex({ direction: "column", align: "center" })};
   gap: 12px;
   max-width: 1326px;
   margin: 0 auto;
@@ -22,7 +21,7 @@ export const FooterInner = styled.div`
 `;
 
 export const FooterLinks = styled.div`
-  display: flex;
+  ${mixin.flex({})};
   gap: 20px;
 `;
 

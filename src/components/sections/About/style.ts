@@ -43,8 +43,7 @@ export const CareerTitle = styled.h3`
 `;
 
 export const CareerList = styled.ul`
-  display: flex;
-  flex-direction: column;
+  ${mixin.flex({ direction: "column" })};
   gap: 32px;
 `;
 
@@ -85,8 +84,7 @@ export const CareerDesc = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
+  ${mixin.flex({ direction: "column" })};
   gap: 4px;
 
   li {

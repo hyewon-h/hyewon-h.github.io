@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
+import { mixin } from "@/styles/index";
 
 // 애니메이션 정의
 const fadeIn = keyframes`
@@ -29,9 +30,7 @@ export const ModalBackdrop = styled.div`
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${mixin.flex({ align: "center", justify: "center" })};
   z-index: 1000;
   animation: ${fadeIn} 0.2s ease-out;
 `;
@@ -88,9 +87,7 @@ export const ModalContainer = styled.div<{ size: string }>`
 
 // 모달 헤더
 export const ModalHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${mixin.flex({ align: "center", justify: "space-between" })};
   padding: 20px 24px 16px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray200};
 `;

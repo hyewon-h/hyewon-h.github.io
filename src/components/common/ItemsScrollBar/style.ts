@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { mixin } from "@/styles/index";
 
 export interface ItemsScrollBarStyleProps {
   perView?: number;
@@ -9,9 +10,7 @@ export interface ItemsScrollBarStyleProps {
 
 export const ItemsScrollBar = styled.div<ItemsScrollBarStyleProps>`
   position: relative;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  ${mixin.flex({ align: "flex-start", justify: "flex-start" })};
   overflow-x: auto;
   overflow-y: hidden;
 
