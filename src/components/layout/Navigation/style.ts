@@ -20,11 +20,12 @@ export const NavLink = styled.a<{ $isActive: boolean }>`
   color: ${({ $isActive, theme }) =>
     $isActive ? theme.colors.primary : theme.colors.gray700};
   border-radius: 6px;
-  transition: color 0.2s, background-color 0.2s;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
-    background-color: ${({ theme }) => theme.colors.gray100};
   }
 
   @media ${({ theme }) => theme.media.pc} {

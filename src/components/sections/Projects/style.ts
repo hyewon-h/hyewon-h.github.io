@@ -1,31 +1,14 @@
 import styled from "styled-components";
 
 export const ProjectsSection = styled.section`
-  padding: 120px 24px;
+  min-height: 100vh;
+  padding: 120px 0;
   background: ${({ theme }) => theme.colors.surface};
 `;
 
 export const ProjectsInner = styled.div`
-  max-width: 900px;
+  max-width: 1326px;
   margin: 0 auto;
-`;
-
-export const SectionLabel = styled.span`
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.primary};
-  margin-bottom: 12px;
-`;
-
-export const SectionTitle = styled.h2`
-  font-size: clamp(28px, 5vw, 40px);
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.gray900};
-  margin: 0 0 40px;
-  letter-spacing: -0.02em;
 `;
 
 // Tab
@@ -43,7 +26,7 @@ export const TabButton = styled.button<{ $isActive: boolean }>`
   color: ${({ theme, $isActive }) =>
     $isActive ? theme.colors.gray900 : theme.colors.gray500};
   border: none;
-  border-bottom: 2px solid
+  border-bottom: 1px solid
     ${({ theme, $isActive }) =>
       $isActive ? theme.colors.primary : "transparent"};
   background: none;
@@ -85,7 +68,6 @@ export const EmptyText = styled.p`
 export const ProjectCard = styled.article`
   background: ${({ theme }) => theme.colors.background};
   border: 1px solid ${({ theme }) => theme.colors.gray100};
-  border-radius: 12px;
   overflow: hidden;
   transition: box-shadow 0.2s ease;
 
@@ -109,14 +91,14 @@ export const ProjectCardBody = styled.div`
 
 export const ProjectTitle = styled.h3`
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 600;
   color: ${({ theme }) => theme.colors.gray900};
   margin: 0;
 `;
 
 export const ProjectDesc = styled.p`
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 160%;
   color: ${({ theme }) => theme.colors.gray600};
   margin: 0;
 `;
@@ -155,8 +137,7 @@ export const WorkCategory = styled.div``;
 
 export const WorkCategoryTitle = styled.h3`
   font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 600;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.gray400};
   margin: 0 0 16px;
@@ -164,7 +145,6 @@ export const WorkCategoryTitle = styled.h3`
 
 export const WorkItem = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.gray100};
-  border-radius: 10px;
   overflow: hidden;
   background: ${({ theme }) => theme.colors.background};
   margin-bottom: 8px;
@@ -226,7 +206,7 @@ export const WorkItemBody = styled.div`
 
 export const WorkSummary = styled.p`
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 170%;
   color: ${({ theme }) => theme.colors.gray600};
   margin: 16px 0 0;
 `;
@@ -235,8 +215,7 @@ export const WorkSubSection = styled.div``;
 
 export const WorkSubTitle = styled.h4`
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 600;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.gray400};
   margin: 0 0 10px;
@@ -252,7 +231,7 @@ export const WorkSubList = styled.ul`
 
   li {
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 160%;
     color: ${({ theme }) => theme.colors.gray600};
     padding-left: 14px;
     position: relative;
@@ -262,7 +241,7 @@ export const WorkSubList = styled.ul`
       position: absolute;
       left: 4px;
       color: ${({ theme }) => theme.colors.primary};
-      font-weight: 700;
+      font-weight: 600;
     }
   }
 `;

@@ -13,7 +13,7 @@ export const HeroInner = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 900px;
+  max-width: 1326px;
   margin: 0 auto;
   padding: 120px 0 80px;
 `;
@@ -28,34 +28,28 @@ export const HeroRole = styled.span`
   display: inline-block;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.15em;
+
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const HeroName = styled.h1`
-  font-size: clamp(48px, 8vw, 88px);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-size: 88px;
+  line-height: 100%;
   color: ${({ theme }) => theme.colors.gray900};
-  margin: 0;
 `;
 
 export const HeroTagline = styled.p`
-  font-size: clamp(18px, 3vw, 24px);
-  font-weight: 500;
+  font-size: 22px;
   color: ${({ theme }) => theme.colors.gray600};
-  margin: 0;
-  line-height: 1.5;
+  line-height: 150%;
 `;
 
 export const HeroDescription = styled.p`
   font-size: 16px;
   color: ${({ theme }) => theme.colors.gray500};
-  margin: 0;
   max-width: 560px;
-  line-height: 1.7;
+  line-height: 170%;
 `;
 
 export const HeroCTA = styled.div`
@@ -71,7 +65,6 @@ const baseButton = `
   justify-content: center;
   height: 48px;
   padding: 0 28px;
-  border-radius: 8px;
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
@@ -83,7 +76,7 @@ export const CTAButton = styled.a`
   ${baseButton}
   background: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.white};
-  border: 2px solid ${({ theme }) => theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.colors.primary};
 
   &:hover {
     background: ${({ theme }) => theme.colors.primaryDark};
@@ -95,7 +88,7 @@ export const CTAButtonOutline = styled.a`
   ${baseButton}
   background: transparent;
   color: ${({ theme }) => theme.colors.gray700};
-  border: 2px solid ${({ theme }) => theme.colors.gray300};
+  border: 1px solid ${({ theme }) => theme.colors.gray300};
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.gray500};
@@ -129,7 +122,14 @@ export const ScrollLine = styled.span`
   animation: scrollPulse 2s ease-in-out infinite;
 
   @keyframes scrollPulse {
-    0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
-    50% { opacity: 1; transform: scaleY(1); }
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scaleY(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scaleY(1);
+    }
   }
 `;

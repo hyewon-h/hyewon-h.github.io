@@ -39,7 +39,6 @@ export const ModalBackdrop = styled.div`
 // 모달 컨테이너
 export const ModalContainer = styled.div<{ size: string }>`
   background: white;
-  border-radius: 12px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   position: fixed;
   top: 50%;
@@ -64,7 +63,7 @@ export const ModalContainer = styled.div<{ size: string }>`
       case "large":
         return css`
           width: 90%;
-          max-width: 900px;
+          max-width: 1326px;
         `;
       case "fullscreen":
         return css`
@@ -112,7 +111,6 @@ export const CloseButton = styled.button`
   color: ${({ theme }) => theme.colors.gray500};
   cursor: pointer;
   padding: 4px;
-  border-radius: 4px;
   transition: all 0.2s ease;
 
   &:hover {
@@ -121,7 +119,7 @@ export const CloseButton = styled.button`
   }
 
   &:focus {
-    outline: 2px solid ${({ theme }) => theme.colors.primary};
+    outline: 1px solid ${({ theme }) => theme.colors.primary};
     outline-offset: 2px;
   }
 `;

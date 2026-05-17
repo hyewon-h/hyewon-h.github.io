@@ -23,7 +23,7 @@ export const RadioInput = styled.input`
 export const RadioCustom = styled.div`
   width: 20px;
   height: 20px;
-  border: 2px solid ${({ theme }) => theme.colors?.gray300 || "#d1d5db"};
+  border: 1px solid ${({ theme }) => theme.colors?.gray300 || "#d1d5db"};
   border-radius: 50%;
   position: relative;
   transition: all 0.2s ease;

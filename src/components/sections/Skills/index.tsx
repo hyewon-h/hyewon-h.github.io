@@ -1,20 +1,13 @@
 import { memo } from "react";
 import { skills } from "@/data/skills";
-import { SkillLevel } from "@/data/types";
+import Title from "@/components/common/Title";
 import * as S from "./style";
-
-const LEVEL_LABEL: Record<SkillLevel, string> = {
-  high: "상",
-  mid: "중",
-  low: "하",
-};
 
 const Skills = () => {
   return (
     <S.SkillsSection id="skills">
       <S.SkillsInner>
-        <S.SectionLabel>Skills</S.SectionLabel>
-        <S.SectionTitle>기술 스택</S.SectionTitle>
+        <Title label="Capabilities" title="기술 스택" />
 
         <S.SkillsGrid>
           {skills.map((category) => (
@@ -24,9 +17,6 @@ const Skills = () => {
                 {category.skills.map((skill) => (
                   <S.SkillItem key={skill.name}>
                     <S.SkillName>{skill.name}</S.SkillName>
-                    <S.SkillLevelBadge $level={skill.level}>
-                      {LEVEL_LABEL[skill.level]}
-                    </S.SkillLevelBadge>
                   </S.SkillItem>
                 ))}
               </S.SkillList>

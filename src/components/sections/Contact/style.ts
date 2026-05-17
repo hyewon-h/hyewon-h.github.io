@@ -1,31 +1,14 @@
 import styled from "styled-components";
 
 export const ContactSection = styled.section`
-  padding: 120px 24px;
+  min-height: 100vh;
+  padding: 120px 0;
   background: ${({ theme }) => theme.colors.background};
 `;
 
 export const ContactInner = styled.div`
-  max-width: 900px;
+  max-width: 1326px;
   margin: 0 auto;
-`;
-
-export const SectionLabel = styled.span`
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.primary};
-  margin-bottom: 12px;
-`;
-
-export const SectionTitle = styled.h2`
-  font-size: clamp(28px, 5vw, 40px);
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.gray900};
-  margin: 0 0 56px;
-  letter-spacing: -0.02em;
 `;
 
 export const ContactBody = styled.div`
@@ -37,7 +20,7 @@ export const ContactBody = styled.div`
 
 export const ContactMessage = styled.p`
   font-size: 18px;
-  line-height: 1.7;
+  line-height: 170%;
   color: ${({ theme }) => theme.colors.gray600};
   margin: 0;
 `;
@@ -55,7 +38,6 @@ export const ContactLink = styled.a`
   text-decoration: none;
   padding: 16px 20px;
   border: 1px solid ${({ theme }) => theme.colors.gray200};
-  border-radius: 10px;
   transition: all 0.2s ease;
 
   &:hover {
@@ -66,8 +48,7 @@ export const ContactLink = styled.a`
 
 export const LinkLabel = styled.span`
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 600;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.gray400};
   min-width: 48px;

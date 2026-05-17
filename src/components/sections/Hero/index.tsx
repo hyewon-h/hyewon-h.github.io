@@ -12,10 +12,15 @@ const Hero = () => {
     <S.HeroSection>
       <S.HeroInner>
         <S.HeroContent>
-          <S.HeroRole>{profile.role}</S.HeroRole>
-          <S.HeroName>{profile.nameEn}</S.HeroName>
-          <S.HeroTagline>{profile.tagline}</S.HeroTagline>
-          <S.HeroDescription>{profile.description}</S.HeroDescription>
+          {/* <S.HeroRole>{profile.role}</S.HeroRole> */}
+          <S.HeroName
+            dangerouslySetInnerHTML={{ __html: profile.nameEn }}
+            className="instrument-serif"
+          />
+          <S.HeroTagline
+            dangerouslySetInnerHTML={{ __html: profile.tagline }}
+          />
+          {/* <S.HeroDescription>{profile.description}</S.HeroDescription> */}
           <S.HeroCTA>
             <S.CTAButton
               href={profile.github}
@@ -36,7 +41,10 @@ const Hero = () => {
           </S.HeroCTA>
         </S.HeroContent>
 
-        <S.ScrollIndicator onClick={handleScrollDown} aria-label="아래로 스크롤">
+        <S.ScrollIndicator
+          onClick={handleScrollDown}
+          aria-label="아래로 스크롤"
+        >
           <S.ScrollLine />
         </S.ScrollIndicator>
       </S.HeroInner>

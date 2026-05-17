@@ -69,12 +69,12 @@ export const GlobalStyles = createGlobalStyle`
 
   body,input,select,textarea,button {
     font-family: 'DM Sans', "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-    line-height: 1;
     font-weight: 400;
   }
 
   .instrument-serif {
     font-family: 'Instrument Serif', serif;
+    font-weight: 400;
   }
 
   .no-scroll {
@@ -105,8 +105,7 @@ export const GlobalStyles = createGlobalStyle`
   input[type="radio"]:focus-visible + svg,
   input[type="checkbox"]:focus-visible + svg,
   :focus-visible {
-    outline: 2px solid #333;
-    border-radius: 2px;
+    outline: 1px solid #333;
     outline-offset: -1px;
   }
 

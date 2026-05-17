@@ -12,7 +12,10 @@ export const HeaderWrapper = styled.header<{ $isScrolled: boolean }>`
   backdrop-filter: ${({ $isScrolled }) => ($isScrolled ? "blur(8px)" : "none")};
   box-shadow: ${({ $isScrolled }) =>
     $isScrolled ? "0 1px 0 rgba(0, 0, 0, 0.08)" : "none"};
-  transition: background-color 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s,
+    backdrop-filter 0.3s;
 
   @media ${({ theme }) => theme.media.pc} {
     height: 70px;
@@ -24,7 +27,7 @@ export const HeaderInner = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  max-width: 1200px;
+  max-width: 1326px;
   margin: 0 auto;
   padding: 0 20px;
 
@@ -35,9 +38,8 @@ export const HeaderInner = styled.div`
 
 export const Logo = styled.a`
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
   color: ${({ theme }) => theme.colors.gray900};
-  letter-spacing: -0.3px;
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
@@ -70,7 +72,6 @@ export const HamburgerButton = styled.button`
     width: 100%;
     height: 2px;
     background-color: ${({ theme }) => theme.colors.gray800};
-    border-radius: 2px;
     transition: background-color 0.2s;
   }
 
@@ -132,7 +133,6 @@ export const MobileNavClose = styled.button`
   height: 36px;
   font-size: 18px;
   color: ${({ theme }) => theme.colors.gray600};
-  border-radius: 6px;
   transition: color 0.2s;
 
   &:hover {

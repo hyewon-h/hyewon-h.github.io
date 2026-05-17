@@ -13,7 +13,7 @@ export const TabButton = styled.button<{ active: boolean }>`
   padding: 10px 20px;
   background: none;
   border: none;
-  border-bottom: 2px solid transparent;
+  border-bottom: 1px solid transparent;
   cursor: pointer;
   font-size: 1rem;
   transition:
@@ -22,7 +22,7 @@ export const TabButton = styled.button<{ active: boolean }>`
   ${({ active }) =>
     active &&
     css`
-      border-bottom: 2px solid #007bff;
+      border-bottom: 1px solid #007bff;
       color: #007bff;
       font-weight: bold;
     `}

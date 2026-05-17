@@ -10,7 +10,7 @@ export const FooterInner = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  max-width: 1200px;
+  max-width: 1326px;
   margin: 0 auto;
   padding: 32px 20px;
 

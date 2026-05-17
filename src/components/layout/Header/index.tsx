@@ -32,6 +32,7 @@ const Header = () => {
     <>
       <S.HeaderWrapper $isScrolled={isScrolled}>
         <S.HeaderInner>
+          {/* 로고 만들어서 넣기 */}
           <S.Logo
             href="#"
             onClick={(e) => {
@@ -39,7 +40,7 @@ const Header = () => {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            {profile.nameEn}
+            {profile.name}
           </S.Logo>
 
           <S.DesktopNav>

@@ -42,9 +42,9 @@ const fontFamily = {
 
 const colors = {
   // Primary
-  primary: "#3b82f6",
-  primaryLight: "#60a5fa",
-  primaryDark: "#2563eb",
+  primary: "#b32576",
+  primaryLight: "#ae648e",
+  primaryDark: "#8a1c5a",
 
   // Gray scale
   white: "#ffffff",

@@ -51,7 +51,7 @@ export const Box = styled.div`
     font-size: ${mixin.pxToVw("12")};
     line-height: ${mixin.pxToVw("16")};
     color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 0.2px;
+
     .swiper-pagination-current {
       font-family: ${({ theme }) => theme.fontFamily.default};
       font-weight: 500;
@@ -83,7 +83,6 @@ export const Box = styled.div`
       padding: 5px 10px;
       font-size: 12px;
       line-height: 16px;
-      letter-spacing: 0.2px;
     }
   }
 

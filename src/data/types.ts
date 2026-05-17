@@ -12,11 +12,8 @@ export interface Profile {
 }
 
 // Skills
-export type SkillLevel = 'high' | 'mid' | 'low';
-
 export interface Skill {
   name: string;
-  level: SkillLevel;
 }
 
 export interface SkillCategory {
@@ -47,7 +44,10 @@ export interface Career {
 }
 
 // Work Projects (회사 작업 - 텍스트 서술 전용)
-export type WorkProjectCategory = '대규모 프로젝트' | '주요 기능 개선' | '마케팅 & 광고';
+export type WorkProjectCategory =
+  | "대규모 프로젝트"
+  | "주요 기능 개선"
+  | "마케팅 & 광고";
 
 export interface WorkProject {
   id: number;

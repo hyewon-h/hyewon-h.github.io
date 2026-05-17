@@ -23,7 +23,7 @@ export const CheckboxInput = styled.input`
 export const CheckboxCustom = styled.div`
   width: 20px;
   height: 20px;
-  border: 2px solid ${({ theme }) => theme.colors?.gray300 || "#d1d5db"};
+  border: 1px solid ${({ theme }) => theme.colors?.gray300 || "#d1d5db"};
   border-radius: 4px;
   position: relative;
   transition: all 0.2s ease;
@@ -38,7 +38,7 @@ export const CheckboxCustom = styled.div`
 
   ${CheckboxInput}:focus + & {
     box-shadow: 0 0 0 3px
-      ${({ theme }) => theme.colors?.primaryLight || "#3b82f620"};
+      ${({ theme }) => theme.colors?.primaryLight || "#3b82f6"};
   }
 `;
 

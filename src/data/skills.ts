@@ -1,35 +1,25 @@
-import { SkillCategory } from './types';
+import { SkillCategory } from "./types";
 
 export const skills: SkillCategory[] = [
   {
-    category: 'Markup & Style',
+    category: "Core",
     skills: [
-      { name: 'HTML5', level: 'high' },
-      { name: 'CSS3', level: 'high' },
-      { name: 'Sass/SCSS', level: 'high' },
+      { name: "Semantic HTML5" },
+      { name: "Modern CSS3 / SCSS" },
+      { name: "JavaScript (ES6+)" },
+      { name: "TypeScript" },
     ],
   },
   {
-    category: 'JavaScript',
+    category: "Frameworks",
     skills: [
-      { name: 'JavaScript (ES6+)', level: 'high' },
-      { name: 'TypeScript', level: 'mid' },
+      { name: "React.js / Next.js" },
+      { name: "Tailwind CSS" },
+      { name: "styled-components" },
     ],
   },
   {
-    category: 'Framework & Library',
-    skills: [
-      { name: 'React', level: 'mid' },
-      { name: 'styled-components', level: 'high' },
-      { name: 'jQuery', level: 'high' },
-    ],
-  },
-  {
-    category: 'Tools',
-    skills: [
-      { name: 'Git', level: 'mid' },
-      { name: 'Figma', level: 'mid' },
-      { name: 'Zeplin', level: 'mid' },
-    ],
+    category: "Tools",
+    skills: [{ name: "Figma" }, { name: "Zeplin" }, { name: "Git / GitHub" }],
   },
 ];

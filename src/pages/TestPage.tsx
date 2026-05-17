@@ -293,7 +293,6 @@ const TestPageWrapper = styled.div`
   max-width: 800px;
   margin: 0 auto;
   background: #fafbfc;
-  border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   h1 {
     font-size: 2rem;
@@ -304,7 +303,6 @@ const TestPageWrapper = styled.div`
 
 const TestSection = styled.section`
   background: #fff;
-  border-radius: 12px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
   padding: 24px 20px 16px 20px;
   margin-bottom: 28px;
