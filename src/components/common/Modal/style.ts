@@ -97,7 +97,6 @@ export const ModalTitle = styled.h2`
   font-size: 20px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.gray900};
-  margin: 0;
 `;
 
 // 닫기 버튼

@@ -12,10 +12,13 @@ export const SkillsInner = styled.div`
   margin: 0 auto;
 `;
 
-export const SkillsGrid = styled.div``;
+export const SkillsGrid = styled.div`
+  ${mixin.flex({ direction: "column" })};
+  gap: 10px;
+`;
 
 export const SkillCategory = styled.div`
-  padding: 28px;
+  padding: 20px;
 `;
 
 export const CategoryTitle = styled.h3`
@@ -27,9 +30,6 @@ export const CategoryTitle = styled.h3`
 `;
 
 export const SkillList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
   ${mixin.flex({ direction: "column" })};
   gap: 12px;
 `;

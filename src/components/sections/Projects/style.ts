@@ -61,7 +61,6 @@ export const EmptyIcon = styled.span`
 export const EmptyText = styled.p`
   font-size: 15px;
   color: ${({ theme }) => theme.colors.gray400};
-  margin: 0;
 `;
 
 export const ProjectCard = styled.article`
@@ -91,14 +90,12 @@ export const ProjectTitle = styled.h3`
   font-size: 17px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.gray900};
-  margin: 0;
 `;
 
 export const ProjectDesc = styled.p`
   font-size: 14px;
   line-height: 160%;
   color: ${({ theme }) => theme.colors.gray600};
-  margin: 0;
 `;
 
 export const ProjectTags = styled.div`
@@ -214,9 +211,6 @@ export const WorkSubTitle = styled.h4`
 `;
 
 export const WorkSubList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
   ${mixin.flex({ direction: "column" })};
   gap: 6px;
 

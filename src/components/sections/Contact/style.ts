@@ -22,7 +22,6 @@ export const ContactMessage = styled.p`
   font-size: 18px;
   line-height: 170%;
   color: ${({ theme }) => theme.colors.gray600};
-  margin: 0;
 `;
 
 export const ContactLinks = styled.div`
