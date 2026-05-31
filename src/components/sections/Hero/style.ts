@@ -31,13 +31,14 @@ export const HeroRole = styled.span`
 `;
 
 export const HeroName = styled.h1`
+  font-weight: 700;
   font-size: 88px;
   line-height: 100%;
   color: ${({ theme }) => theme.colors.gray900};
 `;
 
 export const HeroTagline = styled.p`
-  font-size: 22px;
+  font-size: 20px;
   color: ${({ theme }) => theme.colors.gray600};
   line-height: 150%;
 `;
@@ -57,6 +58,7 @@ export const HeroCTA = styled.div`
 
 const baseButton = css`
   ${mixin.flex({ display: "inline-flex", align: "center", justify: "center" })};
+  min-width: 120px;
   height: 48px;
   padding: 0 28px;
   font-size: 15px;
@@ -96,7 +98,6 @@ export const ScrollIndicator = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
 
   @media ${({ theme }) => theme.media.smMax} {
     margin-top: ${mixin.pxToVw("48")};

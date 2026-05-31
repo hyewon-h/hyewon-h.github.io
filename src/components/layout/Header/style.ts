@@ -9,8 +9,8 @@ export const HeaderWrapper = styled.header<{ $isScrolled: boolean }>`
   z-index: 100;
   height: 60px;
   background-color: ${({ $isScrolled }) =>
-    $isScrolled ? "rgba(255, 255, 255, 0.95)" : "transparent"};
-  backdrop-filter: ${({ $isScrolled }) => ($isScrolled ? "blur(8px)" : "none")};
+    $isScrolled ? "rgba(255, 255, 255, 0.8)" : "transparent"};
+  backdrop-filter: ${({ $isScrolled }) => ($isScrolled ? "blur(4px)" : "none")};
   box-shadow: ${({ $isScrolled }) =>
     $isScrolled ? "0 1px 0 rgba(0, 0, 0, 0.08)" : "none"};
   transition:

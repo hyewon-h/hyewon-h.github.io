@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&family=DM+Sans:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
   /* ------------- reset */
   html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,
@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
   img {max-width:100%;vertical-align:middle;}
   textarea{resize:none;}
   input,select,textarea,button{font-size:100%;vertical-align:middle;outline:none;-webkit-appearance:none;}
-  h1,h2,h3,h4,h5,h6{font-size:100%;}
+  h1,h2,h3,h4,h5,h6{font-weight:normal;font-size:100%;}
   address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal;}
   caption{overflow:hidden;margin-top:-1px;padding:0;width:1px;height:1px;font-size:0;line-height:0;}
   blockquote,q{quotes:none;} 
@@ -75,6 +75,10 @@ export const GlobalStyles = createGlobalStyle`
   .instrument-serif {
     font-family: 'Instrument Serif', serif;
     font-weight: 400;
+  }
+
+  .noto-serif {
+    font-family: 'Noto Serif', serif;
   }
 
   .no-scroll {

@@ -81,9 +81,6 @@ export const CareerRole = styled.span`
 `;
 
 export const CareerDesc = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
   ${mixin.flex({ direction: "column" })};
   gap: 4px;
 

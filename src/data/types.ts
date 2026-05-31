@@ -14,6 +14,7 @@ export interface Profile {
 // Skills
 export interface Skill {
   name: string;
+  description: string;
 }
 
 export interface SkillCategory {

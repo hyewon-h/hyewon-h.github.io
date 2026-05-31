@@ -15,7 +15,7 @@ const Hero = () => {
           {/* <S.HeroRole>{profile.role}</S.HeroRole> */}
           <S.HeroName
             dangerouslySetInnerHTML={{ __html: profile.nameEn }}
-            className="instrument-serif"
+            className="noto-serif"
           />
           <S.HeroTagline
             dangerouslySetInnerHTML={{ __html: profile.tagline }}

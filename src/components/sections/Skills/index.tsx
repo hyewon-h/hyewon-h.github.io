@@ -16,7 +16,16 @@ const Skills = () => {
               <S.SkillList>
                 {category.skills.map((skill) => (
                   <S.SkillItem key={skill.name}>
-                    <S.SkillName>{skill.name}</S.SkillName>
+                    <S.CardInner>
+                      <S.CardFront>
+                        <S.SkillName>{skill.name}</S.SkillName>
+                      </S.CardFront>
+                      <S.CardBack>
+                        <S.SkillDescription>
+                          {skill.description}
+                        </S.SkillDescription>
+                      </S.CardBack>
+                    </S.CardInner>
                   </S.SkillItem>
                 ))}
               </S.SkillList>

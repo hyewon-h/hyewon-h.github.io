@@ -25,7 +25,7 @@ export const ContactMessage = styled.p`
 `;
 
 export const ContactLinks = styled.div`
-  ${mixin.flex({ direction: "column" })};
+  ${mixin.flex({ direction: "column", align: "stretch" })};
   gap: 16px;
 `;
 
