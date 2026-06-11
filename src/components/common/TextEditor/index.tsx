@@ -20,7 +20,7 @@ export interface TextEditorCursorRef {
   ref: HTMLTextAreaElement | null;
 }
 
-export interface TextEditorProps {
+export interface IProps {
   initialValue?: string;
   placeholder?: string;
   maxLength?: number;
@@ -30,7 +30,7 @@ export interface TextEditorProps {
   onCursorChange?: (cursor: number) => void;
 }
 
-const TextEditor: React.FC<TextEditorProps> = forwardRef(
+const TextEditor = forwardRef<HTMLTextAreaElement, IProps>(
   (
     {
       initialValue = "",

@@ -7,7 +7,16 @@ const deviceSizes = {
   md: "601px",
   lg: "1080px",
   mo: "(hover: none) and (pointer: coarse)",
-  pc: "(hover: hover) and (pointer: fine) and (min-width: 500px)",
+  // [변경] PC 판별을 hover/pointer 기반에서 너비 기준으로 변경.
+  //   기존: (hover: hover) and (pointer: fine) and (min-width: 500px)
+  //   - 마우스 환경(hover/pointer)으로 PC를 판별했으나, DevTools 모바일 모드에서
+  //     엘리먼트 피커(⌘/Ctrl+Shift+C)를 켜면 포인터가 잠깐 fine/hover로 바뀌어
+  //     ≥500px 뷰포트가 PC UI로 전환되는 현상이 있었음(개발 중 아티팩트, 실기기엔 무해).
+  //   - pc 사용처가 전부 레이아웃 분기라 hover/pointer 감지가 불필요해 너비 기준으로 단순화.
+  //   - 분기점: 데스크톱(아이패드 가로/소형 노트북) 기준으로 1080px 적용.
+  //     더 이르게 전환하려면 768px(태블릿 세로), 토큰 일관성을 원하면 lg(1080px)로 조정 가능.
+  // pc: "(hover: hover) and (pointer: fine) and (min-width: 500px)",
+  pc: "(min-width: 1080px)",
   xl: "1201px",
   x2l: "1366px",
   x3l: "1440px",

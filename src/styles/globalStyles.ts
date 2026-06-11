@@ -117,28 +117,6 @@ export const GlobalStyles = createGlobalStyle`
   .responsive-wrapper {z-index: 900 !important}
 
   @media ${({ theme }) => theme.media.pc} {
-    html, body {
-      &:has(.discovery-page, .discovery-keywords-page) {
-        background-color: #fff;
-
-        #container,
-        #container .content {
-          background-color: #fff;
-        }
-      }
-    }
-
-    body {
-      &:has(.shortform-template){
-        overflow-y: hidden;
-      }
-    }
-  
-    body {
-      overflow-y: scroll;
-      min-width: 1366px;
-    }
-
     /* br 태그 inline으로 사용 */
     .inline-pc {
       display: inline-block;

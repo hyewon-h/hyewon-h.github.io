@@ -36,7 +36,7 @@ export const ModalBackdrop = styled.div`
 `;
 
 // 모달 컨테이너
-export const ModalContainer = styled.div<{ size: string }>`
+export const ModalContainer = styled.div<{ $size: string }>`
   background: white;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   position: fixed;
@@ -47,8 +47,8 @@ export const ModalContainer = styled.div<{ size: string }>`
   overflow: hidden;
   animation: ${slideIn} 0.3s ease-out;
 
-  ${({ size }) => {
-    switch (size) {
+  ${({ $size }) => {
+    switch ($size) {
       case "small":
         return css`
           width: 90%;

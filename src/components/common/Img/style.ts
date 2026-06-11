@@ -1,19 +1,20 @@
 import styled from "styled-components";
 
-interface IImageProps {
-  width?: string | number;
-  height?: string | number;
+interface IProps {
+  $width?: string | number;
+  $height?: string | number;
 }
 
-export const Img = styled.img<IImageProps>`
+export const Img = styled.img<IProps>`
   display: block;
   max-width: 100%;
   height: auto;
 
-  ${({ width }) =>
-    width && `width: ${typeof width === "number" ? `${width}px` : width};`}
-  ${({ height }) =>
-    height && `height: ${typeof height === "number" ? `${height}px` : height};`}
+  ${({ $width }) =>
+    $width && `width: ${typeof $width === "number" ? `${$width}px` : $width};`}
+  ${({ $height }) =>
+    $height &&
+    `height: ${typeof $height === "number" ? `${$height}px` : $height};`}
   
   /* 로딩 중 스켈레톤 효과 */
   &[src=""] {

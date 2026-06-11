@@ -13,7 +13,7 @@ import Accordion from "../components/common/Accordion";
 import TextEditor from "../components/common/TextEditor";
 import CustomSelect from "../components/common/CustomSelect";
 
-const TestPage: React.FC = () => {
+const TestPage = () => {
   // Button
   // Checkbox
   const [checked, setChecked] = useState(false);
@@ -25,6 +25,8 @@ const TestPage: React.FC = () => {
   const [radioValue, setRadioValue] = useState("option1");
   // Select
   const [selectValue, setSelectValue] = useState("1");
+  // ItemsScrollBar selectedIndex
+  const [scrollIndex, setScrollIndex] = useState(0);
   // Tabs
   const tabs = [
     { label: "Tab 1", content: <div>Tab 1 Content</div> },
@@ -189,23 +191,106 @@ const TestPage: React.FC = () => {
                   scrollInit
                 >
                   {Array.from({ length: 7 }).map((_, i) => (
-                    <div
-                      key={i}
-                      className="item"
-                      style={{
-                        background: "#e0e7ef",
-                        borderRadius: 8,
-                        minHeight: 80,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontWeight: 600,
-                        fontSize: 18,
-                        color: "#2a3a4a",
-                        boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
-                      }}
-                    >
-                      Item {i + 1}
+                    <div key={i} className="item">
+                      <DemoItem>Item {i + 1}</DemoItem>
+                    </div>
+                  ))}
+                </ItemsScrollBar>
+              );
+            })()}
+          </React.Suspense>
+        </div>
+      </TestSection>
+
+      <TestSection>
+        <h2>ItemsScrollBar - perView 0 (item-auto / 너비 자동)</h2>
+        <div style={{ width: "100%", overflow: "hidden" }}>
+          {/* perView={0}: 아이템 너비를 컨텐츠 크기로 자동 지정 */}
+          <React.Suspense fallback={null}>
+            {(() => {
+              const ItemsScrollBar =
+                require("../components/common/ItemsScrollBar").default;
+              return (
+                <ItemsScrollBar perView={0} gap={8} offsetLR={16} snap>
+                  {[
+                    "짧음",
+                    "조금 더 긴 텍스트",
+                    "AUTO",
+                    "내용 크기로 너비 자동 조절",
+                    "끝",
+                  ].map((text, i) => (
+                    <div key={i} className="item">
+                      <DemoItem
+                        style={{ padding: "0 20px", whiteSpace: "nowrap" }}
+                      >
+                        {text}
+                      </DemoItem>
+                    </div>
+                  ))}
+                </ItemsScrollBar>
+              );
+            })()}
+          </React.Suspense>
+        </div>
+      </TestSection>
+
+      <TestSection>
+        <h2>ItemsScrollBar - line 2 (2줄 가로 스크롤 그리드)</h2>
+        <div style={{ width: "100%", overflow: "hidden" }}>
+          {/* line={2}: 아이템을 2줄로 나눠 가로 스크롤 */}
+          <React.Suspense fallback={null}>
+            {(() => {
+              const ItemsScrollBar =
+                require("../components/common/ItemsScrollBar").default;
+              return (
+                <ItemsScrollBar
+                  perView={3}
+                  line={2}
+                  gap={12}
+                  rowGap={12}
+                  offsetLR={16}
+                >
+                  {Array.from({ length: 10 }).map((_, i) => (
+                    <div key={i} className="item">
+                      <DemoItem>Item {i + 1}</DemoItem>
+                    </div>
+                  ))}
+                </ItemsScrollBar>
+              );
+            })()}
+          </React.Suspense>
+        </div>
+      </TestSection>
+
+      <TestSection>
+        <h2>ItemsScrollBar - selectedIndex / scrollAlign(center)</h2>
+        {/* 아이템 안의 버튼을 클릭하면 해당 아이템이 가운데로 스크롤 */}
+        <div style={{ width: "100%", overflow: "hidden" }}>
+          <React.Suspense fallback={null}>
+            {(() => {
+              const ItemsScrollBar =
+                require("../components/common/ItemsScrollBar").default;
+              return (
+                <ItemsScrollBar
+                  perView={3}
+                  gap={12}
+                  offsetLR={16}
+                  snap
+                  selectedIndex={scrollIndex}
+                  scrollAlign="center"
+                >
+                  {Array.from({ length: 8 }).map((_, i) => (
+                    <div key={i} className="item">
+                      <DemoItem
+                        style={{
+                          background: scrollIndex === i ? "#4f7cff" : "#e0e7ef",
+                          color: scrollIndex === i ? "#fff" : "#2a3a4a",
+                        }}
+                      >
+                        <Button onClick={() => setScrollIndex(i)}>
+                          Item {i + 1}로 이동
+                        </Button>
+                      </DemoItem>
                     </div>
                   ))}
                 </ItemsScrollBar>
@@ -236,7 +321,6 @@ const TestPage: React.FC = () => {
                       style={{
                         height: 120,
                         background: "#f8d7da",
-                        borderRadius: 8,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -251,7 +335,6 @@ const TestPage: React.FC = () => {
                       style={{
                         height: 120,
                         background: "#d1e7dd",
-                        borderRadius: 8,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -266,7 +349,6 @@ const TestPage: React.FC = () => {
                       style={{
                         height: 120,
                         background: "#cff4fc",
-                        borderRadius: 8,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -311,6 +393,18 @@ const TestSection = styled.section`
     margin-bottom: 16px;
     color: #222;
   }
+`;
+
+const DemoItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  background: #e0e7ef;
+  color: #2a3a4a;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 `;
 
 export default TestPage;

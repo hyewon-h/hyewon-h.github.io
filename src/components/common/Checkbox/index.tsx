@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import * as S from "./style";
 
-export interface ICheckboxProps {
+export interface IProps {
   /** 체크박스 값 */
   value?: string;
   /** 체크 상태 */
@@ -18,7 +18,7 @@ export interface ICheckboxProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Checkbox: React.FC<ICheckboxProps> = ({
+const Checkbox = ({
   value,
   checked,
   defaultChecked,
@@ -27,7 +27,7 @@ const Checkbox: React.FC<ICheckboxProps> = ({
   className,
   onChange,
   ...props
-}) => {
+}: IProps) => {
   return (
     <S.CheckboxWrapper className={className}>
       <S.CheckboxInput

@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { mixin } from "@/styles/index";
 
-interface IButtonProps {
+interface IProps {
   className?: string;
   disabled?: boolean;
   $icon?: React.ReactNode;
 }
 
-export const Button = styled.button<IButtonProps>`
+export const Button = styled.button<IProps>`
   ${mixin.flex({ display: "inline-flex" })};
 
   font-family: inherit;

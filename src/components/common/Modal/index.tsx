@@ -1,7 +1,7 @@
 import React, { memo, useEffect } from "react";
 import * as S from "./style";
 
-export interface IModalProps {
+export interface IProps {
   /** 모달 열림/닫힘 상태 */
   isOpen: boolean;
   /** 모달 닫기 함수 */
@@ -22,7 +22,7 @@ export interface IModalProps {
   hideCloseButton?: boolean;
 }
 
-const Modal: React.FC<IModalProps> = ({
+const Modal = ({
   isOpen,
   onClose,
   title,
@@ -32,7 +32,7 @@ const Modal: React.FC<IModalProps> = ({
   size = "medium",
   className,
   hideCloseButton = false,
-}) => {
+}: IProps) => {
   // ESC 키 이벤트 처리
   useEffect(() => {
     const handleEscKey = (event: KeyboardEvent) => {
@@ -64,7 +64,7 @@ const Modal: React.FC<IModalProps> = ({
 
   return (
     <S.ModalBackdrop onClick={handleBackdropClick}>
-      <S.ModalContainer size={size} className={className}>
+      <S.ModalContainer $size={size} className={className}>
         {(title || !hideCloseButton) && (
           <S.ModalHeader>
             {title && <S.ModalTitle>{title}</S.ModalTitle>}

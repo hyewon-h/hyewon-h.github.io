@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { mixin } from "@/styles/index";
 
-interface IInputFieldProps {
+interface IProps {
   $error?: boolean;
 }
 
@@ -10,7 +10,7 @@ export const InputWrapper = styled.div`
   gap: 4px;
 `;
 
-export const InputField = styled.input<IInputFieldProps>`
+export const InputField = styled.input<IProps>`
   padding: 12px 16px;
   border: 1px solid
     ${({ $error, theme }) =>

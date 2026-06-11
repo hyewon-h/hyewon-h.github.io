@@ -23,10 +23,10 @@ export const AccordionHeader = styled.button`
   }
 `;
 
-export const AccordionContent = styled.div<{ open: boolean }>`
-  max-height: ${({ open }) => (open ? "500px" : "0")};
+export const AccordionContent = styled.div<{ $open: boolean }>`
+  max-height: ${({ $open }) => ($open ? "500px" : "0")};
   overflow: hidden;
   transition: max-height 0.3s ease;
-  padding: ${({ open }) => (open ? "16px" : "0 16px")};
+  padding: ${({ $open }) => ($open ? "16px" : "0 16px")};
   background: #fafafa;
 `;

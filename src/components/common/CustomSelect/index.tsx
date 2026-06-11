@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import * as S from "./style";
 
 export interface CustomSelectOption {
@@ -12,7 +12,7 @@ export interface CustomSelectOption {
   restockUrl?: string;
 }
 
-export interface CustomSelectProps {
+export interface IProps {
   options: CustomSelectOption[];
   value: string;
   onChange: (value: string) => void;
@@ -21,14 +21,14 @@ export interface CustomSelectProps {
   className?: string;
 }
 
-const CustomSelect: React.FC<CustomSelectProps> = ({
+const CustomSelect = ({
   options,
   value,
   onChange,
   placeholder = "옵션을 선택하세요",
   disabled = false,
   className = "",
-}) => {
+}: IProps) => {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 

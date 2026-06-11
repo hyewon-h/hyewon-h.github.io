@@ -1,13 +1,13 @@
 import React from "react";
 import * as S from "./style";
 
-type TitleProps = {
+type IProps = {
   label: React.ReactNode;
   title: React.ReactNode;
   className?: string;
 };
 
-const Title: React.FC<TitleProps> = ({ label, title, className }) => (
+const Title = ({ label, title, className }: IProps) => (
   <S.TitleWrapper className={className}>
     <S.Label>{label}</S.Label>
     <S.TitleText>{title}</S.TitleText>

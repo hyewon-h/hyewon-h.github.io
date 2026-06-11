@@ -1,7 +1,7 @@
 import React, { memo, useMemo } from "react";
 import * as S from "./style";
 
-export interface IButtonProps {
+export interface IProps {
   /** 버튼 타입: 'button' | 'submit' | 'reset' */
   type?: "button" | "submit" | "reset";
   /** 링크 URL */
@@ -20,7 +20,7 @@ export interface IButtonProps {
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const Button: React.FC<IButtonProps> = ({
+const Button = ({
   type = "button",
   href,
   className,
@@ -30,7 +30,7 @@ const Button: React.FC<IButtonProps> = ({
   onClick,
   children,
   ...props
-}) => {
+}: IProps) => {
   const buttonProps = useMemo(
     () => ({
       href: href || undefined,
@@ -41,7 +41,7 @@ const Button: React.FC<IButtonProps> = ({
       onClick,
       ...props,
     }),
-    [href, className, type, target, disabled, onClick, props]
+    [href, className, type, target, disabled, onClick, props],
   );
 
   return (

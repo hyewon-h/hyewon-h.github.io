@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import * as S from "./style";
 
-export interface IInputProps {
+export interface IProps {
   /** 인풋 타입 */
   type?: "text" | "password" | "email" | "number" | "tel" | "url" | "search";
   /** 플레이스홀더 */
@@ -30,7 +30,7 @@ export interface IInputProps {
   errorMessage?: string;
 }
 
-const Input: React.FC<IInputProps> = ({
+const Input = ({
   type = "text",
   placeholder,
   value,
@@ -45,7 +45,7 @@ const Input: React.FC<IInputProps> = ({
   error = false,
   errorMessage,
   ...props
-}) => {
+}: IProps) => {
   return (
     <S.InputWrapper className={className}>
       <S.InputField

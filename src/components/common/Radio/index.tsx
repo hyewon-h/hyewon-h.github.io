@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import * as S from "./style";
 
-export interface IRadioProps {
+export interface IProps {
   /** 라디오 그룹명 */
   name: string;
   /** 라디오 값 */
@@ -20,7 +20,7 @@ export interface IRadioProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Radio: React.FC<IRadioProps> = ({
+const Radio = ({
   name,
   value,
   checked,
@@ -30,7 +30,7 @@ const Radio: React.FC<IRadioProps> = ({
   className,
   onChange,
   ...props
-}) => {
+}: IProps) => {
   return (
     <S.RadioWrapper className={className}>
       <S.RadioInput

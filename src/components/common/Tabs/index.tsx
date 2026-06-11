@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from "react";
+import { useState, ReactNode } from "react";
 import * as S from "./style";
 
 export interface Tab {
@@ -6,12 +6,12 @@ export interface Tab {
   content: ReactNode;
 }
 
-export interface TabsProps {
+export interface IProps {
   tabs: Tab[];
   initialIndex?: number;
 }
 
-const Tabs: React.FC<TabsProps> = ({ tabs, initialIndex = 0 }) => {
+const Tabs = ({ tabs, initialIndex = 0 }: IProps) => {
   const [activeIndex, setActiveIndex] = useState(initialIndex);
 
   return (
@@ -20,7 +20,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs, initialIndex = 0 }) => {
         {tabs.map((tab, idx) => (
           <S.TabButton
             key={tab.label}
-            active={activeIndex === idx}
+            $active={activeIndex === idx}
             onClick={() => setActiveIndex(idx)}
           >
             {tab.label}

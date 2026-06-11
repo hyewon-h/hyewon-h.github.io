@@ -6,18 +6,13 @@ export interface SelectOption {
   value: string | number;
 }
 
-export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+export interface IProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   options: SelectOption[];
   value: string | number;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const Select: React.FC<SelectProps> = ({
-  options,
-  value,
-  onChange,
-  ...rest
-}) => (
+const Select = ({ options, value, onChange, ...rest }: IProps) => (
   <S.SelectWrapper>
     <S.StyledSelect value={value} onChange={onChange} {...rest}>
       {options.map((option) => (

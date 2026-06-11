@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from "react";
+import { useState, ReactNode } from "react";
 import * as S from "./style";
 
 export interface AccordionPanel {
@@ -6,15 +6,12 @@ export interface AccordionPanel {
   content: ReactNode;
 }
 
-export interface AccordionProps {
+export interface IProps {
   panels: AccordionPanel[];
   allowMultiple?: boolean;
 }
 
-const Accordion: React.FC<AccordionProps> = ({
-  panels,
-  allowMultiple = false,
-}) => {
+const Accordion = ({ panels, allowMultiple = false }: IProps) => {
   const [openIndexes, setOpenIndexes] = useState<number[]>([]);
 
   const togglePanel = (idx: number) => {
@@ -34,7 +31,7 @@ const Accordion: React.FC<AccordionProps> = ({
           <S.AccordionHeader onClick={() => togglePanel(idx)}>
             {panel.title}
           </S.AccordionHeader>
-          <S.AccordionContent open={openIndexes.includes(idx)}>
+          <S.AccordionContent $open={openIndexes.includes(idx)}>
             {panel.content}
           </S.AccordionContent>
         </S.AccordionItem>

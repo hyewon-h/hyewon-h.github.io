@@ -1,7 +1,7 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import * as S from "./style";
 
-export interface IImgProps {
+export interface IProps {
   /** 이미지 경로 */
   src: string;
   /** 대체 텍스트 */
@@ -20,7 +20,7 @@ export interface IImgProps {
   loading?: "lazy" | "eager";
 }
 
-const Img: React.FC<IImgProps> = ({
+const Img = ({
   src,
   alt,
   width,
@@ -30,7 +30,7 @@ const Img: React.FC<IImgProps> = ({
   onLoad,
   loading = "lazy",
   ...props
-}) => {
+}: IProps) => {
   // undefined 값들을 필터링
   const imgProps: any = {
     src,
@@ -42,9 +42,9 @@ const Img: React.FC<IImgProps> = ({
     ...props,
   };
 
-  // width, height가 정의된 경우에만 추가
-  if (width !== undefined) imgProps.width = width;
-  if (height !== undefined) imgProps.height = height;
+  // width, height가 정의된 경우에만 추가 (transient prop으로 전달해 CSS로만 적용)
+  if (width !== undefined) imgProps.$width = width;
+  if (height !== undefined) imgProps.$height = height;
 
   return <S.Img {...imgProps} />;
 };

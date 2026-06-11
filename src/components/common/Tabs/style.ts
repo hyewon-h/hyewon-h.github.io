@@ -10,7 +10,7 @@ export const TabList = styled.div`
   border-bottom: 1px solid #eee;
 `;
 
-export const TabButton = styled.button<{ active: boolean }>`
+export const TabButton = styled.button<{ $active: boolean }>`
   padding: 10px 20px;
   background: none;
   border: none;
@@ -20,8 +20,8 @@ export const TabButton = styled.button<{ active: boolean }>`
   transition:
     border 0.2s,
     color 0.2s;
-  ${({ active }) =>
-    active &&
+  ${({ $active }) =>
+    $active &&
     css`
       border-bottom: 1px solid #007bff;
       color: #007bff;
