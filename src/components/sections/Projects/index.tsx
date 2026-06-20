@@ -14,7 +14,7 @@ const WORK_CATEGORIES: WorkProjectCategory[] = [
 type ProjectTab = "portfolio" | "work";
 
 const Projects = () => {
-  const [activeTab, setActiveTab] = useState<ProjectTab>("portfolio");
+  const [activeTab, setActiveTab] = useState<ProjectTab>("work");
   const [openWorkId, setOpenWorkId] = useState<number | null>(null);
 
   const toggleWork = (id: number) => {
@@ -28,16 +28,16 @@ const Projects = () => {
 
         <S.TabBar>
           <S.TabButton
-            $isActive={activeTab === "portfolio"}
-            onClick={() => setActiveTab("portfolio")}
-          >
-            포트폴리오
-          </S.TabButton>
-          <S.TabButton
             $isActive={activeTab === "work"}
             onClick={() => setActiveTab("work")}
           >
             회사 프로젝트
+          </S.TabButton>
+          <S.TabButton
+            $isActive={activeTab === "portfolio"}
+            onClick={() => setActiveTab("portfolio")}
+          >
+            포트폴리오
           </S.TabButton>
         </S.TabBar>
 

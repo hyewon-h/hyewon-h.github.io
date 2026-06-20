@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { profile } from "@/data/profile";
 import { careers } from "@/data/career";
+import { skills } from "@/data/skills";
 import Title from "@/components/common/Title";
 import * as S from "./style";
 
@@ -12,7 +13,9 @@ const About = () => {
 
         <S.AboutGrid>
           <S.AboutText>
-            <S.AboutDescription>{profile.description}</S.AboutDescription>
+            <S.AboutDescription
+              dangerouslySetInnerHTML={{ __html: profile.description }}
+            />
           </S.AboutText>
 
           <S.CareerBlock>
@@ -36,6 +39,24 @@ const About = () => {
                 </S.CareerItem>
               ))}
             </S.CareerList>
+            <S.CareerTitle>Skills</S.CareerTitle>
+            <S.SkillsBlock>
+              {skills.map((category) => (
+                <S.SkillCategory key={category.category}>
+                  <S.SkillCategoryTitle>
+                    {category.category}
+                  </S.SkillCategoryTitle>
+                  <S.SkillList>
+                    {category.skills.map((skill) => (
+                      <S.SkillItem key={skill.name}>
+                        <S.SkillName>{skill.name}</S.SkillName>
+                        {/* <S.SkillDescription>{skill.description}</S.SkillDescription> */}
+                      </S.SkillItem>
+                    ))}
+                  </S.SkillList>
+                </S.SkillCategory>
+              ))}
+            </S.SkillsBlock>
           </S.CareerBlock>
         </S.AboutGrid>
       </S.AboutInner>

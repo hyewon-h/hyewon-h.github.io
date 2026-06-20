@@ -16,15 +16,6 @@ const Footer = () => {
           >
             GitHub
           </S.FooterLink>
-          {profile.blog && (
-            <S.FooterLink
-              href={profile.blog}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Blog
-            </S.FooterLink>
-          )}
           {profile.email && (
             <S.FooterLink href={`mailto:${profile.email}`}>
               Contact

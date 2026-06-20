@@ -15,6 +15,16 @@ const Contact = () => {
           </S.ContactMessage>
 
           <S.ContactLinks>
+            <S.ContactLink href={`tel:${profile.tel}`}>
+              <S.LinkLabel>Phone</S.LinkLabel>
+              <S.LinkValue>{profile.tel}</S.LinkValue>
+            </S.ContactLink>
+
+            <S.ContactLink href={`mailto:${profile.email}`}>
+              <S.LinkLabel>Email</S.LinkLabel>
+              <S.LinkValue>{profile.email}</S.LinkValue>
+            </S.ContactLink>
+
             <S.ContactLink
               href={profile.github}
               target="_blank"
@@ -25,26 +35,6 @@ const Contact = () => {
                 {profile.github.replace("https://", "")}
               </S.LinkValue>
             </S.ContactLink>
-
-            {profile.email && (
-              <S.ContactLink href={`mailto:${profile.email}`}>
-                <S.LinkLabel>Email</S.LinkLabel>
-                <S.LinkValue>{profile.email}</S.LinkValue>
-              </S.ContactLink>
-            )}
-
-            {profile.blog && (
-              <S.ContactLink
-                href={profile.blog}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <S.LinkLabel>Blog</S.LinkLabel>
-                <S.LinkValue>
-                  {profile.blog.replace("https://", "")}
-                </S.LinkValue>
-              </S.ContactLink>
-            )}
           </S.ContactLinks>
         </S.ContactBody>
       </S.ContactInner>

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { mixin } from "@/styles/index";
 
 export const FooterWrapper = styled.footer`
-  background-color: ${({ theme }) => theme.colors.gray900};
+  border-top: 1px solid ${({ theme }) => theme.colors.gray50};
   color: ${({ theme }) => theme.colors.gray400};
 `;
 

@@ -14,7 +14,7 @@ export const AboutInner = styled.div`
 
 export const AboutGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  // grid-template-columns: 1fr 1fr;
   gap: 64px;
 
   @media ${({ theme }) => theme.media.smMax} {
@@ -45,6 +45,7 @@ export const CareerTitle = styled.h3`
 export const CareerList = styled.ul`
   ${mixin.flex({ direction: "column" })};
   gap: 32px;
+  margin-bottom: 40px;
 `;
 
 export const CareerItem = styled.li`
@@ -103,4 +104,41 @@ export const CareerDesc = styled.ul`
       background: ${({ theme }) => theme.colors.gray300};
     }
   }
+`;
+
+export const SkillsBlock = styled.div`
+  ${mixin.flex({ direction: "column" })};
+  gap: 32px;
+`;
+
+export const SkillCategory = styled.div``;
+
+export const SkillCategoryTitle = styled.h4`
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.gray400};
+  margin: 0 0 12px;
+`;
+
+export const SkillList = styled.ul`
+  ${mixin.flex({ direction: "column" })};
+  gap: 12px;
+`;
+
+export const SkillItem = styled.li``;
+
+export const SkillName = styled.strong`
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.gray900};
+  margin-bottom: 4px;
+`;
+
+export const SkillDescription = styled.p`
+  font-size: 13px;
+  color: ${({ theme }) => theme.colors.gray500};
+  line-height: 160%;
+  word-break: keep-all;
 `;

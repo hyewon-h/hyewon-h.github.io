@@ -5,10 +5,9 @@ export interface Profile {
   role: string;
   tagline: string;
   description: string;
+  tel: string;
   email: string;
   github: string;
-  blog?: string;
-  resume?: string;
 }
 
 // Skills
