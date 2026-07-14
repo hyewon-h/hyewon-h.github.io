@@ -1,11 +1,11 @@
-import React, { memo, useRef, useEffect } from 'react';
+import React, { memo, useRef, useEffect } from "react";
 import Text from "@/components/common/Text";
 import ItemsSwiper from "@/components/common/ItemsSwiper";
 import SwiperNavigation from "@/components/common/SwiperNavigation";
 import SwiperPagination from "@/components/common/SwiperPagination";
 import { getUniqueKey } from "@/utils/commonUtils";
-import { Swiper as SwiperClass } from 'swiper/types';
-import * as S from './style';
+import { Swiper as SwiperClass } from "swiper/types";
+import * as S from "./style";
 
 interface IProps {
   items?: React.ReactNode;
@@ -41,13 +41,14 @@ const MainVisualBnrList = ({
             dynamicMainBullets: 3,
           },
     autoplay: { delay: 2000, disableOnInteraction: false },
-    className: childCnt > 1 ? 'paging' : '',
+    virtual: childCnt > 5,
+    className: childCnt > 1 ? "paging" : "",
   };
 
   const paramPc: any = {
     pagination: childCnt > 1 && {
       el: `.${uniqueKey}-page`,
-      type: 'fraction',
+      type: "fraction",
     },
     paginationEl: childCnt > 1 && (
       <SwiperPagination
@@ -102,7 +103,7 @@ const MainVisualBnrList = ({
       if (activeSlideVideoRef.current) {
         activeSlideVideoRef.current.pause();
         activeSlideVideoRef.current.currentTime = 0;
-        activeSlideVideoRef.current.removeEventListener('ended', endedVideo);
+        activeSlideVideoRef.current.removeEventListener("ended", endedVideo);
         activeSlideVideoRef.current = null;
       }
     }
@@ -111,7 +112,7 @@ const MainVisualBnrList = ({
       initVideo();
       const activeSlide = swiperInst.slides[swiperInst.activeIndex];
       activeSlideVideoRef.current =
-        activeSlide?.getElementsByTagName('video')[0] ?? null;
+        activeSlide?.getElementsByTagName("video")[0] ?? null;
 
       if (activeSlideVideoRef.current) {
         swiperInst.autoplay.stop();
@@ -121,7 +122,7 @@ const MainVisualBnrList = ({
             .then()
             .catch(() => {});
         }
-        activeSlideVideoRef.current.addEventListener('ended', endedVideo);
+        activeSlideVideoRef.current.addEventListener("ended", endedVideo);
       } else {
         autoPlay(swiperInst);
       }
@@ -132,7 +133,7 @@ const MainVisualBnrList = ({
     if (swiper) {
       chkVideo(swiper);
 
-      swiper.on('slideChangeTransitionEnd', (swiperInst: any) => {
+      swiper.on("slideChangeTransitionEnd", (swiperInst: any) => {
         chkVideo(swiperInst);
       });
     }
@@ -162,7 +163,7 @@ const MainVisualBnrList = ({
           }
         }
       },
-      { threshold: 0 }
+      { threshold: 0 },
     );
 
     observer.observe(container);

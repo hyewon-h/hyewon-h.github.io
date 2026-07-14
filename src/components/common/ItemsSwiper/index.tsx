@@ -3,13 +3,21 @@ import React, { memo, useState, useCallback, useEffect } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import "swiper/css/virtual";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay, Navigation, EffectFade } from "swiper/modules";
+import {
+  Pagination,
+  Autoplay,
+  Navigation,
+  EffectFade,
+  Virtual,
+} from "swiper/modules";
 import type {
   PaginationOptions,
   AutoplayOptions,
   Swiper as SwiperClass,
   NavigationOptions,
+  VirtualOptions,
 } from "swiper/types";
 
 import * as S from "./style";
@@ -37,6 +45,7 @@ interface IProps {
   navigation?: boolean | NavigationOptions;
   autoplay?: boolean | AutoplayOptions;
   pagination?: boolean | PaginationOptions;
+  virtual?: boolean | VirtualOptions;
   onSwiper?: (swiper: SwiperClass) => void;
   onTransitionEnd?: (swiper: SwiperClass) => void;
 }
@@ -67,6 +76,7 @@ const ItemsSwiper: React.FunctionComponent<IProps> = ({
     type: "bullets",
     clickable: true,
   },
+  virtual = false,
   onSwiper,
   onTransitionEnd,
 }: IProps) => {
@@ -105,11 +115,12 @@ const ItemsSwiper: React.FunctionComponent<IProps> = ({
   // 슬라이드 렌더러
   const getListRender = useCallback((el: React.ReactNode) => {
     if (Array.isArray(el)) {
-      return el.map((v: React.ReactElement<any>) => {
+      return el.map((v: React.ReactElement<any>, index: number) => {
         if (v) {
           return (
             <SwiperSlide
               key={v.key}
+              virtualIndex={index}
               data-value={v.props?.value ? v.props?.value : null}
             >
               {v}
@@ -125,8 +136,9 @@ const ItemsSwiper: React.FunctionComponent<IProps> = ({
   return (
     <S.Box>
       <Swiper
-        modules={[Pagination, Autoplay, Navigation, EffectFade]}
+        modules={[Pagination, Autoplay, Navigation, EffectFade, Virtual]}
         pagination={_childCnt < 2 ? false : pagination}
+        virtual={virtual}
         spaceBetween={spaceBetween}
         speed={speed}
         slidesPerView={slidesPerView}

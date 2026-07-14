@@ -38,6 +38,18 @@ const mainBannerData = {
       videoSrc: `${ASSETS}/video01.mp4`,
       value: "배너3",
     },
+    {
+      imgSrc: `${ASSETS}/dummy01.jpg`,
+      value: "배너4",
+    },
+    {
+      imgSrc: `${ASSETS}/dummy02.jpg`,
+      value: "배너5",
+    },
+    {
+      videoSrc: `${ASSETS}/video01.mp4`,
+      value: "배너6",
+    },
   ],
 };
 
