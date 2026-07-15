@@ -11,6 +11,7 @@ import {
   Navigation,
   EffectFade,
   Virtual,
+  FreeMode,
 } from "swiper/modules";
 import type {
   PaginationOptions,
@@ -46,6 +47,7 @@ interface IProps {
   autoplay?: boolean | AutoplayOptions;
   pagination?: boolean | PaginationOptions;
   virtual?: boolean | VirtualOptions;
+  freeMode?: boolean | any;
   onSwiper?: (swiper: SwiperClass) => void;
   onTransitionEnd?: (swiper: SwiperClass) => void;
 }
@@ -77,6 +79,7 @@ const ItemsSwiper: React.FunctionComponent<IProps> = ({
     clickable: true,
   },
   virtual = false,
+  freeMode = false,
   onSwiper,
   onTransitionEnd,
 }: IProps) => {
@@ -136,9 +139,17 @@ const ItemsSwiper: React.FunctionComponent<IProps> = ({
   return (
     <S.Box>
       <Swiper
-        modules={[Pagination, Autoplay, Navigation, EffectFade, Virtual]}
+        modules={[
+          Pagination,
+          Autoplay,
+          Navigation,
+          EffectFade,
+          Virtual,
+          FreeMode,
+        ]}
         pagination={_childCnt < 2 ? false : pagination}
         virtual={virtual}
+        freeMode={freeMode}
         spaceBetween={spaceBetween}
         speed={speed}
         slidesPerView={slidesPerView}
