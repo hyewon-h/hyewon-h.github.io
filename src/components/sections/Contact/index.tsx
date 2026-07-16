@@ -1,13 +1,13 @@
 import { memo } from "react";
 import { profile } from "@/data/profile";
-import Title from "@/components/common/Title";
+import SectionTitle from "@/components/sections/Projects/components/texts/SectionTitle";
 import * as S from "./style";
 
 const Contact = () => {
   return (
     <S.ContactSection id="contact">
       <S.ContactInner>
-        <Title label="Contact" title="연락하기" />
+        <SectionTitle label="Contact" title="연락하기" />
 
         <S.ContactBody>
           <S.ContactMessage>

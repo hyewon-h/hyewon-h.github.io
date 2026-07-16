@@ -1,21 +1,21 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Button from "../components/common/Button";
-import Checkbox from "../components/common/Checkbox";
-import Img from "../components/common/Img";
-import Video from "../components/common/Video";
-import Input from "../components/common/Input";
-import Modal from "../components/common/Modal";
-import Radio from "../components/common/Radio";
-import Text from "../components/common/Text";
-import Select from "../components/common/Select";
-import Tabs from "../components/common/Tabs";
-import Accordion from "../components/common/Accordion";
-import TextEditor from "../components/common/TextEditor";
-import CustomSelect from "../components/common/CustomSelect";
-import MainVisualBnrList from "../components/sections/Projects/components/MainVisualBnrList";
-import ItemsScrollBar from "../components/common/ItemsScrollBar";
-import ItemsSwiper from "../components/common/ItemsSwiper";
+import Button from "@/components/common/Button";
+import Checkbox from "@/components/common/Checkbox";
+import Img from "@/components/common/Img";
+import Video from "@/components/common/Video";
+import Input from "@/components/common/Input";
+import Modal from "@/components/common/Modal";
+import Radio from "@/components/common/Radio";
+import Text from "@/components/common/Text";
+import Select from "@/components/common/Select";
+import Tabs from "@/components/common/Tabs";
+import Accordion from "@/components/common/Accordion";
+import TextEditor from "@/components/common/TextEditor";
+import CustomSelect from "@/components/common/CustomSelect";
+import MainVisualBnrList from "@/components/sections/Projects/components/lists/MainVisualBnrList";
+import ItemsScrollBar from "@/components/common/ItemsScrollBar";
+import ItemsSwiper from "@/components/common/ItemsSwiper";
 import { isMobile } from "react-device-detect";
 
 // public 하위 에셋은 빌드 없이 정적 제공되므로 절대 URL 문자열로 참조
