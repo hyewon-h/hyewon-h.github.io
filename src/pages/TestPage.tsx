@@ -14,6 +14,8 @@ import Accordion from "@/components/common/Accordion";
 import TextEditor from "@/components/common/TextEditor";
 import CustomSelect from "@/components/common/CustomSelect";
 import MainVisualBnrList from "@/components/sections/Projects/components/lists/MainVisualBnrList";
+import CardBannerSwiperType from "@/components/sections/Projects/components/lists/CardBannerSwiperType";
+import CardTypeBannerItem from "@/components/sections/Projects/components/items/CardTypeBannerItem";
 import ItemsScrollBar from "@/components/common/ItemsScrollBar";
 import ItemsSwiper from "@/components/common/ItemsSwiper";
 import { isMobile } from "react-device-detect";
@@ -39,15 +41,15 @@ const mainBannerData = {
       value: "배너3",
     },
     {
-      imgSrc: `${ASSETS}/dummy01.jpg`,
+      imgSrc: `${ASSETS}/dummy03.jpg`,
       value: "배너4",
     },
     {
-      imgSrc: `${ASSETS}/dummy02.jpg`,
+      imgSrc: `${ASSETS}/dummy04.jpg`,
       value: "배너5",
     },
     {
-      videoSrc: `${ASSETS}/video01.mp4`,
+      videoSrc: `${ASSETS}/video02.mp4`,
       value: "배너6",
     },
   ],
@@ -369,12 +371,7 @@ const TestPage = () => {
             items={mainBannerData.slide.map((item, index) => (
               <div key={index}>
                 {item.imgSrc && (
-                  <Img
-                    src={item.imgSrc}
-                    alt={`배너 이미지 ${index + 1}`}
-                    // width="100%"
-                    // height="auto"
-                  />
+                  <Img src={item.imgSrc} alt={`배너 이미지 ${index + 1}`} />
                 )}
                 {item.videoSrc && (
                   <Video src={item.videoSrc} responsive muted playsinline />
@@ -383,19 +380,25 @@ const TestPage = () => {
             ))}
             title={mainBannerData.title}
             desc={mainBannerData.desc}
-            // button={mainBannerData.button.map((v, i) => (
-            //   <Button
-            //     key={i}
-            //     onClick={() => {
-            //       console.log(`버튼 클릭: ${v.value}`);
-            //     }}
-            //   >
-            //     {v.brand}
-            //   </Button>
-            // ))}
-            // isDesktop={isDesktop}
           />
         </div>
+      </TestSection>
+
+      <TestSection>
+        <h2>CardBannerSwiperType</h2>
+        <CardBannerSwiperType
+          items={mainBannerData.slide.map((item, index) => (
+            <CardTypeBannerItem
+              key={index}
+              type="card"
+              {...(item.imgSrc !== undefined && { imgSrc: item.imgSrc })}
+              {...(item.videoSrc !== undefined && { videoSrc: item.videoSrc })}
+              title1={`카드 타이틀 ${index + 1}`}
+              subTitle={`서브 타이틀 ${index + 1}`}
+              onClick={() => alert(`카드 ${index + 1} 클릭`)}
+            />
+          ))}
+        />
       </TestSection>
     </TestPageWrapper>
   );

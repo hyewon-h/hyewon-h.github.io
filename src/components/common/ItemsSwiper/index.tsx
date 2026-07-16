@@ -3,6 +3,7 @@ import React, { memo, useState, useCallback, useEffect } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import "swiper/css/effect-creative";
 import "swiper/css/virtual";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
@@ -10,6 +11,7 @@ import {
   Autoplay,
   Navigation,
   EffectFade,
+  EffectCreative,
   Virtual,
   FreeMode,
 } from "swiper/modules";
@@ -19,6 +21,7 @@ import type {
   Swiper as SwiperClass,
   NavigationOptions,
   VirtualOptions,
+  CreativeEffectOptions,
 } from "swiper/types";
 
 import * as S from "./style";
@@ -34,6 +37,8 @@ interface IProps {
   slidesPerView?: number | "auto" | undefined;
   slidesPerGroup?: number;
   effect?: string;
+  creativeEffect?: CreativeEffectOptions;
+  touchRatio?: number;
   loop?: boolean;
   loopAdditionalSlides?: number;
   nested?: boolean;
@@ -63,6 +68,8 @@ const ItemsSwiper: React.FunctionComponent<IProps> = ({
   slidesPerView = 1,
   slidesPerGroup = 1,
   effect = "slide",
+  creativeEffect,
+  touchRatio,
   loop = true,
   loopAdditionalSlides = 0,
   nested = false,
@@ -144,6 +151,7 @@ const ItemsSwiper: React.FunctionComponent<IProps> = ({
           Autoplay,
           Navigation,
           EffectFade,
+          EffectCreative,
           Virtual,
           FreeMode,
         ]}
@@ -171,6 +179,8 @@ const ItemsSwiper: React.FunctionComponent<IProps> = ({
             | "creative"
             | "cards"
         }
+        {...(creativeEffect !== undefined && { creativeEffect })}
+        {...(touchRatio !== undefined && { touchRatio })}
         simulateTouch={simulateTouch}
         slidesOffsetAfter={slidesOffsetAfter}
         slidesOffsetBefore={slidesOffsetBefore}
