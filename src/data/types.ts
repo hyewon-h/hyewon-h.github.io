@@ -5,6 +5,7 @@ export interface Profile {
   role: string;
   tagline: string;
   description: string;
+  avatar: string;
   tel: string;
   email: string;
   github: string;

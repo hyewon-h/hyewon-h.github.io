@@ -16,18 +16,20 @@ export const HeroInner = styled.div`
   padding: 120px 0 80px;
 `;
 
-export const HeroContent = styled.div`
-  ${mixin.flex({ direction: "column" })};
-  gap: 20px;
+export const ProfileImg = styled.div`
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 600px;
+  pointer-events: none;
 `;
 
-export const HeroRole = styled.span`
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 600;
-
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.primary};
+export const HeroContent = styled.div`
+  width: 100%;
+  ${mixin.flex({ direction: "column", align: "center" })};
+  gap: 20px;
 `;
 
 export const HeroName = styled.h1`
@@ -38,9 +40,9 @@ export const HeroName = styled.h1`
 `;
 
 export const HeroTagline = styled.p`
-  font-size: 20px;
-  color: ${({ theme }) => theme.colors.gray600};
+  font-size: 18px;
   line-height: 150%;
+  color: ${({ theme }) => theme.colors.gray600};
 `;
 
 export const HeroDescription = styled.p`

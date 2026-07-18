@@ -23,7 +23,7 @@ const Footer = () => {
           )}
         </S.FooterLinks>
         <S.Copyright>
-          © {year} {profile.nameEn}. All rights reserved.
+          © {year} {profile.name}. All rights reserved.
         </S.Copyright>
       </S.FooterInner>
     </S.FooterWrapper>

@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { profile } from "@/data/profile";
+import Img from "@/components/common/Img";
 import * as S from "./style";
 
 const Hero = () => {
@@ -11,16 +12,17 @@ const Hero = () => {
   return (
     <S.HeroSection>
       <S.HeroInner>
+        <S.ProfileImg>
+          <Img src={profile.avatar} alt="프로필 이미지" />
+        </S.ProfileImg>
         <S.HeroContent>
-          {/* <S.HeroRole>{profile.role}</S.HeroRole> */}
           <S.HeroName
             dangerouslySetInnerHTML={{ __html: profile.nameEn }}
-            className="noto-serif"
+            // className="noto-serif"
           />
           <S.HeroTagline
             dangerouslySetInnerHTML={{ __html: profile.tagline }}
           />
-          {/* <S.HeroDescription>{profile.description}</S.HeroDescription> */}
           <S.HeroCTA>
             <S.CTAButton
               href={profile.github}
