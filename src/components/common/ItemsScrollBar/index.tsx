@@ -23,7 +23,7 @@ export interface IProps {
   selectedIndex?: number;
   /** 스크롤 정렬 방식 */
   scrollAlign?: "left" | "center";
-}
+};
 
 /**
  * 가로 스크롤 스냅 컴포넌트

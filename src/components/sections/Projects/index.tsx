@@ -2,7 +2,7 @@ import { memo, useState } from "react";
 import { projects } from "@/data/projects";
 import { workProjects } from "@/data/workProjects";
 import { WorkProjectCategory } from "@/data/types";
-import Title from "@/components/common/Title";
+import SectionTitle from "@/components/sections/Projects/components/texts/SectionTitle";
 import * as S from "./style";
 
 const WORK_CATEGORIES: WorkProjectCategory[] = [
@@ -24,7 +24,7 @@ const Projects = () => {
   return (
     <S.ProjectsSection id="projects">
       <S.ProjectsInner>
-        <Title label="Projects" title="프로젝트" />
+        <SectionTitle label="Projects" title="프로젝트" />
 
         <S.TabBar>
           <S.TabButton

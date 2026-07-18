@@ -13,8 +13,13 @@ export const Label = styled.span`
   margin-bottom: 12px;
 `;
 
-export const TitleText = styled.h2`
+export const Title = styled.h2`
   font-size: 40px;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.gray900};
+`;
+
+export const SubTitle = styled.p`
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.gray700};
 `;

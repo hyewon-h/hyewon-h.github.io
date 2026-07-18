@@ -1,17 +1,59 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import Button from "../components/common/Button";
-import Checkbox from "../components/common/Checkbox";
-import Img from "../components/common/Img";
-import Input from "../components/common/Input";
-import Modal from "../components/common/Modal";
-import Radio from "../components/common/Radio";
-import Text from "../components/common/Text";
-import Select from "../components/common/Select";
-import Tabs from "../components/common/Tabs";
-import Accordion from "../components/common/Accordion";
-import TextEditor from "../components/common/TextEditor";
-import CustomSelect from "../components/common/CustomSelect";
+import Button from "@/components/common/Button";
+import Checkbox from "@/components/common/Checkbox";
+import Img from "@/components/common/Img";
+import Video from "@/components/common/Video";
+import Input from "@/components/common/Input";
+import Modal from "@/components/common/Modal";
+import Radio from "@/components/common/Radio";
+import Text from "@/components/common/Text";
+import Select from "@/components/common/Select";
+import Tabs from "@/components/common/Tabs";
+import Accordion from "@/components/common/Accordion";
+import TextEditor from "@/components/common/TextEditor";
+import CustomSelect from "@/components/common/CustomSelect";
+import MainVisualBnrList from "@/components/sections/Projects/components/lists/MainVisualBnrList";
+import CardBannerSwiperType from "@/components/sections/Projects/components/lists/CardBannerSwiperType";
+import CardTypeBannerItem from "@/components/sections/Projects/components/items/CardTypeBannerItem";
+import ItemsScrollBar from "@/components/common/ItemsScrollBar";
+import ItemsSwiper from "@/components/common/ItemsSwiper";
+import { isMobile } from "react-device-detect";
+
+// public 하위 에셋은 빌드 없이 정적 제공되므로 절대 URL 문자열로 참조
+// (process.env.PUBLIC_URL: package.json homepage가 있어도 안전하게 base가 붙음)
+const ASSETS = `${process.env.PUBLIC_URL}/assets/images`;
+
+const mainBannerData = {
+  title: "메인 비주얼 타이틀",
+  desc: "메인 비주얼 설명",
+  slide: [
+    {
+      imgSrc: `${ASSETS}/dummy01.jpg`,
+      value: "배너1",
+    },
+    {
+      imgSrc: `${ASSETS}/dummy02.jpg`,
+      value: "배너2",
+    },
+    {
+      videoSrc: `${ASSETS}/video01.mp4`,
+      value: "배너3",
+    },
+    {
+      imgSrc: `${ASSETS}/dummy03.jpg`,
+      value: "배너4",
+    },
+    {
+      imgSrc: `${ASSETS}/dummy04.jpg`,
+      value: "배너5",
+    },
+    {
+      videoSrc: `${ASSETS}/video02.mp4`,
+      value: "배너6",
+    },
+  ],
+};
 
 const TestPage = () => {
   // Button
@@ -81,6 +123,10 @@ const TestPage = () => {
       <TestSection>
         <h2>Button</h2>
         <Button onClick={() => alert("Button Clicked!")}>버튼</Button>
+      </TestSection>
+      <TestSection>
+        <h2>react-device-detect</h2>
+        <Text>isMobile: {String(isMobile)}</Text>
       </TestSection>
       <TestSection>
         <h2>Checkbox</h2>
@@ -178,27 +224,13 @@ const TestPage = () => {
         <h2>ItemsScrollBar</h2>
         <div style={{ width: "100%", overflow: "hidden" }}>
           {/* 예시: 5개의 아이템을 가로 스크롤로 보여줌 */}
-          <React.Suspense fallback={null}>
-            {(() => {
-              const ItemsScrollBar =
-                require("../components/common/ItemsScrollBar").default;
-              return (
-                <ItemsScrollBar
-                  perView={3}
-                  gap={12}
-                  offsetLR={16}
-                  snap
-                  scrollInit
-                >
-                  {Array.from({ length: 7 }).map((_, i) => (
-                    <div key={i} className="item">
-                      <DemoItem>Item {i + 1}</DemoItem>
-                    </div>
-                  ))}
-                </ItemsScrollBar>
-              );
-            })()}
-          </React.Suspense>
+          <ItemsScrollBar perView={3} gap={12} offsetLR={16} snap scrollInit>
+            {Array.from({ length: 7 }).map((_, i) => (
+              <div key={i} className="item">
+                <DemoItem>Item {i + 1}</DemoItem>
+              </div>
+            ))}
+          </ItemsScrollBar>
         </div>
       </TestSection>
 
@@ -206,31 +238,21 @@ const TestPage = () => {
         <h2>ItemsScrollBar - perView 0 (item-auto / 너비 자동)</h2>
         <div style={{ width: "100%", overflow: "hidden" }}>
           {/* perView={0}: 아이템 너비를 컨텐츠 크기로 자동 지정 */}
-          <React.Suspense fallback={null}>
-            {(() => {
-              const ItemsScrollBar =
-                require("../components/common/ItemsScrollBar").default;
-              return (
-                <ItemsScrollBar perView={0} gap={8} offsetLR={16} snap>
-                  {[
-                    "짧음",
-                    "조금 더 긴 텍스트",
-                    "AUTO",
-                    "내용 크기로 너비 자동 조절",
-                    "끝",
-                  ].map((text, i) => (
-                    <div key={i} className="item">
-                      <DemoItem
-                        style={{ padding: "0 20px", whiteSpace: "nowrap" }}
-                      >
-                        {text}
-                      </DemoItem>
-                    </div>
-                  ))}
-                </ItemsScrollBar>
-              );
-            })()}
-          </React.Suspense>
+          <ItemsScrollBar perView={0} gap={8} offsetLR={16} snap>
+            {[
+              "짧음",
+              "조금 더 긴 텍스트",
+              "AUTO",
+              "내용 크기로 너비 자동 조절",
+              "끝",
+            ].map((text, i) => (
+              <div key={i} className="item">
+                <DemoItem style={{ padding: "0 20px", whiteSpace: "nowrap" }}>
+                  {text}
+                </DemoItem>
+              </div>
+            ))}
+          </ItemsScrollBar>
         </div>
       </TestSection>
 
@@ -238,27 +260,19 @@ const TestPage = () => {
         <h2>ItemsScrollBar - line 2 (2줄 가로 스크롤 그리드)</h2>
         <div style={{ width: "100%", overflow: "hidden" }}>
           {/* line={2}: 아이템을 2줄로 나눠 가로 스크롤 */}
-          <React.Suspense fallback={null}>
-            {(() => {
-              const ItemsScrollBar =
-                require("../components/common/ItemsScrollBar").default;
-              return (
-                <ItemsScrollBar
-                  perView={3}
-                  line={2}
-                  gap={12}
-                  rowGap={12}
-                  offsetLR={16}
-                >
-                  {Array.from({ length: 10 }).map((_, i) => (
-                    <div key={i} className="item">
-                      <DemoItem>Item {i + 1}</DemoItem>
-                    </div>
-                  ))}
-                </ItemsScrollBar>
-              );
-            })()}
-          </React.Suspense>
+          <ItemsScrollBar
+            perView={3}
+            line={2}
+            gap={12}
+            rowGap={12}
+            offsetLR={16}
+          >
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div key={i} className="item">
+                <DemoItem>Item {i + 1}</DemoItem>
+              </div>
+            ))}
+          </ItemsScrollBar>
         </div>
       </TestSection>
 
@@ -266,37 +280,29 @@ const TestPage = () => {
         <h2>ItemsScrollBar - selectedIndex / scrollAlign(center)</h2>
         {/* 아이템 안의 버튼을 클릭하면 해당 아이템이 가운데로 스크롤 */}
         <div style={{ width: "100%", overflow: "hidden" }}>
-          <React.Suspense fallback={null}>
-            {(() => {
-              const ItemsScrollBar =
-                require("../components/common/ItemsScrollBar").default;
-              return (
-                <ItemsScrollBar
-                  perView={3}
-                  gap={12}
-                  offsetLR={16}
-                  snap
-                  selectedIndex={scrollIndex}
-                  scrollAlign="center"
+          <ItemsScrollBar
+            perView={3}
+            gap={12}
+            offsetLR={16}
+            snap
+            selectedIndex={scrollIndex}
+            scrollAlign="center"
+          >
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="item">
+                <DemoItem
+                  style={{
+                    background: scrollIndex === i ? "#4f7cff" : "#e0e7ef",
+                    color: scrollIndex === i ? "#fff" : "#2a3a4a",
+                  }}
                 >
-                  {Array.from({ length: 8 }).map((_, i) => (
-                    <div key={i} className="item">
-                      <DemoItem
-                        style={{
-                          background: scrollIndex === i ? "#4f7cff" : "#e0e7ef",
-                          color: scrollIndex === i ? "#fff" : "#2a3a4a",
-                        }}
-                      >
-                        <Button onClick={() => setScrollIndex(i)}>
-                          Item {i + 1}로 이동
-                        </Button>
-                      </DemoItem>
-                    </div>
-                  ))}
-                </ItemsScrollBar>
-              );
-            })()}
-          </React.Suspense>
+                  <Button onClick={() => setScrollIndex(i)}>
+                    Item {i + 1}로 이동
+                  </Button>
+                </DemoItem>
+              </div>
+            ))}
+          </ItemsScrollBar>
         </div>
       </TestSection>
 
@@ -304,66 +310,95 @@ const TestPage = () => {
         <h2>ItemsSwiper</h2>
         <div style={{ width: "100%", maxWidth: 400 }}>
           {/* 예시: 3개의 슬라이드 */}
-          <React.Suspense fallback={null}>
-            {(() => {
-              const ItemsSwiper =
-                require("../components/common/ItemsSwiper").default;
-              return (
-                <ItemsSwiper
-                  slidesPerView={1}
-                  pagination
-                  loop
-                  autoplay={{ delay: 2000 }}
-                >
-                  {[
-                    <div
-                      key="slide1"
-                      style={{
-                        height: 120,
-                        background: "#f8d7da",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontWeight: 600,
-                        fontSize: 20,
-                      }}
-                    >
-                      Slide 1
-                    </div>,
-                    <div
-                      key="slide2"
-                      style={{
-                        height: 120,
-                        background: "#d1e7dd",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontWeight: 600,
-                        fontSize: 20,
-                      }}
-                    >
-                      Slide 2
-                    </div>,
-                    <div
-                      key="slide3"
-                      style={{
-                        height: 120,
-                        background: "#cff4fc",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontWeight: 600,
-                        fontSize: 20,
-                      }}
-                    >
-                      Slide 3
-                    </div>,
-                  ]}
-                </ItemsSwiper>
-              );
-            })()}
-          </React.Suspense>
+          <ItemsSwiper
+            slidesPerView={1}
+            pagination
+            loop
+            autoplay={{ delay: 2000 }}
+          >
+            {[
+              <div
+                key="slide1"
+                style={{
+                  height: 120,
+                  background: "#f8d7da",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontWeight: 600,
+                  fontSize: 20,
+                }}
+              >
+                Slide 1
+              </div>,
+              <div
+                key="slide2"
+                style={{
+                  height: 120,
+                  background: "#d1e7dd",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontWeight: 600,
+                  fontSize: 20,
+                }}
+              >
+                Slide 2
+              </div>,
+              <div
+                key="slide3"
+                style={{
+                  height: 120,
+                  background: "#cff4fc",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontWeight: 600,
+                  fontSize: 20,
+                }}
+              >
+                Slide 3
+              </div>,
+            ]}
+          </ItemsSwiper>
         </div>
+      </TestSection>
+
+      <TestSection>
+        <h2>Main banner</h2>
+        <div>
+          <MainVisualBnrList
+            items={mainBannerData.slide.map((item, index) => (
+              <div key={index}>
+                {item.imgSrc && (
+                  <Img src={item.imgSrc} alt={`배너 이미지 ${index + 1}`} />
+                )}
+                {item.videoSrc && (
+                  <Video src={item.videoSrc} responsive muted playsinline />
+                )}
+              </div>
+            ))}
+            title={mainBannerData.title}
+            desc={mainBannerData.desc}
+          />
+        </div>
+      </TestSection>
+
+      <TestSection>
+        <h2>CardBannerSwiperType</h2>
+        <CardBannerSwiperType
+          items={mainBannerData.slide.map((item, index) => (
+            <CardTypeBannerItem
+              key={index}
+              type="card"
+              {...(item.imgSrc !== undefined && { imgSrc: item.imgSrc })}
+              {...(item.videoSrc !== undefined && { videoSrc: item.videoSrc })}
+              title1={`카드 타이틀 ${index + 1}`}
+              subTitle={`서브 타이틀 ${index + 1}`}
+              onClick={() => alert(`카드 ${index + 1} 클릭`)}
+            />
+          ))}
+        />
       </TestSection>
     </TestPageWrapper>
   );

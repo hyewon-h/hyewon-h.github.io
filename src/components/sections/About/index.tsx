@@ -2,14 +2,14 @@ import { memo } from "react";
 import { profile } from "@/data/profile";
 import { careers } from "@/data/career";
 import { skills } from "@/data/skills";
-import Title from "@/components/common/Title";
+import SectionTitle from "@/components/sections/Projects/components/texts/SectionTitle";
 import * as S from "./style";
 
 const About = () => {
   return (
     <S.AboutSection id="about">
       <S.AboutInner>
-        <Title label="About" title="소개" />
+        <SectionTitle label="About" title="소개" />
 
         <S.AboutGrid>
           <S.AboutText>

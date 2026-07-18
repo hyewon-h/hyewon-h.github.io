@@ -39,6 +39,7 @@ declare module "styled-components" {
       md: string;
       lg: string;
       mo: string;
+      moLandscape: string;
       pc: string;
       xl: string;
       x2l: string;

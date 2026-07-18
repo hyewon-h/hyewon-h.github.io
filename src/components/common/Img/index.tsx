@@ -5,7 +5,7 @@ export interface IProps {
   /** 이미지 경로 */
   src: string;
   /** 대체 텍스트 */
-  alt: string;
+  alt?: string;
   /** 너비 */
   width?: string | number;
   /** 높이 */

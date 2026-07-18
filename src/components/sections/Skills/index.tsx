@@ -1,13 +1,13 @@
 import { memo } from "react";
 import { skills } from "@/data/skills";
-import Title from "@/components/common/Title";
+import SectionTitle from "@/components/sections/Projects/components/texts/SectionTitle";
 import * as S from "./style";
 
 const Skills = () => {
   return (
     <S.SkillsSection id="skills">
       <S.SkillsInner>
-        <Title label="Capabilities" title="기술 스택" />
+        <SectionTitle label="Capabilities" title="기술 스택" />
 
         <S.SkillsGrid>
           {skills.map((category) => (

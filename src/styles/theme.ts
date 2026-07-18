@@ -31,6 +31,8 @@ const media = {
   md: `(min-width: ${deviceSizes.md})`,
   lg: `(min-width: ${deviceSizes.lg})`,
   mo: `${deviceSizes.mo}`,
+  // 모바일 + 가로모드(태블릿 랜드스케이프 등) 전용 분기
+  moLandscape: `${deviceSizes.mo} and (max-width: 950px) and (orientation: landscape)`,
   pc: `${deviceSizes.pc}`,
   xl: `(min-width: ${deviceSizes.xl})`,
   x2l: `(min-width: ${deviceSizes.x2l})`,
