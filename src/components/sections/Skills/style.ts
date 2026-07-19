@@ -33,7 +33,7 @@ export const CategoryTitle = styled.h3`
 
 export const SkillList = styled.ul`
   ${mixin.flex({ direction: "column" })};
-  gap: 12px;
+  gap: 4px;
 `;
 
 export const SkillItem = styled.li`

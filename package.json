@@ -24,12 +24,18 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --max-warnings=0"
     ]
   },
   "browserslist": {
@@ -49,6 +55,8 @@
     "@types/node": "^24.1.0",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
+    "husky": "^9.1.7",
+    "lint-staged": "^15",
     "typescript": "^5.8.3"
   }
 }
