@@ -15,10 +15,9 @@ export const InputField = styled.input<IProps>`
   border: 1px solid
     ${({ $error, theme }) =>
       $error ? "#ff4757" : theme.colors?.gray300 || "#d1d5db"};
-  border-radius: 8px;
   font-size: 16px;
   font-family: inherit;
-  background: white;
+  background: #fff;
   transition: all 0.2s ease;
 
   &:focus {

@@ -29,7 +29,7 @@ export const ModalBackdrop = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
   ${mixin.flex({ align: "center", justify: "center" })};
   z-index: 1000;
   animation: ${fadeIn} 0.2s ease-out;
@@ -37,64 +37,77 @@ export const ModalBackdrop = styled.div`
 
 // 모달 컨테이너
 export const ModalContainer = styled.div<{ $size: string }>`
-  background: white;
+  background: #fff;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-height: 90vh;
+  width: 95%;
+  max-height: 95vh;
   overflow: hidden;
   animation: ${slideIn} 0.3s ease-out;
 
-  ${({ $size }) => {
-    switch ($size) {
-      case "small":
-        return css`
-          width: 90%;
-          max-width: 400px;
-        `;
-      case "medium":
-        return css`
-          width: 90%;
-          max-width: 600px;
-        `;
-      case "large":
-        return css`
-          width: 90%;
-          max-width: 1326px;
-        `;
-      case "fullscreen":
-        return css`
-          width: 95%;
-          height: 95%;
-          max-width: none;
-          max-height: none;
-        `;
-      default:
-        return css`
-          width: 90%;
-          max-width: 600px;
-        `;
-    }
-  }}
+  ${({ $size }) =>
+    $size === "fullscreen" &&
+    css`
+      top: 0;
+      left: 0;
+      transform: none;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      max-height: none;
+      animation: ${fadeIn} 0.2s ease-out;
+    `}
 
-  @media ${({ theme }) => theme.media.smMax} {
-    width: 95%;
-    max-height: 95vh;
+  @media ${({ theme }) => theme.media.pc} {
+    max-height: 90vh;
+
+    ${({ $size }) => {
+      switch ($size) {
+        case "small":
+          return css`
+            width: 90%;
+            max-width: 400px;
+          `;
+        case "medium":
+          return css`
+            width: 90%;
+            max-width: 600px;
+          `;
+        case "large":
+          return css`
+            width: 90%;
+            max-width: 1326px;
+          `;
+        case "fullscreen":
+          return css`
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            max-height: none;
+          `;
+        default:
+          return css`
+            width: 90%;
+            max-width: 600px;
+          `;
+      }
+    }}
   }
 `;
 
 // 모달 헤더
 export const ModalHeader = styled.div`
   ${mixin.flex({ align: "center", justify: "space-between" })};
-  padding: 20px 24px 16px;
+  padding: 12px 24px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray200};
 `;
 
 // 모달 제목
 export const ModalTitle = styled.h2`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.gray900};
 `;
@@ -122,12 +135,12 @@ export const CloseButton = styled.button`
 
 // 모달 내용
 export const ModalContent = styled.div`
-  padding: 24px;
+  padding: 16px;
   overflow-y: auto;
-  max-height: calc(90vh - 100px);
+  max-height: calc(95vh - 100px);
 
-  @media ${({ theme }) => theme.media.smMax} {
-    padding: 16px;
-    max-height: calc(95vh - 100px);
+  @media ${({ theme }) => theme.media.pc} {
+    padding: 24px;
+    max-height: calc(90vh - 100px);
   }
 `;

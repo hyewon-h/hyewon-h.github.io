@@ -23,6 +23,32 @@ export interface SkillCategory {
 }
 
 // Projects
+export interface ProjectBannerSlide {
+  imgSrc?: string;
+  videoSrc?: string;
+  value?: string;
+}
+
+export interface ProjectCardBannerItem {
+  imgSrc?: string;
+  videoSrc?: string;
+  title1?: string;
+  subTitle?: string;
+}
+
+// Modal 안에 어떤 컴포넌트로 상세를 보여줄지: type으로 분기
+export type ProjectDetail =
+  | {
+      type: "mainVisual";
+      title?: string;
+      desc?: string;
+      slides: ProjectBannerSlide[];
+    }
+  | {
+      type: "cardBanner";
+      items: ProjectCardBannerItem[];
+    };
+
 export interface Project {
   id: number;
   title: string;
@@ -34,6 +60,8 @@ export interface Project {
   period: string;
   role: string;
   featured?: boolean;
+  /** 클릭 시 Modal로 보여줄 상세 (type에 따라 렌더링 컴포넌트가 달라짐) */
+  detail?: ProjectDetail;
 }
 
 // Career

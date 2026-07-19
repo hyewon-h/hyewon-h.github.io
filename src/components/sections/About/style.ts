@@ -3,8 +3,16 @@ import styled from "styled-components";
 
 export const AboutSection = styled.section`
   min-height: 100vh;
-  padding: 120px 0;
+  padding: 72px 20px;
   background: ${({ theme }) => theme.colors.surface};
+
+  @media ${({ theme }) => theme.media.smMax} {
+    padding: ${mixin.pxToVw("72 20")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    padding: 120px 0;
+  }
 `;
 
 export const AboutInner = styled.div`
@@ -14,20 +22,23 @@ export const AboutInner = styled.div`
 
 export const AboutGrid = styled.div`
   display: grid;
-  // grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  grid-template-columns: 1fr;
+  gap: 48px;
 
   @media ${({ theme }) => theme.media.smMax} {
-    grid-template-columns: 1fr;
     gap: ${mixin.pxToVw("48")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    gap: 64px;
   }
 `;
 
 export const AboutText = styled.div``;
 
 export const AboutDescription = styled.p`
-  font-size: 16px;
-  line-height: 180%;
+  font-size: 14px;
+  line-height: 170%;
   word-break: keep-all;
   color: ${({ theme }) => theme.colors.gray600};
 `;
@@ -44,18 +55,32 @@ export const CareerTitle = styled.h3`
 
 export const CareerList = styled.ul`
   ${mixin.flex({ direction: "column" })};
-  gap: 32px;
-  margin-bottom: 40px;
+  gap: 24px;
+  margin-bottom: 28px;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    gap: ${mixin.pxToVw("24")};
+    margin-bottom: ${mixin.pxToVw("28")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    gap: 32px;
+    margin-bottom: 40px;
+  }
 `;
 
 export const CareerItem = styled.li`
   display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 16px;
+  grid-template-columns: 1fr;
+  gap: 6px;
 
   @media ${({ theme }) => theme.media.smMax} {
-    grid-template-columns: 1fr;
     gap: ${mixin.pxToVw("6")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    grid-template-columns: 120px 1fr;
+    gap: 16px;
   }
 `;
 
@@ -88,7 +113,7 @@ export const CareerDesc = styled.ul`
   li {
     font-size: 14px;
     color: ${({ theme }) => theme.colors.gray600};
-    line-height: 160%;
+    line-height: 170%;
     padding-left: 12px;
     position: relative;
 
@@ -108,7 +133,15 @@ export const CareerDesc = styled.ul`
 
 export const SkillsBlock = styled.div`
   ${mixin.flex({ direction: "column" })};
-  gap: 32px;
+  gap: 24px;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    gap: ${mixin.pxToVw("24")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    gap: 32px;
+  }
 `;
 
 export const SkillCategory = styled.div``;

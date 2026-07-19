@@ -35,9 +35,9 @@ export const CardBannerSwiperType = styled.div`
       }
     }
 
-    &.swiper-slide-next ~ .swiper-slide {
-      opacity: 0 !important;
-    }
+    // &.swiper-slide-next ~ .swiper-slide {
+    //   opacity: 0 !important;
+    // }
 
     &:not(.swiper-slide-active) {
       cursor: default;

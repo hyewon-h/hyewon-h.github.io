@@ -1,8 +1,15 @@
 import { memo, useState } from "react";
+import { isDesktop } from "react-device-detect";
 import { projects } from "@/data/projects";
 import { workProjects } from "@/data/workProjects";
 import { WorkProjectCategory } from "@/data/types";
 import SectionTitle from "@/components/sections/Projects/components/texts/SectionTitle";
+import Modal from "@/components/common/Modal";
+import Img from "@/components/common/Img";
+import Video from "@/components/common/Video";
+import MainVisualBnrList from "@/components/sections/Projects/components/lists/MainVisualBnrList";
+import CardBannerSwiperType from "@/components/sections/Projects/components/lists/CardBannerSwiperType";
+import CardTypeBannerItem from "@/components/sections/Projects/components/items/CardTypeBannerItem";
 import * as S from "./style";
 
 const WORK_CATEGORIES: WorkProjectCategory[] = [
@@ -16,10 +23,13 @@ type ProjectTab = "portfolio" | "work";
 const Projects = () => {
   const [activeTab, setActiveTab] = useState<ProjectTab>("work");
   const [openWorkId, setOpenWorkId] = useState<number | null>(null);
+  const [openProjectId, setOpenProjectId] = useState<number | null>(null);
 
   const toggleWork = (id: number) => {
     setOpenWorkId((prev) => (prev === id ? null : id));
   };
+
+  const openProject = projects.find((p) => p.id === openProjectId);
 
   return (
     <S.ProjectsSection id="projects">
@@ -31,64 +41,40 @@ const Projects = () => {
             $isActive={activeTab === "work"}
             onClick={() => setActiveTab("work")}
           >
-            회사 프로젝트
+            Project Overview
           </S.TabButton>
           <S.TabButton
             $isActive={activeTab === "portfolio"}
             onClick={() => setActiveTab("portfolio")}
           >
-            포트폴리오
+            Component Archive
           </S.TabButton>
         </S.TabBar>
 
         {activeTab === "portfolio" && (
           <S.PortfolioGrid>
-            {projects.length === 0 ? (
-              <S.EmptyState>
-                <S.EmptyIcon>🚧</S.EmptyIcon>
-                <S.EmptyText>포트폴리오 프로젝트를 준비 중입니다.</S.EmptyText>
-              </S.EmptyState>
-            ) : (
-              projects.map((project) => (
-                <S.ProjectCard key={project.id}>
-                  {project.thumbnailUrl && (
-                    <S.ProjectThumbnail
-                      src={project.thumbnailUrl}
-                      alt={project.title}
-                    />
-                  )}
-                  <S.ProjectCardBody>
-                    <S.ProjectTitle>{project.title}</S.ProjectTitle>
-                    <S.ProjectDesc>{project.description}</S.ProjectDesc>
-                    <S.ProjectTags>
-                      {project.tags.map((tag) => (
-                        <S.Tag key={tag}>{tag}</S.Tag>
-                      ))}
-                    </S.ProjectTags>
-                    <S.ProjectLinks>
-                      {project.githubUrl && (
-                        <S.ProjectLink
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          GitHub
-                        </S.ProjectLink>
-                      )}
-                      {project.siteUrl && (
-                        <S.ProjectLink
-                          href={project.siteUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Live
-                        </S.ProjectLink>
-                      )}
-                    </S.ProjectLinks>
-                  </S.ProjectCardBody>
-                </S.ProjectCard>
-              ))
-            )}
+            {projects.map((project) => (
+              <S.ProjectCard
+                key={project.id}
+                $clickable={!!project.detail}
+                onClick={() => project.detail && setOpenProjectId(project.id)}
+              >
+                {project.thumbnailUrl && (
+                  <S.ProjectThumbnail>
+                    <Img src={project.thumbnailUrl} alt={project.title} />
+                  </S.ProjectThumbnail>
+                )}
+                <S.ProjectCardBody>
+                  <S.ProjectTitle>{project.title}</S.ProjectTitle>
+                  <S.ProjectDesc>{project.description}</S.ProjectDesc>
+                  <S.ProjectTags>
+                    {project.tags.map((tag) => (
+                      <S.Tag key={tag}>{tag}</S.Tag>
+                    ))}
+                  </S.ProjectTags>
+                </S.ProjectCardBody>
+              </S.ProjectCard>
+            ))}
           </S.PortfolioGrid>
         )}
 
@@ -157,6 +143,62 @@ const Projects = () => {
           </S.WorkList>
         )}
       </S.ProjectsInner>
+
+      {openProject?.detail && (
+        <Modal
+          isOpen
+          onClose={() => setOpenProjectId(null)}
+          title={openProject.title}
+          size={isDesktop ? "large" : "fullscreen"}
+        >
+          {openProject.detail.type === "mainVisual" && (
+            <MainVisualBnrList
+              {...(openProject.detail.title !== undefined && {
+                title: openProject.detail.title,
+              })}
+              {...(openProject.detail.desc !== undefined && {
+                desc: openProject.detail.desc,
+              })}
+              isDesktop={isDesktop}
+              items={openProject.detail.slides.map((slide, index) => (
+                <div key={index}>
+                  {slide.imgSrc && (
+                    <Img
+                      src={slide.imgSrc}
+                      alt={
+                        slide.value || `${openProject.title} 배너 ${index + 1}`
+                      }
+                    />
+                  )}
+                  {slide.videoSrc && (
+                    <Video src={slide.videoSrc} responsive muted playsinline />
+                  )}
+                </div>
+              ))}
+            />
+          )}
+
+          {openProject.detail.type === "cardBanner" && (
+            <CardBannerSwiperType
+              isDesktop={isDesktop}
+              items={openProject.detail.items.map((item, index) => (
+                <CardTypeBannerItem
+                  key={index}
+                  type="card"
+                  {...(item.imgSrc !== undefined && { imgSrc: item.imgSrc })}
+                  {...(item.videoSrc !== undefined && {
+                    videoSrc: item.videoSrc,
+                  })}
+                  {...(item.title1 !== undefined && { title1: item.title1 })}
+                  {...(item.subTitle !== undefined && {
+                    subTitle: item.subTitle,
+                  })}
+                />
+              ))}
+            />
+          )}
+        </Modal>
+      )}
     </S.ProjectsSection>
   );
 };

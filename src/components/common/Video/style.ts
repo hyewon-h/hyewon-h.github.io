@@ -14,7 +14,9 @@ export const Box = styled.div<IProps>`
   width: 100%;
 
   border-radius: ${({ $borderRadius }) =>
-    typeof $borderRadius === 'number' ? `${$borderRadius}px` : $borderRadius};
+    typeof $borderRadius === 'number'
+      ? `${mixin.pxToVw(String($borderRadius))}`
+      : $borderRadius};
 
   ${props => {
     if (
@@ -28,10 +30,10 @@ export const Box = styled.div<IProps>`
     }
     return css`
       width: ${typeof props.$width === 'number'
-        ? `${props.$width}px`
+        ? `${mixin.pxToVw(String(props.$width))}`
         : props.$width};
       height: ${typeof props.$height === 'number'
-        ? `${props.$height}px`
+        ? `${mixin.pxToVw(String(props.$height))}`
         : props.$height};
 
       @media ${({ theme }) => theme.media.smMax} {
@@ -40,6 +42,15 @@ export const Box = styled.div<IProps>`
           : props.$width};
         height: ${typeof props.$height === 'number'
           ? `${mixin.pxToVw(String(props.$height))}`
+          : props.$height};
+      }
+
+      @media ${({ theme }) => theme.media.pc} {
+        width: ${typeof props.$width === 'number'
+          ? `${props.$width}px`
+          : props.$width};
+        height: ${typeof props.$height === 'number'
+          ? `${props.$height}px`
           : props.$height};
       }
     `;
@@ -86,6 +97,11 @@ export const Box = styled.div<IProps>`
       typeof $borderRadius === 'number'
         ? `${mixin.pxToVw(String($borderRadius))}`
         : $borderRadius};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    border-radius: ${({ $borderRadius }) =>
+      typeof $borderRadius === 'number' ? `${$borderRadius}px` : $borderRadius};
   }
 `;
 

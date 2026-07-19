@@ -77,7 +77,7 @@ const ItemsSwiper: React.FunctionComponent<IProps> = ({
   centeredSlides = false,
   watchSlidesProgress = false,
   slideToClickedSlide = false,
-  simulateTouch = false,
+  simulateTouch = true,
   width = null,
   navigation = false,
   autoplay,

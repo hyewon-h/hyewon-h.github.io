@@ -11,7 +11,11 @@ const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { activeSection, scrollToSection } = useScrollNavi(SECTION_IDS);
-  const { value: isMobileNavOpen, setTrue: openMobileNav, setFalse: closeMobileNav } = useToggle();
+  const {
+    value: isMobileNavOpen,
+    setTrue: openMobileNav,
+    setFalse: closeMobileNav,
+  } = useToggle();
   const mobileNavRef = useRef<HTMLDivElement>(null);
 
   useClickOutside(mobileNavRef, closeMobileNav);
@@ -25,7 +29,9 @@ const Header = () => {
   // 모바일 nav 열릴 때 스크롤 방지
   useEffect(() => {
     document.body.style.overflow = isMobileNavOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isMobileNavOpen]);
 
   return (
@@ -40,7 +46,7 @@ const Header = () => {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            {profile.name}
+            H
           </S.Logo>
 
           <S.DesktopNav>

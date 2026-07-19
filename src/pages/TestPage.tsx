@@ -18,7 +18,7 @@ import CardBannerSwiperType from "@/components/sections/Projects/components/list
 import CardTypeBannerItem from "@/components/sections/Projects/components/items/CardTypeBannerItem";
 import ItemsScrollBar from "@/components/common/ItemsScrollBar";
 import ItemsSwiper from "@/components/common/ItemsSwiper";
-import { isMobile } from "react-device-detect";
+import { isMobile, isDesktop } from "react-device-detect";
 
 // public 하위 에셋은 빌드 없이 정적 제공되므로 절대 URL 문자열로 참조
 // (process.env.PUBLIC_URL: package.json homepage가 있어도 안전하게 base가 붙음)
@@ -29,11 +29,11 @@ const mainBannerData = {
   desc: "메인 비주얼 설명",
   slide: [
     {
-      imgSrc: `${ASSETS}/dummy01.jpg`,
+      imgSrc: `${ASSETS}/shiru01.jpeg`,
       value: "배너1",
     },
     {
-      imgSrc: `${ASSETS}/dummy02.jpg`,
+      imgSrc: `${ASSETS}/shiru02.jpeg`,
       value: "배너2",
     },
     {
@@ -41,11 +41,11 @@ const mainBannerData = {
       value: "배너3",
     },
     {
-      imgSrc: `${ASSETS}/dummy03.jpg`,
+      imgSrc: `${ASSETS}/shiru03.jpeg`,
       value: "배너4",
     },
     {
-      imgSrc: `${ASSETS}/dummy04.jpg`,
+      imgSrc: `${ASSETS}/shiru04.jpeg`,
       value: "배너5",
     },
     {
@@ -123,10 +123,6 @@ const TestPage = () => {
       <TestSection>
         <h2>Button</h2>
         <Button onClick={() => alert("Button Clicked!")}>버튼</Button>
-      </TestSection>
-      <TestSection>
-        <h2>react-device-detect</h2>
-        <Text>isMobile: {String(isMobile)}</Text>
       </TestSection>
       <TestSection>
         <h2>Checkbox</h2>
@@ -398,6 +394,7 @@ const TestPage = () => {
               onClick={() => alert(`카드 ${index + 1} 클릭`)}
             />
           ))}
+          isDesktop={isDesktop}
         />
       </TestSection>
     </TestPageWrapper>

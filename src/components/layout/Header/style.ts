@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.header<{ $isScrolled: boolean }>`
   left: 0;
   right: 0;
   z-index: 100;
-  height: 60px;
+  height: 50px;
   background-color: ${({ $isScrolled }) =>
     $isScrolled ? "rgba(255, 255, 255, 0.8)" : "transparent"};
   backdrop-filter: ${({ $isScrolled }) => ($isScrolled ? "blur(4px)" : "none")};
@@ -36,7 +36,7 @@ export const HeaderInner = styled.div`
 `;
 
 export const Logo = styled.a`
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.gray900};
 
@@ -60,9 +60,8 @@ export const DesktopNav = styled.div`
 export const HamburgerButton = styled.button`
   ${mixin.flex({ direction: "column", justify: "center" })};
   gap: 5px;
-  width: 40px;
+  width: 20px;
   height: 40px;
-  padding: 8px;
 
   span {
     display: block;

@@ -3,8 +3,16 @@ import { mixin } from "@/styles/index";
 
 export const ProjectsSection = styled.section`
   min-height: 100vh;
-  padding: 120px 0;
+  padding: 72px 20px;
   background: ${({ theme }) => theme.colors.surface};
+
+  @media ${({ theme }) => theme.media.smMax} {
+    padding: ${mixin.pxToVw("72 20")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    padding: 120px 0;
+  }
 `;
 
 export const ProjectsInner = styled.div`
@@ -15,9 +23,16 @@ export const ProjectsInner = styled.div`
 // Tab
 export const TabBar = styled.div`
   ${mixin.flex({})};
-  gap: 4px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray200};
-  margin-bottom: 48px;
+  margin-bottom: 32px;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    margin-bottom: ${mixin.pxToVw("32")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    margin-bottom: 48px;
+  }
 `;
 
 export const TabButton = styled.button<{ $isActive: boolean }>`
@@ -47,37 +62,27 @@ export const PortfolioGrid = styled.div`
   gap: 24px;
 `;
 
-export const EmptyState = styled.div`
-  grid-column: 1 / -1;
-  ${mixin.flex({ direction: "column", align: "center", justify: "center" })};
-  gap: 16px;
-  padding: 80px 0;
-`;
-
-export const EmptyIcon = styled.span`
-  font-size: 40px;
-`;
-
-export const EmptyText = styled.p`
-  font-size: 15px;
-  color: ${({ theme }) => theme.colors.gray400};
-`;
-
-export const ProjectCard = styled.article`
+export const ProjectCard = styled.article<{ $clickable?: boolean }>`
   background: ${({ theme }) => theme.colors.background};
   border: 1px solid ${({ theme }) => theme.colors.gray100};
   overflow: hidden;
-  transition: box-shadow 0.2s ease;
+  cursor: ${({ $clickable }) => ($clickable ? "pointer" : "default")};
 
   &:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    img {
+      transform: scale(1.08);
+    }
   }
 `;
 
-export const ProjectThumbnail = styled.img`
+export const ProjectThumbnail = styled.div`
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  overflow: hidden;
+
+  img {
+    transition: transform 0.3s ease;
+  }
 `;
 
 export const ProjectCardBody = styled.div`
@@ -94,19 +99,13 @@ export const ProjectTitle = styled.h3`
 
 export const ProjectDesc = styled.p`
   font-size: 14px;
-  line-height: 160%;
+  line-height: 170%;
   color: ${({ theme }) => theme.colors.gray600};
 `;
 
 export const ProjectTags = styled.div`
   ${mixin.flex({ wrap: "wrap" })};
   gap: 6px;
-`;
-
-export const ProjectLinks = styled.div`
-  ${mixin.flex({})};
-  gap: 8px;
-  margin-top: 4px;
 `;
 
 export const ProjectLink = styled.a`
@@ -150,7 +149,7 @@ export const WorkItem = styled.div`
 export const WorkItemHeader = styled.button`
   ${mixin.flex({ align: "center", justify: "space-between" })};
   width: 100%;
-  padding: 20px 24px;
+  padding: 16px;
   background: none;
   border: none;
   cursor: pointer;
@@ -159,6 +158,14 @@ export const WorkItemHeader = styled.button`
 
   &:hover {
     background: ${({ theme }) => theme.colors.gray50};
+  }
+
+  @media ${({ theme }) => theme.media.smMax} {
+    padding: ${mixin.pxToVw("16")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    padding: 20px 24px;
   }
 `;
 
@@ -187,10 +194,18 @@ export const WorkItemChevron = styled.span<{ $isOpen: boolean }>`
 `;
 
 export const WorkItemBody = styled.div`
-  padding: 0 24px 24px;
+  padding: 0 16px 16px;
   ${mixin.flex({ direction: "column" })};
   gap: 20px;
   border-top: 1px solid ${({ theme }) => theme.colors.gray100};
+
+  @media ${({ theme }) => theme.media.smMax} {
+    padding: ${mixin.pxToVw("0 16 16")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    padding: 0 24px 24px;
+  }
 `;
 
 export const WorkSummary = styled.p`
@@ -216,7 +231,7 @@ export const WorkSubList = styled.ul`
 
   li {
     font-size: 14px;
-    line-height: 160%;
+    line-height: 170%;
     color: ${({ theme }) => theme.colors.gray600};
     padding-left: 14px;
     position: relative;
