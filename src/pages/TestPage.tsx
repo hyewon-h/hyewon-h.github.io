@@ -18,7 +18,7 @@ import CardBannerSwiperType from "@/components/sections/Projects/components/list
 import CardTypeBannerItem from "@/components/sections/Projects/components/items/CardTypeBannerItem";
 import ItemsScrollBar from "@/components/common/ItemsScrollBar";
 import ItemsSwiper from "@/components/common/ItemsSwiper";
-import { isMobile, isDesktop } from "react-device-detect";
+import { isDesktop } from "react-device-detect";
 
 // public 하위 에셋은 빌드 없이 정적 제공되므로 절대 URL 문자열로 참조
 // (process.env.PUBLIC_URL: package.json homepage가 있어도 안전하게 base가 붙음)

@@ -40,12 +40,14 @@ const Projects = () => {
           <S.TabButton
             $isActive={activeTab === "work"}
             onClick={() => setActiveTab("work")}
+            data-label="Project Overview"
           >
             Project Overview
           </S.TabButton>
           <S.TabButton
             $isActive={activeTab === "portfolio"}
             onClick={() => setActiveTab("portfolio")}
+            data-label="Component Archive"
           >
             Component Archive
           </S.TabButton>

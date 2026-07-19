@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useScrollNavi } from "@/hooks/useScrollNavi";
 import { useToggle } from "@/hooks/useToggle";
 import { useClickOutside } from "@/hooks/useClickOutside";
-import { profile } from "@/data/profile";
 import Navigation, { NAV_ITEMS } from "../Navigation";
 import * as S from "./style";
 

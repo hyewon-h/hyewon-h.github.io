@@ -38,7 +38,7 @@ export const TabBar = styled.div`
 export const TabButton = styled.button<{ $isActive: boolean }>`
   padding: 10px 20px;
   font-size: 15px;
-  font-weight: ${({ $isActive }) => ($isActive ? 600 : 400)};
+  font-weight: ${({ $isActive }) => ($isActive ? 500 : 400)};
   color: ${({ theme, $isActive }) =>
     $isActive ? theme.colors.gray900 : theme.colors.gray500};
   border: none;
@@ -48,7 +48,18 @@ export const TabButton = styled.button<{ $isActive: boolean }>`
   background: none;
   cursor: pointer;
   margin-bottom: -1px;
-  transition: all 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+
+  &::after {
+    content: attr(data-label);
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    font-weight: 500;
+  }
 
   &:hover {
     color: ${({ theme }) => theme.colors.gray700};

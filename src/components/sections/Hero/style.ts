@@ -90,7 +90,6 @@ export const HeroDescription = styled.p`
 export const HeroCTA = styled.div`
   ${mixin.flex({ wrap: "wrap" })};
   gap: 8px;
-  margin-top: 12px;
 `;
 
 const baseButton = css`
