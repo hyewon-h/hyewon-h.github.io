@@ -41,10 +41,15 @@ export const HeroContent = styled.div`
   ${mixin.flex({ direction: "column", align: "center" })};
   gap: 16px;
   text-align: center;
+
+  @media ${({ theme }) => theme.media.pc} {
+    align-items: flex-start;
+    text-align: left;
+  }
 `;
 
 export const HeroName = styled.h1`
-  font-weight: 700;
+  font-weight: 600;
   font-size: 40px;
   line-height: 100%;
   color: ${({ theme }) => theme.colors.gray900};
@@ -59,16 +64,17 @@ export const HeroName = styled.h1`
 `;
 
 export const HeroTagline = styled.p`
-  font-size: 15px;
+  font-size: 14px;
   line-height: 150%;
   color: ${({ theme }) => theme.colors.gray600};
 
   @media ${({ theme }) => theme.media.smMax} {
-    font-size: ${mixin.pxToVw("15")};
+    font-size: ${mixin.pxToVw("14")};
   }
 
   @media ${({ theme }) => theme.media.pc} {
     font-size: 18px;
+    line-height: 170%;
   }
 `;
 
@@ -95,12 +101,11 @@ export const HeroCTA = styled.div`
 const baseButton = css`
   ${mixin.flex({ display: "inline-flex", align: "center", justify: "center" })};
   min-width: 120px;
-  height: 40px;
+  height: 38px;
   padding: 0 28px;
+  font-weight: 500;
   font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
+  border-radius: 20px;
   transition: all 0.2s ease;
 `;
 

@@ -251,7 +251,7 @@ export const WorkSubList = styled.ul`
       content: "·";
       position: absolute;
       left: 4px;
-      color: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.gray600};
       font-weight: 600;
     }
   }

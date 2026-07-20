@@ -2,9 +2,9 @@ import { memo } from "react";
 import * as S from "./style";
 
 export const NAV_ITEMS = [
-  { id: "about", label: "About" },
-  { id: "projects", label: "Projects" },
-  { id: "contact", label: "Contact" },
+  { id: "about", label: "ABOUT" },
+  { id: "projects", label: "PROJECTS" },
+  { id: "contact", label: "CONTACT" },
 ] as const;
 
 interface NavigationProps {
@@ -13,7 +13,11 @@ interface NavigationProps {
   onClose?: () => void;
 }
 
-const Navigation = ({ activeSection, onNavClick, onClose }: NavigationProps) => {
+const Navigation = ({
+  activeSection,
+  onNavClick,
+  onClose,
+}: NavigationProps) => {
   const handleClick = (id: string) => {
     onNavClick(id);
     onClose?.();

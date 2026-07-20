@@ -10,9 +10,9 @@ type IProps = {
 
 const SectionTitle = ({ label, title, subTitle, className }: IProps) => (
   <S.TitleWrapper className={className}>
-    <S.Label>{label}</S.Label>
+    {label && <S.Label>{label}</S.Label>}
     <S.Title>{title}</S.Title>
-    <S.SubTitle>{subTitle}</S.SubTitle>
+    {subTitle && <S.SubTitle>{subTitle}</S.SubTitle>}
   </S.TitleWrapper>
 );
 

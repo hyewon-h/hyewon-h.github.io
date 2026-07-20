@@ -16,21 +16,18 @@ const Hero = () => {
           <Img src={profile.avatar} alt="프로필 이미지" />
         </S.ProfileImg>
         <S.HeroContent>
-          <S.HeroName
-            dangerouslySetInnerHTML={{ __html: profile.nameEn }}
-            // className="noto-serif"
-          />
+          <S.HeroName dangerouslySetInnerHTML={{ __html: profile.nameEn }} />
           <S.HeroTagline
             dangerouslySetInnerHTML={{ __html: profile.tagline }}
           />
           <S.HeroCTA>
-            <S.CTAButton
+            {/* <S.CTAButton
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
             >
               GitHub
-            </S.CTAButton>
+            </S.CTAButton> */}
             <S.CTAButtonOutline
               href="#about"
               onClick={(e) => {
@@ -43,12 +40,12 @@ const Hero = () => {
           </S.HeroCTA>
         </S.HeroContent>
 
-        <S.ScrollIndicator
+        {/* <S.ScrollIndicator
           onClick={handleScrollDown}
           aria-label="아래로 스크롤"
         >
           <S.ScrollLine />
-        </S.ScrollIndicator>
+        </S.ScrollIndicator> */}
       </S.HeroInner>
     </S.HeroSection>
   );
