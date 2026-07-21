@@ -7,6 +7,7 @@ import SectionTitle from "@/components/sections/Projects/components/texts/Sectio
 import Modal from "@/components/common/Modal";
 import Img from "@/components/common/Img";
 import Video from "@/components/common/Video";
+import Tag from "@/components/common/Tag";
 import MainVisualBnrList from "@/components/sections/Projects/components/lists/MainVisualBnrList";
 import CardBannerSwiperType from "@/components/sections/Projects/components/lists/CardBannerSwiperType";
 import CardTypeBannerItem from "@/components/sections/Projects/components/items/CardTypeBannerItem";
@@ -71,7 +72,7 @@ const Projects = () => {
                   <S.ProjectDesc>{project.description}</S.ProjectDesc>
                   <S.ProjectTags>
                     {project.tags.map((tag) => (
-                      <S.Tag key={tag}>{tag}</S.Tag>
+                      <Tag key={tag}>{tag}</Tag>
                     ))}
                   </S.ProjectTags>
                 </S.ProjectCardBody>
@@ -132,7 +133,7 @@ const Projects = () => {
 
                           <S.WorkTags>
                             {project.tags.map((tag) => (
-                              <S.Tag key={tag}>{tag}</S.Tag>
+                              <Tag key={tag}>{tag}</Tag>
                             ))}
                           </S.WorkTags>
                         </S.WorkItemBody>

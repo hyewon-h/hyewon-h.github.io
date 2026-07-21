@@ -261,14 +261,3 @@ export const WorkTags = styled.div`
   ${mixin.flex({ wrap: "wrap" })};
   gap: 6px;
 `;
-
-// Shared
-export const Tag = styled.span`
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.gray600};
-  background: ${({ theme }) => theme.colors.gray100};
-  padding: 3px 8px;
-  border-radius: 4px;
-`;

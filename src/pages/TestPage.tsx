@@ -18,6 +18,11 @@ import CardBannerSwiperType from "@/components/sections/Projects/components/list
 import CardTypeBannerItem from "@/components/sections/Projects/components/items/CardTypeBannerItem";
 import ItemsScrollBar from "@/components/common/ItemsScrollBar";
 import ItemsSwiper from "@/components/common/ItemsSwiper";
+import FilterModal from "@/components/sections/Projects/components/modals/FilterModal";
+import GnbSearch from "@/components/common/GnbSearch";
+import Tag from "@/components/common/Tag";
+import Chip from "@/components/common/Chip";
+import MenuBarSwiper from "@/components/common/MenuBarSwiper";
 import { isDesktop } from "react-device-detect";
 
 // public 하위 에셋은 빌드 없이 정적 제공되므로 절대 URL 문자열로 참조
@@ -63,6 +68,34 @@ const TestPage = () => {
   const [inputValue, setInputValue] = useState("");
   // Modal
   const [modalOpen, setModalOpen] = useState(false);
+  // FilterModal
+  const [filterOpen, setFilterOpen] = useState(false);
+  // Chip
+  const [chips, setChips] = useState(["원피스", "니트", "코트", "가방"]);
+  // MenuBarSwiper
+  const menuItems = [
+    "전체",
+    "아우터",
+    "니트",
+    "티셔츠",
+    "원피스",
+    "팬츠",
+    "스커트",
+    "가방",
+    "슈즈",
+    "액세서리",
+    "주얼리",
+    "언더웨어",
+    "라이프",
+    "뷰티",
+  ].map((label) => ({ value: label, label }));
+  const [menuValue, setMenuValue] = useState<string | number>("전체");
+  const [menuAlign, setMenuAlign] = useState<"center" | "left">("center");
+  // Drawer Modal (type / placement)
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerPlacement, setDrawerPlacement] = useState<
+    "bottom" | "left" | "right"
+  >("bottom");
   // Radio
   const [radioValue, setRadioValue] = useState("option1");
   // Select
@@ -190,6 +223,97 @@ const TestPage = () => {
         <Button onClick={() => setModalOpen(true)}>모달 열기</Button>
         <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
           <div style={{ padding: 24 }}>모달 내용입니다.</div>
+        </Modal>
+      </TestSection>
+      <TestSection>
+        <h2>FilterModal</h2>
+        <Button onClick={() => setFilterOpen(true)}>필터 모달 열기</Button>
+        <FilterModal
+          isOpen={filterOpen}
+          onClose={() => setFilterOpen(false)}
+          onApply={(selected) => console.log("적용된 필터:", selected)}
+          size={isDesktop ? "medium" : "fullscreen"}
+        />
+      </TestSection>
+      <TestSection>
+        <h2>MenuBarSwiper (가로 메뉴 + 펼침 버튼)</h2>
+        <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
+          <Button onClick={() => setMenuAlign("center")}>
+            center{menuAlign === "center" ? " ●" : ""}
+          </Button>
+          <Button onClick={() => setMenuAlign("left")}>
+            left{menuAlign === "left" ? " ●" : ""}
+          </Button>
+        </div>
+        <MenuBarSwiper
+          items={menuItems}
+          selectedValue={menuValue}
+          onChange={setMenuValue}
+          align={menuAlign}
+        />
+        <p style={{ marginTop: 12, fontSize: 14, color: "#666" }}>
+          정렬: {menuAlign} · 선택: {menuValue} · 우측 화살표로 전체 펼치기
+          (컨테이너보다 넓을 때만 노출)
+        </p>
+      </TestSection>
+      <TestSection>
+        <h2>Tag</h2>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          <Tag>React</Tag>
+          <Tag>TypeScript</Tag>
+          <Tag>styled-components</Tag>
+        </div>
+      </TestSection>
+      <TestSection>
+        <h2>Chip</h2>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          {chips.map((chip) => (
+            <Chip
+              key={chip}
+              onClick={() => alert(`${chip} 클릭`)}
+              onRemove={() => setChips((prev) => prev.filter((c) => c !== chip))}
+            >
+              {chip}
+            </Chip>
+          ))}
+          {chips.length === 0 && (
+            <Button onClick={() => setChips(["원피스", "니트", "코트", "가방"])}>
+              칩 초기화
+            </Button>
+          )}
+        </div>
+      </TestSection>
+      <TestSection>
+        <h2>GnbSearch (PC GNB 검색창)</h2>
+        <div style={{ minHeight: 420 }}>
+          <GnbSearch onSearch={(word) => console.log("검색:", word)} />
+        </div>
+      </TestSection>
+      <TestSection>
+        <h2>Modal - Drawer (type / placement)</h2>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          {(["bottom", "left", "right"] as const).map((p) => (
+            <Button
+              key={p}
+              onClick={() => {
+                setDrawerPlacement(p);
+                setDrawerOpen(true);
+              }}
+            >
+              {p} 드로어
+            </Button>
+          ))}
+        </div>
+        <Modal
+          isOpen={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+          type="drawer"
+          placement={drawerPlacement}
+          title={`${drawerPlacement} drawer`}
+        >
+          <div style={{ padding: 24, minHeight: 160 }}>
+            {drawerPlacement} 방향 드로어 내용입니다.
+          </div>
         </Modal>
       </TestSection>
       <TestSection>
