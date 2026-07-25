@@ -9,15 +9,13 @@ const About = () => {
   return (
     <S.AboutSection id="about">
       <S.AboutInner>
-        <SectionTitle label="About" title="소개" />
+        <SectionTitle
+          label="About"
+          title="소개"
+          description={profile.description}
+        />
 
         <S.AboutGrid>
-          <S.AboutText>
-            <S.AboutDescription
-              dangerouslySetInnerHTML={{ __html: profile.description }}
-            />
-          </S.AboutText>
-
           <S.CareerBlock>
             <S.CareerTitle>Experience</S.CareerTitle>
             <S.CareerList>
@@ -48,10 +46,9 @@ const About = () => {
                   </S.SkillCategoryTitle>
                   <S.SkillList>
                     {category.skills.map((skill) => (
-                      <S.SkillItem key={skill.name}>
+                      <li key={skill.name}>
                         <S.SkillName>{skill.name}</S.SkillName>
-                        {/* <S.SkillDescription>{skill.description}</S.SkillDescription> */}
-                      </S.SkillItem>
+                      </li>
                     ))}
                   </S.SkillList>
                 </S.SkillCategory>

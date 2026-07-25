@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useScrollNavi } from "@/hooks/useScrollNavi";
 import { useToggle } from "@/hooks/useToggle";
 import { useClickOutside } from "@/hooks/useClickOutside";
+import { IconMenu, IconX } from "@/components/common/svg";
 import Navigation, { NAV_ITEMS } from "../Navigation";
 import * as S from "./style";
 
@@ -61,9 +62,7 @@ const Header = () => {
             aria-expanded={isMobileNavOpen}
             onClick={isMobileNavOpen ? closeMobileNav : openMobileNav}
           >
-            <span />
-            <span />
-            <span />
+            <IconMenu />
           </S.HamburgerButton>
         </S.HeaderInner>
       </S.HeaderWrapper>
@@ -77,7 +76,7 @@ const Header = () => {
             aria-label="메뉴 닫기"
             onClick={closeMobileNav}
           >
-            ✕
+            <IconX />
           </S.MobileNavClose>
           <Navigation
             activeSection={activeSection}

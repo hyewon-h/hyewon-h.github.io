@@ -139,18 +139,18 @@ export const WorkList = styled.div`
 export const WorkCategory = styled.div``;
 
 export const WorkCategoryTitle = styled.h3`
-  font-size: 13px;
   font-weight: 600;
+  font-size: 14px;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.gray400};
-  margin: 0 0 16px;
+  color: ${({ theme }) => theme.colors.gray500};
+  margin-bottom: 14px;
 `;
 
 export const WorkItem = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.gray100};
   overflow: hidden;
   background: ${({ theme }) => theme.colors.background};
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 
   &:last-child {
     margin-bottom: 0;
@@ -182,67 +182,88 @@ export const WorkItemHeader = styled.button`
 
 export const WorkItemMeta = styled.div`
   ${mixin.flex({ direction: "column" })};
-  gap: 4px;
+  gap: 2px;
 `;
 
-export const WorkItemTitle = styled.span`
-  font-size: 16px;
+export const WorkItemTitle = styled.div`
   font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
   color: ${({ theme }) => theme.colors.gray800};
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("16")};
+  }
 `;
 
-export const WorkItemPeriod = styled.span`
-  font-size: 13px;
+export const WorkItemPeriod = styled.div`
+  font-size: 12px;
   color: ${({ theme }) => theme.colors.gray400};
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("12")};
+  }
 `;
 
 export const WorkItemChevron = styled.span<{ $isOpen: boolean }>`
-  font-size: 22px;
-  color: ${({ theme }) => theme.colors.gray400};
   transform: rotate(${({ $isOpen }) => ($isOpen ? "90deg" : "0deg")});
   transition: transform 0.2s ease;
-  flex-shrink: 0;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    svg {
+      width: ${mixin.pxToVw("20")};
+      height: ${mixin.pxToVw("20")};
+    }
+  }
 `;
 
 export const WorkItemBody = styled.div`
-  padding: 0 16px 16px;
   ${mixin.flex({ direction: "column" })};
   gap: 20px;
   border-top: 1px solid ${({ theme }) => theme.colors.gray100};
+  padding: 16px;
 
   @media ${({ theme }) => theme.media.smMax} {
-    padding: ${mixin.pxToVw("0 16 16")};
+    padding: ${mixin.pxToVw("16")};
   }
 
   @media ${({ theme }) => theme.media.pc} {
-    padding: 0 24px 24px;
+    padding: 24px;
   }
 `;
 
 export const WorkSummary = styled.p`
-  font-size: 15px;
+  font-size: 13px;
   line-height: 170%;
   color: ${({ theme }) => theme.colors.gray600};
-  margin: 16px 0 0;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("13")};
+  }
 `;
 
 export const WorkSubSection = styled.div``;
 
 export const WorkSubTitle = styled.h4`
+  font-weight: 500;
   font-size: 12px;
-  font-weight: 600;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.gray400};
-  margin: 0 0 10px;
+  color: ${({ theme }) => theme.colors.gray900};
+  margin-bottom: 10px;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("12")};
+    margin-bottom: ${mixin.pxToVw("10")};
+  }
 `;
 
 export const WorkSubList = styled.ul`
   ${mixin.flex({ direction: "column" })};
-  gap: 6px;
+  gap: 4px;
 
   li {
-    font-size: 14px;
-    line-height: 170%;
+    font-size: 13px;
+    line-height: 160%;
     color: ${({ theme }) => theme.colors.gray600};
     padding-left: 14px;
     position: relative;
@@ -255,9 +276,22 @@ export const WorkSubList = styled.ul`
       font-weight: 600;
     }
   }
+
+  @media ${({ theme }) => theme.media.smMax} {
+    gap: ${mixin.pxToVw("4")};
+
+    li {
+      font-size: ${mixin.pxToVw("13")};
+      padding-left: ${mixin.pxToVw("14")};
+    }
+  }
 `;
 
 export const WorkTags = styled.div`
   ${mixin.flex({ wrap: "wrap" })};
-  gap: 6px;
+  gap: 4px;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    gap: ${mixin.pxToVw("4")};
+  }
 `;

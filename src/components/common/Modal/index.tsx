@@ -1,6 +1,7 @@
 import React, { memo, useEffect, useState } from "react";
 import * as S from "./style";
 import type { ModalType, ModalPlacement } from "./style";
+import { IconX } from "@/components/common/svg";
 
 export interface IProps {
   /** 모달 열림/닫힘 상태 */
@@ -107,7 +108,7 @@ const Modal = ({
             {title && <S.ModalTitle>{title}</S.ModalTitle>}
             {!hideCloseButton && (
               <S.CloseButton onClick={onClose} aria-label="모달 닫기">
-                ✕
+                <IconX />
               </S.CloseButton>
             )}
           </S.ModalHeader>

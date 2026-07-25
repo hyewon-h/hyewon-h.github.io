@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { mixin } from "@/styles/index";
 
 export const TitleWrapper = styled.div`
-  margin-bottom: 24px;
+  margin-bottom: 34px;
 
   @media ${({ theme }) => theme.media.smMax} {
-    margin-bottom: ${mixin.pxToVw("24")};
+    margin-bottom: ${mixin.pxToVw("34")};
   }
 
   @media ${({ theme }) => theme.media.pc} {
@@ -15,20 +15,29 @@ export const TitleWrapper = styled.div`
 
 export const Label = styled.span`
   display: block;
-  font-size: 12px;
   font-weight: 600;
+  font-size: 12px;
+  line-height: 150%;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.primary};
-  margin-bottom: 4px;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("12")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    font-size: 14px;
+  }
 `;
 
 export const Title = styled.h2`
-  font-size: 26px;
   font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
   color: ${({ theme }) => theme.colors.gray900};
 
   @media ${({ theme }) => theme.media.smMax} {
-    font-size: ${mixin.pxToVw("26")};
+    font-size: ${mixin.pxToVw("24")};
   }
 
   @media ${({ theme }) => theme.media.pc} {
@@ -42,6 +51,23 @@ export const SubTitle = styled.p`
 
   @media ${({ theme }) => theme.media.smMax} {
     font-size: ${mixin.pxToVw("14")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    font-size: 16px;
+  }
+`;
+
+export const Description = styled.p`
+  font-size: 13px;
+  line-height: 170%;
+  word-break: keep-all;
+  white-space: pre-line;
+  margin-top: 8px;
+  color: ${({ theme }) => theme.colors.gray600};
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("13")};
   }
 
   @media ${({ theme }) => theme.media.pc} {

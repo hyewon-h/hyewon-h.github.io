@@ -28,11 +28,6 @@ export const FooterLinks = styled.div`
 export const FooterLink = styled.a`
   font-size: 14px;
   color: ${({ theme }) => theme.colors.gray400};
-  transition: color 0.2s;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.white};
-  }
 `;
 
 export const Copyright = styled.p`

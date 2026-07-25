@@ -45,6 +45,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   html, body {
+    min-width: 320px;
     min-height: 100%;
     
     &:has(.is-app)  {
@@ -108,6 +109,8 @@ export const GlobalStyles = createGlobalStyle`
   .wsnw {
     white-space: nowrap !important;
   }
+
+  svg { vertical-align: top; }
 
   input[type="radio"]:focus-visible + svg,
   input[type="checkbox"]:focus-visible + svg,

@@ -63,18 +63,6 @@ export const HamburgerButton = styled.button`
   width: 20px;
   height: 40px;
 
-  span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: ${({ theme }) => theme.colors.gray800};
-    transition: background-color 0.2s;
-  }
-
-  &:hover span {
-    background-color: ${({ theme }) => theme.colors.primary};
-  }
-
   @media ${({ theme }) => theme.media.pc} {
     display: none;
   }
@@ -112,11 +100,10 @@ export const MobileNavInner = styled.div`
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
-    margin-top: 16px;
   }
 
   nav ul a {
-    font-size: 16px;
+    font-size: 14px;
     padding: 12px 16px;
     width: 100%;
   }
@@ -126,11 +113,4 @@ export const MobileNavClose = styled.button`
   align-self: flex-end;
   width: 36px;
   height: 36px;
-  font-size: 18px;
-  color: ${({ theme }) => theme.colors.gray600};
-  transition: color 0.2s;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.gray900};
-  }
 `;

@@ -8,7 +8,7 @@ export const workProjects: WorkProject[] = [
     category: "대규모 프로젝트",
     period: "2024",
     summary:
-      "전체 서비스 UI/UX 개선 및 디자인 전면 개편. 숏폼 콘텐츠 도입을 통한 새로운 쇼핑 경험 제공.",
+      "전체 서비스 UI/UX 개선 및 디자인 전면 개편. 숏폼 콘텐츠 도입을 통한 새로운 쇼핑 경험 제공",
     tasks: [
       "메인 페이지 퀵메뉴, WDNA, 프리쇼, 테마 섹션 마크업",
       "숏폼 콘텐츠 영역 신규 구현",
@@ -35,7 +35,7 @@ export const workProjects: WorkProject[] = [
     category: "대규모 프로젝트",
     period: "2022 - 2025",
     summary:
-      "비개발자가 직접 이벤트 페이지를 제작할 수 있는 컴포넌트 기반 CMS. 기획전·메가프로모션 등 다양한 프로모션 대응.",
+      "비개발자가 직접 이벤트 페이지를 제작할 수 있는 컴포넌트 기반 CMS. 기획전·메가프로모션 등 다양한 프로모션 대응",
     tasks: [
       "메인 비주얼, 내비게이션, 특가 상품, 드로우, 카운트다운, 댓글, 라이브 등 20여 개 재사용 가능한 프로모션 컴포넌트 개발",
       "메가 프로모션 코너 신설",
@@ -53,7 +53,7 @@ export const workProjects: WorkProject[] = [
     category: "대규모 프로젝트",
     period: "2022 - 2024",
     summary:
-      "모놀리식 구조에서 마이크로서비스 아키텍처로 전환. Yarn Workspace 기반 모노레포 구조로 서비스별 독립적인 프론트엔드 구축.",
+      "모놀리식 구조에서 마이크로서비스 아키텍처로 전환. Yarn Workspace 기반 모노레포 구조로 서비스별 독립적인 프론트엔드 구축",
     tasks: [
       "전문관(런치/룩북) 구축",
       "PB관 전용 서비스 구축",
@@ -80,7 +80,7 @@ export const workProjects: WorkProject[] = [
     category: "대규모 프로젝트",
     period: "2022, 2025",
     summary:
-      "입점 셀러를 위한 관리자 시스템 전면 개편. 판매 데이터 시각화 및 운영 효율화.",
+      "입점 셀러를 위한 관리자 시스템 전면 개편. 판매 데이터 시각화 및 운영 효율화",
     tasks: [
       "홈 메인 대시보드 (Chart.js 연동) 구현",
       "공지사항 시스템 신설",
@@ -101,7 +101,7 @@ export const workProjects: WorkProject[] = [
     category: "주요 기능 개선",
     period: "2022 - 2023",
     summary:
-      "SSGPAY·스마일페이·W페이 결제 연동 UI 및 카드사 즉시할인 프로모션 UI 개발.",
+      "SSGPAY·스마일페이·W페이 결제 연동 UI 및 카드사 즉시할인 프로모션 UI 개발",
     tasks: [
       "SSGPAY·스마일페이 결제 연동 UI 구현",
       "W페이 간편 결제 UI 구현",
@@ -116,7 +116,7 @@ export const workProjects: WorkProject[] = [
     title: "내비게이션 시스템 개선",
     category: "주요 기능 개선",
     period: "2024",
-    summary: "GNB 메뉴 구조 개편 및 고정형 액션바 · 드롭다운 개선.",
+    summary: "GNB 메뉴 구조 개편 및 고정형 액션바 · 드롭다운 개선",
     tasks: ["GNB 메뉴 구조 개편", "고정형 액션바 구현", "드롭다운 개선"],
     achievements: [
       "Position sticky 활용한 고정 헤더 구현",
@@ -131,7 +131,7 @@ export const workProjects: WorkProject[] = [
     title: "카테고리 시스템 개편",
     category: "주요 기능 개선",
     period: "2022 - 2023",
-    summary: "직관적인 카테고리 분류 UI 및 다중 필터 시스템 구현.",
+    summary: "직관적인 카테고리 분류 UI 및 다중 필터 시스템 구현",
     tasks: [
       "직관적인 카테고리 분류 UI 구현",
       "다중 필터 시스템 (가격·브랜드·컬러·상품정보) 구현",
@@ -146,7 +146,7 @@ export const workProjects: WorkProject[] = [
     category: "주요 기능 개선",
     period: "2022 - 2023",
     summary:
-      "이미지·동영상 갤러리 및 리뷰 좋아요/신고 기능 구현, 평균 리뷰 UI 추가, 리뷰 작성 폼 개선.",
+      "이미지·동영상 갤러리 및 리뷰 좋아요/신고 기능 구현, 평균 리뷰 UI 추가, 리뷰 작성 폼 개선",
     tasks: [
       "이미지·동영상 리뷰 갤러리 구현",
       "리뷰 좋아요 및 신고 기능 구현",
@@ -164,7 +164,7 @@ export const workProjects: WorkProject[] = [
     title: "선물하기 기능 개선",
     category: "주요 기능 개선",
     period: "2022 - 2023 / 2026",
-    summary: "선물하기 프로세스 UI 개선 및 선물 메시지 작성·수령 페이지 구현.",
+    summary: "선물하기 프로세스 UI 개선 및 선물 메시지 작성·수령 페이지 구현",
     tasks: [
       "선물하기 프로세스 UI 개선",
       "선물 메시지 작성 폼 구현",
@@ -181,7 +181,7 @@ export const workProjects: WorkProject[] = [
     category: "마케팅 & 광고",
     period: "2024",
     summary:
-      "메인·세일·신상·상품상세 페이지 광고 슬롯 추가 및 반응형 광고 배너 구현.",
+      "메인·세일·신상·상품상세 페이지 광고 슬롯 추가 및 반응형 광고 배너 구현",
     tasks: [
       "메인/세일/신상/상품상세 페이지 광고 슬롯 추가",
       "반응형 광고 배너 구현",
@@ -195,7 +195,7 @@ export const workProjects: WorkProject[] = [
     category: "마케팅 & 광고",
     period: "2025",
     summary:
-      "일일 출석체크, 굿즈 응모, 리워드 적립 현황 등 멤버십 이벤트 시스템 구현.",
+      "일일 출석체크, 굿즈 응모, 리워드 적립 현황 등 멤버십 이벤트 시스템 구현",
     tasks: [
       "일일 출석체크 시스템 구현",
       "굿즈 응모 이벤트 구현",
@@ -210,7 +210,7 @@ export const workProjects: WorkProject[] = [
     category: "마케팅 & 광고",
     period: "2025",
     summary:
-      "리워드·판매 현황 및 최근 판매 랭킹 조회 시스템, 스타일 클립 등록 페이지 구현.",
+      "리워드·판매 현황 및 최근 판매 랭킹 조회 시스템, 스타일 클립 등록 페이지 구현",
     tasks: [
       "스타일 클립 등록 페이지 구현",
       "크리에이터 활동 내역 조회 페이지 구현",

@@ -3,6 +3,7 @@ import { isDesktop } from "react-device-detect";
 import { projects } from "@/data/projects";
 import { workProjects } from "@/data/workProjects";
 import { WorkProjectCategory } from "@/data/types";
+import { IconArrowRight01 } from "@/components/common/svg";
 import SectionTitle from "@/components/sections/Projects/components/texts/SectionTitle";
 import Modal from "@/components/common/Modal";
 import Img from "@/components/common/Img";
@@ -103,7 +104,7 @@ const Projects = () => {
                           <S.WorkItemPeriod>{project.period}</S.WorkItemPeriod>
                         </S.WorkItemMeta>
                         <S.WorkItemChevron $isOpen={openWorkId === project.id}>
-                          ›
+                          <IconArrowRight01 />
                         </S.WorkItemChevron>
                       </S.WorkItemHeader>
 

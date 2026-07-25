@@ -34,33 +34,30 @@ export const AboutGrid = styled.div`
   }
 `;
 
-export const AboutText = styled.div``;
-
-export const AboutDescription = styled.p`
-  font-size: 14px;
-  line-height: 170%;
-  word-break: keep-all;
-  color: ${({ theme }) => theme.colors.gray600};
-`;
-
 export const CareerBlock = styled.div``;
 
 export const CareerTitle = styled.h3`
-  font-size: 14px;
   font-weight: 600;
+  font-size: 14px;
+  line-height: 150%;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.gray500};
-  margin: 0 0 24px;
+  margin-bottom: 14px;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("14")};
+    margin-bottom: ${mixin.pxToVw("14")};
+  }
 `;
 
 export const CareerList = styled.ul`
   ${mixin.flex({ direction: "column" })};
   gap: 24px;
-  margin-bottom: 28px;
+  margin-bottom: 34px;
 
   @media ${({ theme }) => theme.media.smMax} {
     gap: ${mixin.pxToVw("24")};
-    margin-bottom: ${mixin.pxToVw("28")};
+    margin-bottom: ${mixin.pxToVw("34")};
   }
 
   @media ${({ theme }) => theme.media.pc} {
@@ -72,10 +69,10 @@ export const CareerList = styled.ul`
 export const CareerItem = styled.li`
   display: grid;
   grid-template-columns: 1fr;
-  gap: 6px;
+  gap: 2px;
 
   @media ${({ theme }) => theme.media.smMax} {
-    gap: ${mixin.pxToVw("6")};
+    gap: ${mixin.pxToVw("2")};
   }
 
   @media ${({ theme }) => theme.media.pc} {
@@ -85,25 +82,39 @@ export const CareerItem = styled.li`
 `;
 
 export const CareerPeriod = styled.span`
-  font-size: 13px;
+  font-size: 12px;
+  line-height: 150%;
   color: ${({ theme }) => theme.colors.gray400};
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("12")};
+  }
 `;
 
 export const CareerInfo = styled.div``;
 
-export const CareerCompany = styled.strong`
-  display: block;
-  font-size: 16px;
+export const CareerCompany = styled.div`
   font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
   color: ${({ theme }) => theme.colors.gray900};
   margin-bottom: 12px;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("16")};
+    margin-bottom: ${mixin.pxToVw("12")};
+  }
 `;
 
-export const CareerRole = styled.span`
-  display: block;
+export const CareerRole = styled.div`
   font-size: 14px;
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 12px;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("14")};
+    margin-bottom: ${mixin.pxToVw("12")};
+  }
 `;
 
 export const CareerDesc = styled.ul`
@@ -111,11 +122,12 @@ export const CareerDesc = styled.ul`
   gap: 4px;
 
   li {
-    font-size: 14px;
-    color: ${({ theme }) => theme.colors.gray600};
-    line-height: 170%;
-    padding-left: 12px;
     position: relative;
+    font-size: 13px;
+    line-height: 160%;
+    word-break: keep-all;
+    padding-left: 9px;
+    color: ${({ theme }) => theme.colors.gray600};
 
     &::before {
       display: block;
@@ -123,10 +135,18 @@ export const CareerDesc = styled.ul`
       width: 2px;
       height: 2px;
       position: absolute;
-      top: 10px;
+      top: 9px;
       left: 0;
       border-radius: 50%;
-      background: ${({ theme }) => theme.colors.gray300};
+      background: ${({ theme }) => theme.colors.gray600};
+    }
+  }
+
+  @media ${({ theme }) => theme.media.smMax} {
+    gap: ${mixin.pxToVw("4")};
+
+    li {
+      font-size: ${mixin.pxToVw("13")};
     }
   }
 `;
@@ -140,6 +160,7 @@ export const SkillsBlock = styled.div`
   }
 
   @media ${({ theme }) => theme.media.pc} {
+    flex-direction: row;
     gap: 32px;
   }
 `;
@@ -147,31 +168,34 @@ export const SkillsBlock = styled.div`
 export const SkillCategory = styled.div``;
 
 export const SkillCategoryTitle = styled.h4`
-  font-size: 13px;
   font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  color: ${({ theme }) => theme.colors.gray900};
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.gray400};
-  margin: 0 0 12px;
+  margin-bottom: 12px;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("16")};
+    margin-bottom: ${mixin.pxToVw("12")};
+  }
 `;
 
 export const SkillList = styled.ul`
   ${mixin.flex({ direction: "column" })};
-  gap: 12px;
+  gap: 4px;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    gap: ${mixin.pxToVw("4")};
+  }
 `;
 
-export const SkillItem = styled.li``;
-
-export const SkillName = styled.strong`
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.colors.gray900};
-  margin-bottom: 4px;
-`;
-
-export const SkillDescription = styled.p`
+export const SkillName = styled.div`
   font-size: 13px;
-  color: ${({ theme }) => theme.colors.gray500};
-  line-height: 160%;
-  word-break: keep-all;
+  line-height: 150%;
+  color: ${({ theme }) => theme.colors.gray600};
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("13")};
+  }
 `;

@@ -183,40 +183,37 @@ export const ModalContainer = styled.div<{
 
 export const ModalHeader = styled.div`
   ${mixin.flex({ align: "center", justify: "space-between" })};
-  padding: 12px 24px;
+  padding: 12px 20px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray200};
+
+  @media ${({ theme }) => theme.media.smMax} {
+    padding: ${mixin.pxToVw("12 20")};
+  }
 `;
 
 export const ModalTitle = styled.h2`
   font-size: 18px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.gray900};
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("18")};
+  }
 `;
 
 export const CloseButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: ${({ theme }) => theme.colors.gray500};
-  cursor: pointer;
   padding: 4px;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.gray100};
-    color: ${({ theme }) => theme.colors.gray700};
-  }
-
-  &:focus {
-    outline: 1px solid ${({ theme }) => theme.colors.primary};
-    outline-offset: 2px;
-  }
 `;
 
 export const ModalContent = styled.div`
   padding: 16px;
   overflow-y: auto;
   max-height: calc(95vh - 100px);
+
+  @media ${({ theme }) => theme.media.smMax} {
+    padding: ${mixin.pxToVw("16")};
+    max-height: calc(95vh - ${mixin.pxToVw("100")});
+  }
 
   @media ${({ theme }) => theme.media.pc} {
     padding: 24px;
