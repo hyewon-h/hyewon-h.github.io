@@ -27,7 +27,6 @@
 
 - 기 구축된 모노레포 구조 기반 개발
 - CSS Grid, Flexbox 기반 반응형 레이아웃 구축
-- Intersection Observer를 활용한 이미지 지연 로딩 구현
 - 숏폼 비디오 플레이어 최적화
 - BEM 방법론 적용으로 CSS 유지보수성 개선
 - 웹 접근성 KWCAG 2.1 AA 준수
@@ -163,7 +162,6 @@
 
 - 동적 필터링 UI 구현
 - URL 기반 필터 상태 관리
-- Intersection Observer 활용 무한 스크롤
 - 반응형 필터 UI (모바일 바텀시트, PC 사이드바)
 
 ---
@@ -230,7 +228,6 @@
 
 **기술적 성과**
 
-- Intersection Observer 활용 지연 로딩
 - 광고 영역 스켈레톤 UI
 - 다양한 광고 사이즈 대응
 
@@ -302,7 +299,6 @@
 
 ### 성능 최적화
 
-- 이미지 지연 로딩 (Intersection Observer)
 - 코드 스플리팅
 - Swiper 라이브러리 활용
 

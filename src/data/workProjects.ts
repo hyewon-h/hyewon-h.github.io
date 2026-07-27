@@ -17,7 +17,6 @@ export const workProjects: WorkProject[] = [
       "오리지널 콘텐츠 페이지 및 스타일클립 등록 시스템 구현",
     ],
     achievements: [
-      "Intersection Observer를 활용한 이미지 지연 로딩 구현",
       "숏폼 비디오 플레이어 최적화",
       "리액트 기반 컴포넌트 설계 및 재사용성 강화",
     ],
@@ -120,9 +119,8 @@ export const workProjects: WorkProject[] = [
     tasks: ["GNB 메뉴 구조 개편", "고정형 액션바 구현", "드롭다운 개선"],
     achievements: [
       "Position sticky 활용한 고정 헤더 구현",
-      "모바일 터치 최적화",
       "Intersection Observer로 스크롤 시 메뉴 활성화",
-      "iOS/Android 크로스 브라우징 대응",
+      "OS별 파편화된 브라우저 환경 대응 및 모바일 최적화 UI 구축",
     ],
     tags: ["앱 및 모바일 최적화", "플로팅 내비게이션", "Intersection Observer"],
   },
