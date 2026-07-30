@@ -181,6 +181,7 @@ export const PopularList = styled.ol`
   .word {
     ${mixin.ellipsis(1)};
     font-size: 15px;
+    text-align: left;
     color: ${({ theme }) => theme.colors.gray700};
   }
 

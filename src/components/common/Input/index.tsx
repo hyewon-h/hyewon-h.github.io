@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import * as S from "./style";
+import { IconX } from "@/components/common/svg";
 
 export interface IProps {
   /** 인풋 타입 */
@@ -28,6 +29,10 @@ export interface IProps {
   error?: boolean;
   /** 에러 메시지 */
   errorMessage?: string;
+  /** 입력값 초기화 버튼 표시 여부 */
+  clearable?: boolean;
+  /** 입력값 초기화 핸들러 */
+  onClear?: () => void;
 }
 
 const Input = ({
@@ -44,24 +49,40 @@ const Input = ({
   onBlur,
   error = false,
   errorMessage,
+  clearable = false,
+  onClear,
   ...props
 }: IProps) => {
+  const showClearButton = clearable && !!value;
+
   return (
     <S.InputWrapper className={className}>
-      <S.InputField
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        defaultValue={defaultValue}
-        disabled={disabled}
-        required={required}
-        readOnly={readOnly}
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        $error={error}
-        {...props}
-      />
+      <S.InputInner>
+        <S.InputField
+          type={type}
+          placeholder={placeholder}
+          value={value}
+          defaultValue={defaultValue}
+          disabled={disabled}
+          required={required}
+          readOnly={readOnly}
+          onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          $error={error}
+          $clearable={showClearButton}
+          {...props}
+        />
+        {showClearButton && (
+          <S.ClearButton
+            type="button"
+            onClick={onClear}
+            aria-label="입력 초기화"
+          >
+            <IconX />
+          </S.ClearButton>
+        )}
+      </S.InputInner>
       {error && errorMessage && <S.ErrorMessage>{errorMessage}</S.ErrorMessage>}
     </S.InputWrapper>
   );

@@ -11,7 +11,8 @@
 3. [useLocalStorage](#3-uselocalstorage) - 로컬스토리지 동기화
 4. [useClickOutside](#4-useclickoutside) - 외부 클릭 감지
 5. [useIntersectionObserver](#5-useintersectionobserver) - 뷰포트 가시성 감지
-6. [useScrollNavi](#7-usescrollnavi) - 스크롤 네비게이션
+6. [useScrollNavi](#6-usescrollnavi) - 스크롤 네비게이션
+7. [useCountdown](#7-usecountdown) - 남은 시간 카운트다운
 
 ---
 
@@ -664,6 +665,102 @@ function PortfolioWithProgress() {
 
 ---
 
+## 7. useCountdown
+
+**용도:** 타임세일, 이벤트 마감, 쿠폰 만료 등 남은 시간 실시간 표시
+
+### 기본 사용법
+
+```typescript
+const { formatted, text, isExpired } = useCountdown("2026-08-01T00:00:00");
+```
+
+### 반환값
+
+| 값 | 설명 |
+| --- | --- |
+| `days` `hours` `minutes` `seconds` | 남은 시간 (숫자) |
+| `total` | 남은 밀리초 (종료 시 0) |
+| `isExpired` | 종료 여부 |
+| `formatted` | 두 자리 패딩된 문자열 `{ days: '02', hours: '05', ... }` |
+| `text` | 한 줄 문자열 `'02일 05:09:00'` (하루 미만은 `'05:09:00'`) |
+
+### 옵션
+
+- `interval`: 갱신 주기 (기본: 1000ms)
+- `onExpire`: 종료 시점에 한 번 실행되는 콜백
+
+### 날짜 형식 주의
+
+`"2026-08-01T00:00:00"`처럼 **T 구분자(ISO)** 로 넘겨주세요.
+`"2026-08-01 00:00:00"`(공백)은 구형 Safari에서 파싱에 실패해 종료된 것으로 처리됩니다.
+
+### 실전 예시
+
+#### 타임세일 배너
+
+```typescript
+function TimeSaleBanner({ endDate }) {
+  const { formatted, isExpired } = useCountdown(endDate);
+
+  if (isExpired) return <p>종료된 이벤트입니다</p>;
+
+  return (
+    <div className="banner">
+      <strong>타임세일</strong>
+      <span>
+        {formatted.hours}:{formatted.minutes}:{formatted.seconds}
+      </span>
+    </div>
+  );
+}
+```
+
+#### 종료 시 목록 다시 불러오기
+
+```typescript
+function EventSection({ endDate }) {
+  const { text } = useCountdown(endDate, {
+    onExpire: () => refetchProducts(), // 딱 한 번만 호출됨
+  });
+
+  return <span>{text} 남음</span>;
+}
+```
+
+#### 남은 일수까지 표시 (분 단위 갱신)
+
+```typescript
+function DeadlineLabel({ endDate }) {
+  // 초를 보여주지 않으면 1초마다 리렌더할 필요가 없음
+  const { days, formatted } = useCountdown(endDate, { interval: 60000 });
+
+  return (
+    <span>
+      {days > 0 && `${formatted.days}일 `}
+      {formatted.hours}시간 {formatted.minutes}분 남음
+    </span>
+  );
+}
+```
+
+### 타이머가 필요 없다면 훅 대신 유틸
+
+`src/utils/countdownUtils.ts`의 순수 함수를 직접 쓰세요.
+리스트에서 라벨만 찍을 때 훅을 쓰면 **아이템 개수만큼 `setInterval`이 생깁니다.**
+
+```typescript
+import { isExpired, getRemainTimeText } from "../utils/countdownUtils";
+
+// 진행 중인 이벤트만 필터링
+const ongoing = events.filter((event) => !isExpired(event.endDate));
+
+// "3시간 20분 남음" 라벨 (7일 이상 남으면 undefined)
+const label = getRemainTimeText(event.endDate);
+```
+
+---
+
 ## 🎯 포트폴리오 구현 추천 조합
 
 ### 1. 기본 원페이지 포트폴리오
@@ -776,6 +873,7 @@ function Blog() {
 3. **useMediaQuery**: 불필요한 컴포넌트 렌더링 방지
 4. **useLocalStorage**: 서버 요청 줄이기 (테마, 설정 등)
 5. **useToggle**: 불필요한 상태 업데이트 방지 (useCallback 사용)
+6. **useCountdown**: 초 단위 표시가 아니면 `interval`을 늘리고, 리스트 라벨은 훅 대신 `countdownUtils` 사용
 
 ---
 

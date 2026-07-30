@@ -4,6 +4,7 @@ import Modal from "@/components/common/Modal";
 import Tabs from "@/components/common/Tabs";
 import Checkbox from "@/components/common/Checkbox";
 import Input from "@/components/common/Input";
+import { IconRefresh } from "@/components/common/svg";
 import * as S from "./style";
 
 /* ------------------------------------------------------------------ *
@@ -319,8 +320,7 @@ const FilterModal = ({ isOpen, onClose, onApply, size = "medium" }: IProps) => {
         {chips.length > 0 && (
           <S.ChipBar>
             <S.ResetBtn type="button" onClick={onReset}>
-              <span className="icon">↻</span>
-              초기화
+              <IconRefresh />
             </S.ResetBtn>
             <S.ChipList>
               {chips.map((chip) => (

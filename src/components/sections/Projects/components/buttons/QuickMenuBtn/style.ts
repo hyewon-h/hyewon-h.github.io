@@ -10,7 +10,7 @@ interface IProps {
 
 export const QuickMenuBtn = styled(Button)<IProps>`
   position: relative;
-  ${mixin.flex({ justify: "flex-start" })};
+  ${mixin.flex({ justify: "flex-start", align: "center" })};
   gap: 7px;
   height: 42px;
   padding: ${({ hasImg }) => (hasImg ? "4px 12px 4px 7px" : "4px 12px")};

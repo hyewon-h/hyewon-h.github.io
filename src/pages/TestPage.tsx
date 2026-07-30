@@ -16,13 +16,17 @@ import CustomSelect from "@/components/common/CustomSelect";
 import MainVisualBnrList from "@/components/sections/Projects/components/lists/MainVisualBnrList";
 import CardBannerSwiperType from "@/components/sections/Projects/components/lists/CardBannerSwiperType";
 import CardTypeBannerItem from "@/components/sections/Projects/components/items/CardTypeBannerItem";
+import ShowcaseBannerList from "@/components/sections/Projects/components/lists/ShowcaseBannerList";
+import ShowcaseBannerItem from "@/components/sections/Projects/components/items/ShowcaseBannerItem";
 import ItemsScrollBar from "@/components/common/ItemsScrollBar";
 import ItemsSwiper from "@/components/common/ItemsSwiper";
 import FilterModal from "@/components/sections/Projects/components/modals/FilterModal";
+import CategoryMenuBar from "@/components/sections/Projects/components/menus/CategoryMenuBar";
+import QuickMenuBar from "@/components/sections/Projects/components/menus/QuickMenuBar";
+import QuickMenuBtn from "@/components/sections/Projects/components/buttons/QuickMenuBtn";
 import GnbSearch from "@/components/common/GnbSearch";
 import Tag from "@/components/common/Tag";
 import Chip from "@/components/common/Chip";
-import MenuBarSwiper from "@/components/common/MenuBarSwiper";
 import { isDesktop } from "react-device-detect";
 
 // public 하위 에셋은 빌드 없이 정적 제공되므로 절대 URL 문자열로 참조
@@ -60,12 +64,78 @@ const mainBannerData = {
   ],
 };
 
+// ShowcaseBanner
+const showcaseBannerData = [
+  {
+    title: "위켄드 무드의 데일리 룩북",
+    bannerImgSrc: [
+      `${ASSETS}/shiru05.jpeg`,
+      `${ASSETS}/shiru06.jpeg`,
+      `${ASSETS}/shiru07.jpeg`,
+    ],
+    products: [`${ASSETS}/hodu01.jpeg`, `${ASSETS}/hodu02.jpeg`],
+  },
+  {
+    title: "가을의 시작, 레이어드 스타일링 제안",
+    bannerImgSrc: [`${ASSETS}/shiru08.jpeg`, `${ASSETS}/shiru09.jpeg`],
+    products: [
+      `${ASSETS}/hodu03.jpeg`,
+      `${ASSETS}/hodu04.jpeg`,
+      `${ASSETS}/hodu05.jpeg`,
+    ],
+  },
+  {
+    title: "미니멀 무드 컬렉션",
+    bannerImgSrc: [`${ASSETS}/shiru10.jpeg`],
+    products: [`${ASSETS}/hodu06.jpeg`, `${ASSETS}/hodu07.jpeg`],
+  },
+];
+
+// QuickMenu
+const quickMenuRow1 = [
+  { text: "전체", imgSrc: `${ASSETS}/hodu01.jpeg` },
+  { text: "신상품", imgSrc: `${ASSETS}/hodu02.jpeg` },
+  { text: "베스트", imgSrc: `${ASSETS}/hodu03.jpeg` },
+  { text: "위클리 특가", imgSrc: `${ASSETS}/hodu04.jpeg`, isAd: true },
+  { text: "브랜드관", imgSrc: `${ASSETS}/hodu05.jpeg` },
+  { text: "아울렛", imgSrc: `${ASSETS}/hodu06.jpeg` },
+];
+
+const quickMenuRow2 = [
+  { text: "쿠폰" },
+  { text: "기획전" },
+  { text: "이벤트", isAd: true },
+  { text: "럭키드로우" },
+  { text: "선물하기" },
+  { text: "매거진" },
+  { text: "고객센터" },
+];
+
+// 쇼케이스 배너 데모용 상품 아이템 (실제 상품 컴포넌트 대체)
+const renderShowcaseProducts = (images: string[]) =>
+  images.map((img, index) => (
+    <div className="item product-item" key={img}>
+      <Img className="area-img" src={img} alt={`상품 ${index + 1}`} />
+      <div className="area-info">
+        <div className="area-click">
+          <Text block className="brand">
+            브랜드 {index + 1}
+          </Text>
+          <Text block className="detail">
+            상품명 {index + 1}
+          </Text>
+        </div>
+      </div>
+    </div>
+  ));
+
 const TestPage = () => {
   // Button
   // Checkbox
   const [checked, setChecked] = useState(false);
   // Input
   const [inputValue, setInputValue] = useState("");
+  const [clearInputValue, setClearInputValue] = useState("");
   // Modal
   const [modalOpen, setModalOpen] = useState(false);
   // FilterModal
@@ -172,6 +242,13 @@ const TestPage = () => {
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="입력하세요"
         />
+        <Input
+          value={clearInputValue}
+          onChange={(e) => setClearInputValue(e.target.value)}
+          placeholder="clearable 입력하세요"
+          clearable
+          onClear={() => setClearInputValue("")}
+        />
       </TestSection>
       <TestSection>
         <h2>Radio</h2>
@@ -245,7 +322,7 @@ const TestPage = () => {
             left{menuAlign === "left" ? " ●" : ""}
           </Button>
         </div>
-        <MenuBarSwiper
+        <CategoryMenuBar
           items={menuItems}
           selectedValue={menuValue}
           onChange={setMenuValue}
@@ -254,6 +331,59 @@ const TestPage = () => {
         <p style={{ marginTop: 12, fontSize: 14, color: "#666" }}>
           정렬: {menuAlign} · 선택: {menuValue} · 우측 화살표로 전체 펼치기
           (컨테이너보다 넓을 때만 노출)
+        </p>
+      </TestSection>
+      <TestSection>
+        <h2>QuickMenuBtn</h2>
+        <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+          <QuickMenuBtn text="텍스트만" onClick={() => alert("텍스트만")} />
+          <QuickMenuBtn
+            text="이미지 + 텍스트"
+            imgSrc={`${ASSETS}/hodu01.jpeg`}
+            onClick={() => alert("이미지 + 텍스트")}
+          />
+          <QuickMenuBtn
+            text="광고 태그"
+            imgSrc={`${ASSETS}/hodu02.jpeg`}
+            isAd
+            onClick={() => alert("광고 태그")}
+          />
+          <QuickMenuBtn
+            text="컬러 지정"
+            bgColor="#1a1a1a"
+            fontColor="#fff"
+            onClick={() => alert("컬러 지정")}
+          />
+        </div>
+        <p style={{ marginTop: 12, fontSize: 14, color: "#666" }}>
+          bgColor/fontColor 미지정 시 #f6f6f6 / #000 · imgSrc 유무에 따라 좌측
+          패딩이 달라집니다
+        </p>
+      </TestSection>
+      <TestSection>
+        <h2>QuickMenuBar (2줄 연동 스크롤)</h2>
+        <QuickMenuBar
+          items1={quickMenuRow1.map((menu) => (
+            <QuickMenuBtn
+              key={menu.text}
+              text={menu.text}
+              {...(menu.imgSrc !== undefined && { imgSrc: menu.imgSrc })}
+              {...(menu.isAd !== undefined && { isAd: menu.isAd })}
+              onClick={() => alert(`${menu.text} 클릭`)}
+            />
+          ))}
+          items2={quickMenuRow2.map((menu) => (
+            <QuickMenuBtn
+              key={menu.text}
+              text={menu.text}
+              {...(menu.isAd !== undefined && { isAd: menu.isAd })}
+              onClick={() => alert(`${menu.text} 클릭`)}
+            />
+          ))}
+        />
+        <p style={{ marginTop: 12, fontSize: 14, color: "#666" }}>
+          두 줄이 Controller로 연동되어 함께 스크롤됩니다 · 줄 간 길이 차이가
+          100px 이상이면 저항값이 0.02로 낮아집니다
         </p>
       </TestSection>
       <TestSection>
@@ -271,13 +401,17 @@ const TestPage = () => {
             <Chip
               key={chip}
               onClick={() => alert(`${chip} 클릭`)}
-              onRemove={() => setChips((prev) => prev.filter((c) => c !== chip))}
+              onRemove={() =>
+                setChips((prev) => prev.filter((c) => c !== chip))
+              }
             >
               {chip}
             </Chip>
           ))}
           {chips.length === 0 && (
-            <Button onClick={() => setChips(["원피스", "니트", "코트", "가방"])}>
+            <Button
+              onClick={() => setChips(["원피스", "니트", "코트", "가방"])}
+            >
               칩 초기화
             </Button>
           )}
@@ -521,6 +655,25 @@ const TestPage = () => {
           isDesktop={isDesktop}
         />
       </TestSection>
+
+      <TestSection>
+        <h2>ShowcaseBannerList</h2>
+        <ShowcaseBannerDemo>
+          <ShowcaseBannerList
+            isDesktop={isDesktop}
+            items={showcaseBannerData.map((banner) => (
+              <ShowcaseBannerItem
+                key={banner.title}
+                isDesktop={isDesktop}
+                title={banner.title}
+                bannerImgSrc={banner.bannerImgSrc}
+                productItems={renderShowcaseProducts(banner.products)}
+                onClickBanner={() => alert(`${banner.title} 클릭`)}
+              />
+            ))}
+          />
+        </ShowcaseBannerDemo>
+      </TestSection>
     </TestPageWrapper>
   );
 };
@@ -528,7 +681,7 @@ const TestPage = () => {
 // 스타일드 컴포넌트
 const TestPageWrapper = styled.div`
   padding: 40px 16px;
-  max-width: 800px;
+  max-width: 1326px;
   margin: 0 auto;
   background: #fafbfc;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -548,6 +701,35 @@ const TestSection = styled.section`
     font-size: 1.2rem;
     margin-bottom: 16px;
     color: #222;
+  }
+`;
+
+// 쇼케이스 배너 데모용 상품 아이템 스타일 (실제 상품 컴포넌트 대체)
+const ShowcaseBannerDemo = styled.div`
+  .product-item {
+    display: flex;
+    align-items: center;
+    color: #fff;
+
+    .area-img {
+      flex: none;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+    }
+
+    .area-info {
+      min-width: 0;
+    }
+
+    .brand {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .detail {
+      font-size: 12px;
+    }
   }
 `;
 

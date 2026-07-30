@@ -3,6 +3,7 @@ import { mixin } from "@/styles/index";
 
 interface IProps {
   $error?: boolean;
+  $clearable?: boolean;
 }
 
 export const InputWrapper = styled.div`
@@ -10,8 +11,34 @@ export const InputWrapper = styled.div`
   gap: 4px;
 `;
 
+export const InputInner = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+`;
+
+export const ClearButton = styled.button`
+  position: absolute;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors?.gray400 || "#9ca3af"};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors?.gray600 || "#4b5563"};
+  }
+`;
+
 export const InputField = styled.input<IProps>`
-  padding: 12px 16px;
+  width: 100%;
+  padding: ${({ $clearable }) =>
+    $clearable ? "12px 36px 12px 16px" : "12px 16px"};
   border: 1px solid
     ${({ $error, theme }) =>
       $error ? "#ff4757" : theme.colors?.gray300 || "#d1d5db"};
@@ -24,7 +51,7 @@ export const InputField = styled.input<IProps>`
     outline: none;
     border-color: ${({ $error, theme }) =>
       $error ? "#ff4757" : theme.colors?.primary || "#3b82f6"};
-    box-shadow: 0 0 0 3px
+    box-shadow: 0 0 0 1px
       ${({ $error, theme }) =>
         $error ? "#ff475720" : theme.colors?.primaryLight || "#3b82f620"};
   }

@@ -35,7 +35,7 @@ export const CheckboxCustom = styled.div`
   }
 
   ${CheckboxInput}:focus + & {
-    box-shadow: 0 0 0 3px
+    box-shadow: 0 0 0 1px
       ${({ theme }) => theme.colors?.primaryLight || "#3b82f6"};
   }
 `;

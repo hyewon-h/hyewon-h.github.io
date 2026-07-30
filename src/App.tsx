@@ -6,12 +6,17 @@ import TestPage from "./pages/TestPage";
 function App() {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/TestPage" element={<TestPage />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <HomePage />
+            </Layout>
+          }
+        />
+        <Route path="/TestPage" element={<TestPage />} />
+      </Routes>
     </BrowserRouter>
   );
 }

@@ -221,10 +221,6 @@ export const ResetBtn = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-
-  .icon {
-    font-size: 14px;
-  }
 `;
 
 export const ChipList = styled.ul`

@@ -1,90 +1,112 @@
 import styled from "styled-components";
 import { mixin } from "@/styles/index";
 
-// CRA(SVGR): svg를 React 컴포넌트로 쓰려면 default가 아니라 ReactComponent로 가져온다.
-// (default import는 URL 문자열이라 styled()에 넣을 수 없음)
-import { ReactComponent as IconMenuSvg } from "./icon/icon_menu.svg";
-import { ReactComponent as IconArrowRight01Svg } from "./icon/icon_arrow_right_01.svg";
-import { ReactComponent as IconArrowRight02Svg } from "./icon/icon_arrow_right_02.svg";
-import { ReactComponent as IconPlay03Svg } from "./icon/icon_play_03.svg";
-import { ReactComponent as IconPlay04Svg } from "./icon/icon_play_04.svg";
-import { ReactComponent as IconChevronsDownSvg } from "./icon/icon_chevrons_down.svg";
-import { ReactComponent as IconCircleXSvg } from "./icon/icon_circle_x.svg";
-import { ReactComponent as IconContainerSvg } from "./icon/icon_container.svg";
-import { ReactComponent as IconHeadphoneOffSvg } from "./icon/icon_headphone_off.svg";
-import { ReactComponent as IconHeadphonesSvg } from "./icon/icon_headphones.svg";
-import { ReactComponent as IconHeartSvg } from "./icon/icon_heart.svg";
-import { ReactComponent as IconLoaderSvg } from "./icon/icon_loader.svg";
-import { ReactComponent as IconMailSvg } from "./icon/icon_mail.svg";
-import { ReactComponent as IconMoveRightSvg } from "./icon/icon_move_right.svg";
-import { ReactComponent as IconPhoneSvg } from "./icon/icon_phone.svg";
-import { ReactComponent as IconSmartphoneSvg } from "./icon/icon_smartphone.svg";
-import { ReactComponent as IconSquareXSvg } from "./icon/icon_square_x.svg";
-import { ReactComponent as IconStarSvg } from "./icon/icon_star.svg";
-import { ReactComponent as IconTabletSmartphoneSvg } from "./icon/icon_tablet_smartphone.svg";
-import { ReactComponent as IconUserStarSvg } from "./icon/icon_user_star.svg";
-import { ReactComponent as IconXSvg } from "./icon/icon_x.svg";
+import { ReactComponent as icon_menu } from "./icon/icon_menu.svg";
+import { ReactComponent as icon_arrow_left_01 } from "./icon/icon_arrow_left_01.svg";
+import { ReactComponent as icon_arrow_right_01 } from "./icon/icon_arrow_right_01.svg";
+import { ReactComponent as icon_arrow_right_02 } from "./icon/icon_arrow_right_02.svg";
+import { ReactComponent as icon_arrow_bottom_01 } from "./icon/icon_arrow_bottom_01.svg";
+import { ReactComponent as icon_play_03 } from "./icon/icon_play_03.svg";
+import { ReactComponent as icon_play_04 } from "./icon/icon_play_04.svg";
+import { ReactComponent as icon_chevrons_down } from "./icon/icon_chevrons_down.svg";
+import { ReactComponent as icon_circle_x } from "./icon/icon_circle_x.svg";
+import { ReactComponent as icon_container } from "./icon/icon_container.svg";
+import { ReactComponent as icon_headphone_off } from "./icon/icon_headphone_off.svg";
+import { ReactComponent as icon_headphones } from "./icon/icon_headphones.svg";
+import { ReactComponent as icon_heart } from "./icon/icon_heart.svg";
+import { ReactComponent as icon_loader } from "./icon/icon_loader.svg";
+import { ReactComponent as icon_mail } from "./icon/icon_mail.svg";
+import { ReactComponent as icon_move_right } from "./icon/icon_move_right.svg";
+import { ReactComponent as icon_phone } from "./icon/icon_phone.svg";
+import { ReactComponent as icon_smartphone } from "./icon/icon_smartphone.svg";
+import { ReactComponent as icon_square_x } from "./icon/icon_square_x.svg";
+import { ReactComponent as icon_star } from "./icon/icon_star.svg";
+import { ReactComponent as icon_tablet_smartphone } from "./icon/icon_tablet_smartphone.svg";
+import { ReactComponent as icon_user_star } from "./icon/icon_user_star.svg";
+import { ReactComponent as icon_check } from "./icon/icon_check.svg";
+import { ReactComponent as icon_clock } from "./icon/icon_clock.svg";
+import { ReactComponent as icon_refresh } from "./icon/icon_refresh.svg";
+import { ReactComponent as icon_search } from "./icon/icon_search.svg";
+import { ReactComponent as icon_x } from "./icon/icon_x.svg";
 
-export const IconMenu = styled(IconMenuSvg)`
+export const IconMenu = styled(icon_menu)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconArrowRight01 = styled(IconArrowRight01Svg)`
+export const IconArrowLeft01 = styled(icon_arrow_left_01)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconArrowRight02 = styled(IconArrowRight02Svg)`
+export const IconArrowRight01 = styled(icon_arrow_right_01)`
+  ${mixin.getSizeBox(20, 20)}
+`;
+export const IconArrowRight02 = styled(icon_arrow_right_02)`
   ${mixin.getSizeBox(8, 13)}
 `;
-export const IconPlay03 = styled(IconPlay03Svg)`
+export const IconArrowBottom01 = styled(icon_arrow_bottom_01)`
+  ${mixin.getSizeBox(20, 20)}
+`;
+export const IconPlay03 = styled(icon_play_03)`
   ${mixin.getSizeBox(14, 14)}
 `;
-export const IconPlay04 = styled(IconPlay04Svg)`
+export const IconPlay04 = styled(icon_play_04)`
   ${mixin.getSizeBox(13, 14)}
 `;
-export const IconChevronsDown = styled(IconChevronsDownSvg)`
+export const IconChevronsDown = styled(icon_chevrons_down)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconCircleX = styled(IconCircleXSvg)`
+export const IconCircleX = styled(icon_circle_x)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconContainer = styled(IconContainerSvg)`
+export const IconContainer = styled(icon_container)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconHeadphoneOff = styled(IconHeadphoneOffSvg)`
+export const IconHeadphoneOff = styled(icon_headphone_off)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconHeadphones = styled(IconHeadphonesSvg)`
+export const IconHeadphones = styled(icon_headphones)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconHeart = styled(IconHeartSvg)`
+export const IconHeart = styled(icon_heart)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconLoader = styled(IconLoaderSvg)`
+export const IconLoader = styled(icon_loader)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconMail = styled(IconMailSvg)`
+export const IconMail = styled(icon_mail)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconMoveRight = styled(IconMoveRightSvg)`
+export const IconMoveRight = styled(icon_move_right)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconPhone = styled(IconPhoneSvg)`
+export const IconPhone = styled(icon_phone)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconSmartphone = styled(IconSmartphoneSvg)`
+export const IconSmartphone = styled(icon_smartphone)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconSquareX = styled(IconSquareXSvg)`
+export const IconSquareX = styled(icon_square_x)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconStar = styled(IconStarSvg)`
+export const IconStar = styled(icon_star)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconTabletSmartphone = styled(IconTabletSmartphoneSvg)`
+export const IconTabletSmartphone = styled(icon_tablet_smartphone)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconUserStar = styled(IconUserStarSvg)`
+export const IconUserStar = styled(icon_user_star)`
   ${mixin.getSizeBox(20, 20)}
 `;
-export const IconX = styled(IconXSvg)`
+export const IconCheck = styled(icon_check)`
+  ${mixin.getSizeBox(20, 20)}
+`;
+export const IconClock = styled(icon_clock)`
+  ${mixin.getSizeBox(20, 20)}
+`;
+export const IconRefresh = styled(icon_refresh)`
+  ${mixin.getSizeBox(20, 20)}
+`;
+export const IconSearch = styled(icon_search)`
+  ${mixin.getSizeBox(20, 20)}
+`;
+export const IconX = styled(icon_x)`
   ${mixin.getSizeBox(20, 20)}
 `;
