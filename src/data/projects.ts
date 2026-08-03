@@ -11,7 +11,6 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript"],
     thumbnailUrl: `${ASSETS}/shiru02.jpeg`,
     period: "2026",
-    role: "Web Publisher",
     detail: {
       type: "mainVisual",
       title: "메인 비주얼 타이틀",
@@ -33,7 +32,6 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript"],
     thumbnailUrl: `${ASSETS}/shiru05.jpeg`,
     period: "2026",
-    role: "Web Publisher",
     detail: {
       type: "cardBanner",
       items: [

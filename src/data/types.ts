@@ -58,7 +58,6 @@ export interface Project {
   siteUrl?: string;
   githubUrl?: string;
   period: string;
-  role: string;
   featured?: boolean;
   /** 클릭 시 Modal로 보여줄 상세 (type에 따라 렌더링 컴포넌트가 달라짐) */
   detail?: ProjectDetail;

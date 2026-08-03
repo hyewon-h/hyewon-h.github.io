@@ -206,17 +206,14 @@ export const CloseButton = styled.button`
 `;
 
 export const ModalContent = styled.div`
-  padding: 16px;
   overflow-y: auto;
   max-height: calc(95vh - 100px);
 
   @media ${({ theme }) => theme.media.smMax} {
-    padding: ${mixin.pxToVw("16")};
     max-height: calc(95vh - ${mixin.pxToVw("100")});
   }
 
   @media ${({ theme }) => theme.media.pc} {
-    padding: 24px;
     max-height: calc(90vh - 100px);
   }
 `;

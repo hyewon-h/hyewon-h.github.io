@@ -11,7 +11,6 @@ export const Panel = styled.div`
   min-height: 240px;
   max-height: 46vh;
   overflow-y: auto;
-  padding: 4px 2px;
 `;
 
 export const PanelTitle = styled.p`
@@ -259,16 +258,15 @@ export const Chip = styled.li`
 
 // 하단 버튼
 export const Footer = styled.div`
+  width: 100%;
   ${mixin.flex({ align: "center" })};
   gap: 8px;
-  padding-top: 16px;
 `;
 
 export const CancelBtn = styled.button`
   flex-shrink: 0;
   min-width: 96px;
   height: 52px;
-  border-radius: 8px;
   font-size: 15px;
   color: ${({ theme }) => theme.colors.gray700};
   background: ${({ theme }) => theme.colors.gray100};
@@ -279,7 +277,6 @@ export const CancelBtn = styled.button`
 export const SubmitBtn = styled.button`
   flex: 1;
   height: 52px;
-  border-radius: 8px;
   font-size: 15px;
   font-weight: 500;
   color: #fff;

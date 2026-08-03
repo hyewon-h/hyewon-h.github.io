@@ -21,6 +21,9 @@ import ShowcaseBannerItem from "@/components/sections/Projects/components/items/
 import ItemsScrollBar from "@/components/common/ItemsScrollBar";
 import ItemsSwiper from "@/components/common/ItemsSwiper";
 import FilterModal from "@/components/sections/Projects/components/modals/FilterModal";
+import FilterSummaryBar, {
+  type SummaryFilterItem,
+} from "@/components/sections/Projects/components/filters/FilterSummaryBar";
 import CategoryMenuBar from "@/components/sections/Projects/components/menus/CategoryMenuBar";
 import QuickMenuBar from "@/components/sections/Projects/components/menus/QuickMenuBar";
 import QuickMenuBtn from "@/components/sections/Projects/components/buttons/QuickMenuBtn";
@@ -140,6 +143,12 @@ const TestPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   // FilterModal
   const [filterOpen, setFilterOpen] = useState(false);
+  // FilterSummaryBar
+  const [summaryFilters, setSummaryFilters] = useState<SummaryFilterItem[]>([
+    { key: "category-knit", label: "니트" },
+    { key: "color-black", label: "블랙" },
+    { key: "benefit-coupon", label: "쿠폰" },
+  ]);
   // Chip
   const [chips, setChips] = useState(["원피스", "니트", "코트", "가방"]);
   // MenuBarSwiper
@@ -311,6 +320,35 @@ const TestPage = () => {
           onApply={(selected) => console.log("적용된 필터:", selected)}
           size={isDesktop ? "medium" : "fullscreen"}
         />
+      </TestSection>
+      <TestSection>
+        <h2>FilterSummaryBar</h2>
+        <FilterSummaryBar
+          totalCount={226203}
+          filters={summaryFilters}
+          onRemove={(key) =>
+            setSummaryFilters((prev) =>
+              prev.filter((filter) => filter.key !== key),
+            )
+          }
+          onReset={() => setSummaryFilters([])}
+        />
+        <div
+          style={{ marginTop: 12, display: "flex", gap: 8, flexWrap: "wrap" }}
+        >
+          <Button
+            onClick={() =>
+              setSummaryFilters([
+                { key: "category-knit", label: "니트" },
+                { key: "color-black", label: "블랙" },
+                { key: "benefit-coupon", label: "쿠폰" },
+              ])
+            }
+          >
+            샘플 필터 복원
+          </Button>
+          <Button onClick={() => setSummaryFilters([])}>필터 비우기</Button>
+        </div>
       </TestSection>
       <TestSection>
         <h2>MenuBarSwiper (가로 메뉴 + 펼침 버튼)</h2>
@@ -697,6 +735,8 @@ const TestSection = styled.section`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
   padding: 24px 20px 16px 20px;
   margin-bottom: 28px;
+  overflow: hidden;
+
   h2 {
     font-size: 1.2rem;
     margin-bottom: 16px;

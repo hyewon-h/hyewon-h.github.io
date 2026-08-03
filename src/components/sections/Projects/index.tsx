@@ -3,15 +3,15 @@ import { isDesktop } from "react-device-detect";
 import { projects } from "@/data/projects";
 import { workProjects } from "@/data/workProjects";
 import { WorkProjectCategory } from "@/data/types";
-import { IconArrowRight01 } from "@/components/common/svg";
 import SectionTitle from "@/components/sections/Projects/components/texts/SectionTitle";
 import Modal from "@/components/common/Modal";
-import Img from "@/components/common/Img";
 import Video from "@/components/common/Video";
-import Tag from "@/components/common/Tag";
 import MainVisualBnrList from "@/components/sections/Projects/components/lists/MainVisualBnrList";
 import CardBannerSwiperType from "@/components/sections/Projects/components/lists/CardBannerSwiperType";
+import ProjectHistoryList from "@/components/sections/Projects/components/lists/ProjectHistoryList";
 import CardTypeBannerItem from "@/components/sections/Projects/components/items/CardTypeBannerItem";
+import ProjectCard from "@/components/sections/Projects/components/cards/ProjectCard";
+import Img from "@/components/common/Img";
 import * as S from "./style";
 
 const WORK_CATEGORIES: WorkProjectCategory[] = [
@@ -24,12 +24,7 @@ type ProjectTab = "portfolio" | "work";
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState<ProjectTab>("work");
-  const [openWorkId, setOpenWorkId] = useState<number | null>(null);
   const [openProjectId, setOpenProjectId] = useState<number | null>(null);
-
-  const toggleWork = (id: number) => {
-    setOpenWorkId((prev) => (prev === id ? null : id));
-  };
 
   const openProject = projects.find((p) => p.id === openProjectId);
 
@@ -58,93 +53,20 @@ const Projects = () => {
         {activeTab === "portfolio" && (
           <S.PortfolioGrid>
             {projects.map((project) => (
-              <S.ProjectCard
+              <ProjectCard
                 key={project.id}
-                $clickable={!!project.detail}
+                project={project}
                 onClick={() => project.detail && setOpenProjectId(project.id)}
-              >
-                {project.thumbnailUrl && (
-                  <S.ProjectThumbnail>
-                    <Img src={project.thumbnailUrl} alt={project.title} />
-                  </S.ProjectThumbnail>
-                )}
-                <S.ProjectCardBody>
-                  <S.ProjectTitle>{project.title}</S.ProjectTitle>
-                  <S.ProjectDesc>{project.description}</S.ProjectDesc>
-                  <S.ProjectTags>
-                    {project.tags.map((tag) => (
-                      <Tag key={tag}>{tag}</Tag>
-                    ))}
-                  </S.ProjectTags>
-                </S.ProjectCardBody>
-              </S.ProjectCard>
+              />
             ))}
           </S.PortfolioGrid>
         )}
 
         {activeTab === "work" && (
-          <S.WorkList>
-            {WORK_CATEGORIES.map((category) => {
-              const categoryProjects = workProjects.filter(
-                (p) => p.category === category,
-              );
-              if (categoryProjects.length === 0) return null;
-
-              return (
-                <S.WorkCategory key={category}>
-                  <S.WorkCategoryTitle>{category}</S.WorkCategoryTitle>
-                  {categoryProjects.map((project) => (
-                    <S.WorkItem key={project.id}>
-                      <S.WorkItemHeader
-                        onClick={() => toggleWork(project.id)}
-                        aria-expanded={openWorkId === project.id}
-                      >
-                        <S.WorkItemMeta>
-                          <S.WorkItemTitle>{project.title}</S.WorkItemTitle>
-                          <S.WorkItemPeriod>{project.period}</S.WorkItemPeriod>
-                        </S.WorkItemMeta>
-                        <S.WorkItemChevron $isOpen={openWorkId === project.id}>
-                          <IconArrowRight01 />
-                        </S.WorkItemChevron>
-                      </S.WorkItemHeader>
-
-                      {openWorkId === project.id && (
-                        <S.WorkItemBody>
-                          <S.WorkSummary>{project.summary}</S.WorkSummary>
-
-                          <S.WorkSubSection>
-                            <S.WorkSubTitle>주요 작업</S.WorkSubTitle>
-                            <S.WorkSubList>
-                              {project.tasks.map((task, i) => (
-                                <li key={i}>{task}</li>
-                              ))}
-                            </S.WorkSubList>
-                          </S.WorkSubSection>
-
-                          {project.achievements.length > 0 && (
-                            <S.WorkSubSection>
-                              <S.WorkSubTitle>성과 & 특이사항</S.WorkSubTitle>
-                              <S.WorkSubList>
-                                {project.achievements.map((item, i) => (
-                                  <li key={i}>{item}</li>
-                                ))}
-                              </S.WorkSubList>
-                            </S.WorkSubSection>
-                          )}
-
-                          <S.WorkTags>
-                            {project.tags.map((tag) => (
-                              <Tag key={tag}>{tag}</Tag>
-                            ))}
-                          </S.WorkTags>
-                        </S.WorkItemBody>
-                      )}
-                    </S.WorkItem>
-                  ))}
-                </S.WorkCategory>
-              );
-            })}
-          </S.WorkList>
+          <ProjectHistoryList
+            items={workProjects}
+            categories={WORK_CATEGORIES}
+          />
         )}
       </S.ProjectsInner>
 

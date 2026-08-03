@@ -17,16 +17,14 @@ export const TabButton = styled.button<{ $active: boolean }>`
   border-bottom: 1px solid transparent;
   cursor: pointer;
   font-size: 1rem;
-  transition:
-    border 0.2s,
-    color 0.2s;
+  transition: border 0.2s;
+
   ${({ $active }) =>
     $active &&
     css`
-      border-bottom: 1px solid #007bff;
-      color: #007bff;
-      font-weight: bold;
-    `}
+      border-bottom: 1px solid #000;
+      font-weight: 600;
+    `};
 `;
 
 export const TabPanel = styled.div`
