@@ -33,7 +33,7 @@ const QuickMenuBtn = ({
       hasImg={!!imgSrc}
       onClick={onClick}
     >
-      {imgSrc && <Img className="img" src={imgSrc} />}
+      {imgSrc && <Img src={imgSrc} />}
       <Text className="text">{text}</Text>
       {isAd && <span className="ad-tag">AD</span>}
     </S.QuickMenuBtn>

@@ -11,6 +11,14 @@ export const RadioWrapper = styled.label`
     cursor: not-allowed;
     opacity: 0.6;
   }
+
+  @media ${({ theme }) => theme.media.smMax} {
+    gap: ${mixin.pxToVw("8")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    gap: 9px;
+  }
 `;
 
 export const RadioInput = styled.input`
@@ -23,7 +31,7 @@ export const RadioInput = styled.input`
 export const RadioCustom = styled.div`
   width: 20px;
   height: 20px;
-  border: 1px solid ${({ theme }) => theme.colors?.gray300 || "#d1d5db"};
+  border: 1px solid ${({ theme }) => theme.colors.gray300};
   border-radius: 50%;
   position: relative;
   transition: all 0.2s ease;
@@ -37,12 +45,12 @@ export const RadioCustom = styled.div`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: ${({ theme }) => theme.colors?.primary || "#3b82f6"};
+    background: ${({ theme }) => theme.colors.primary};
     transition: transform 0.2s ease;
   }
 
   ${RadioInput}:checked + & {
-    border-color: ${({ theme }) => theme.colors?.primary || "#3b82f6"};
+    border-color: ${({ theme }) => theme.colors.primary};
 
     &::before {
       transform: translate(-50%, -50%) scale(1);
@@ -50,13 +58,40 @@ export const RadioCustom = styled.div`
   }
 
   ${RadioInput}:focus + & {
-    box-shadow: 0 0 0 1px
-      ${({ theme }) => theme.colors?.primaryLight || "#3b82f620"};
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.primaryLight};
+  }
+
+  @media ${({ theme }) => theme.media.smMax} {
+    width: ${mixin.pxToVw("20")};
+    height: ${mixin.pxToVw("20")};
+
+    &::before {
+      width: ${mixin.pxToVw("8")};
+      height: ${mixin.pxToVw("8")};
+    }
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    width: 23px;
+    height: 23px;
+
+    &::before {
+      width: 9px;
+      height: 9px;
+    }
   }
 `;
 
 export const RadioLabel = styled.span`
   font-size: 16px;
-  color: ${({ theme }) => theme.colors?.gray700 || "#374151"};
+  color: ${({ theme }) => theme.colors.gray700};
   user-select: none;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("16")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    font-size: 16px;
+  }
 `;

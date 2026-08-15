@@ -8,6 +8,8 @@ interface IProps {
 }
 
 export const Button = styled.button<IProps>`
+  width: 100%;
+  height: 100%;
   ${mixin.flex({ display: "inline-flex" })};
 
   font-family: inherit;

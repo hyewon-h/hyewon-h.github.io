@@ -36,7 +36,6 @@ export const ShowcaseBannerItem = styled.div`
     }
   }
 
-  /* 공통 Img가 img 엘리먼트라 클릭 영역은 Button으로 감싸 처리 */
   .banner-btn {
     position: relative;
     display: block;
@@ -46,10 +45,7 @@ export const ShowcaseBannerItem = styled.div`
 
   .banner-img {
     width: 100%;
-    /* 139.405% 비율 */
-    aspect-ratio: 1 / 1.39405;
-    object-fit: cover;
-    contain: layout style paint;
+    height: 400px;
     transform: translate3d(0, 0, 0);
     will-change: opacity;
   }

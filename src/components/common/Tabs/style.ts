@@ -16,7 +16,7 @@ export const TabButton = styled.button<{ $active: boolean }>`
   border: none;
   border-bottom: 1px solid transparent;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 14px;
   transition: border 0.2s;
 
   ${({ $active }) =>
@@ -25,8 +25,26 @@ export const TabButton = styled.button<{ $active: boolean }>`
       border-bottom: 1px solid #000;
       font-weight: 600;
     `};
+
+  @media ${({ theme }) => theme.media.smMax} {
+    padding: ${mixin.pxToVw("10 20")};
+    font-size: ${mixin.pxToVw("14")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    padding: 12px 23px;
+    font-size: 14px;
+  }
 `;
 
 export const TabPanel = styled.div`
   padding: 16px 0;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    padding: ${mixin.pxToVw("16 0")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    padding: 18px 0;
+  }
 `;

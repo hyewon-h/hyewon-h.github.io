@@ -15,8 +15,6 @@ export const ProjectCard = styled.article<{ $clickable: boolean }>`
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.gray200};
-    box-shadow: 0 14px 34px rgba(17, 24, 39, 0.08);
-    transform: translateY(-2px);
 
     img {
       transform: scale(1.06);
@@ -35,8 +33,12 @@ export const ProjectThumbnail = styled.div`
   overflow: hidden;
   background: ${({ theme }) => theme.colors.gray100};
 
-  img {
-    transition: transform 0.3s ease;
+  .img {
+    height: 100%;
+
+    img {
+      transition: transform 0.3s ease;
+    }
   }
 `;
 

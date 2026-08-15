@@ -99,6 +99,7 @@ export const MainVisualBnrList = styled.div`
       }
 
       .swiper-pagination {
+        bottom: 10px;
         margin: 0;
       }
     }

@@ -79,6 +79,52 @@ export const SwiperNavigation = styled.div<IProps>`
     }
   }
 
+  @media ${({ theme }) => theme.media.smMax} {
+    .swiper-button-autoplay-control,
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: ${mixin.pxToVw("36")};
+      height: ${mixin.pxToVw("36")};
+      border-radius: ${mixin.pxToVw("5")};
+
+      svg {
+        width: ${mixin.pxToVw("8")};
+        height: ${mixin.pxToVw("13")};
+      }
+    }
+
+    .swiper-button-next {
+      right: ${mixin.pxToVw("8")};
+    }
+
+    .swiper-button-prev {
+      left: ${mixin.pxToVw("8")};
+    }
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    .swiper-button-autoplay-control,
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 41px;
+      height: 41px;
+      border-radius: 6px;
+
+      svg {
+        width: 9px;
+        height: 15px;
+      }
+    }
+
+    .swiper-button-next {
+      right: 9px;
+    }
+
+    .swiper-button-prev {
+      left: 9px;
+    }
+  }
+
   ${(props) => {
     if (props.$offsetTop) {
       return css`

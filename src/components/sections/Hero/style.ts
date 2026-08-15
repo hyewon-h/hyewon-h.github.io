@@ -27,6 +27,10 @@ export const ProfileImg = styled.div`
   width: 100%;
   pointer-events: none;
 
+  .img {
+    aspect-ratio: 1 / 1;
+  }
+
   @media ${({ theme }) => theme.media.pc} {
     position: absolute;
     top: 50px;

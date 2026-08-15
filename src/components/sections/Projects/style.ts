@@ -91,8 +91,12 @@ export const ProjectThumbnail = styled.div`
   aspect-ratio: 16 / 9;
   overflow: hidden;
 
-  img {
-    transition: transform 0.3s ease;
+  .img {
+    height: 100%;
+
+    img {
+      transition: transform 0.3s ease;
+    }
   }
 `;
 

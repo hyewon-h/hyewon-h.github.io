@@ -91,7 +91,7 @@ export const CardTypeBannerItem = styled.div`
     }
 
     .img {
-      padding-bottom: 133.333%;
+      height: ${mixin.pxToVw("432")};
     }
 
     .textBox {
@@ -331,20 +331,23 @@ export const CardTypeBannerItem = styled.div`
     }
   }
 
-  @media ${({ theme }) => theme.media.md} {
-    &.type-card {
-      .img {
-        padding-bottom: 135.918%;
-      }
-    }
-  }
+  // @media ${({ theme }) => theme.media.md} {
+  //   &.type-card {
+  //     .img {
+  //       height: ${mixin.pxToVw("432")};
+  //     }
+  //   }
+  // }
 
   @media ${({ theme }) => theme.media.pc} {
     &.type-card {
-      // ITDEV-20646
-      .img img {
-        transform: translateZ(0);
-        backface-visibility: hidden;
+      .img {
+        height: 574px;
+
+        img {
+          transform: translateZ(0);
+          backface-visibility: hidden;
+        }
       }
 
       .textBox {

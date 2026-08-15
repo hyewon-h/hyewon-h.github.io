@@ -192,12 +192,12 @@ export const ModalHeader = styled.div`
 `;
 
 export const ModalTitle = styled.h2`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.gray900};
 
   @media ${({ theme }) => theme.media.smMax} {
-    font-size: ${mixin.pxToVw("18")};
+    font-size: ${mixin.pxToVw("16")};
   }
 `;
 
@@ -214,6 +214,6 @@ export const ModalContent = styled.div`
   }
 
   @media ${({ theme }) => theme.media.pc} {
-    max-height: calc(90vh - 100px);
+    max-height: inherit;
   }
 `;

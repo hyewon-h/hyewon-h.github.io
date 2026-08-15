@@ -4,6 +4,16 @@ import { mixin } from "@/styles/index";
 export const FilterModal = styled.div`
   ${mixin.flex({ direction: "column" })};
   width: 100%;
+
+  .tab-list {
+    button {
+      padding: 10px 12px;
+    }
+  }
+
+  .tab-panel {
+    padding: 16px 20px;
+  }
 `;
 
 // 필터 그룹 패널(탭 콘텐츠) 스크롤 영역
@@ -128,85 +138,12 @@ export const PriceInputs = styled.div`
   }
 `;
 
-// 좌/우 핸들이 있는 이중 range 슬라이더
-export const Slider = styled.div`
-  position: relative;
-  height: 20px;
-
-  /* 겹쳐진 두 개의 range 인풋: 트랙은 투명하게 두고 thumb(핸들)만 조작 가능 */
-  input[type="range"] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    margin: 0;
-    background: none;
-    pointer-events: none; /* 트랙 클릭 막고 thumb에만 이벤트 허용 */
-    -webkit-appearance: none;
-    appearance: none;
-  }
-
-  /* min 핸들을 위로 올려 겹칠 때도 잡히도록 */
-  input.thumb-min {
-    z-index: 3;
-  }
-  input.thumb-max {
-    z-index: 2;
-  }
-
-  input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    pointer-events: auto;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: #fff;
-    border: 1px solid ${({ theme }) => theme.colors.primary};
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-  }
-
-  input[type="range"]::-moz-range-thumb {
-    pointer-events: auto;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: #fff;
-    border: 1px solid ${({ theme }) => theme.colors.primary};
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-  }
-`;
-
-export const PriceTrack = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 8px;
-  right: 8px;
-  height: 4px;
-  transform: translateY(-50%);
-  border-radius: 4px;
-  background: ${({ theme }) => theme.colors.gray200};
-  pointer-events: none;
-`;
-
-export const PriceFill = styled.div<{ $left: number; $right: number }>`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: ${({ $left }) => `${$left}%`};
-  right: ${({ $right }) => `${100 - $right}%`};
-  border-radius: 4px;
-  background: ${({ theme }) => theme.colors.primary};
-`;
-
 // 선택된 필터 칩 바
 export const ChipBar = styled.div`
+  width: 100%;
   ${mixin.flex({ align: "center" })};
   gap: 8px;
-  padding: 12px 0;
+  padding: 12px 20px;
   margin-top: 8px;
   border-top: 1px solid ${({ theme }) => theme.colors.gray100};
 `;
@@ -261,6 +198,7 @@ export const Footer = styled.div`
   width: 100%;
   ${mixin.flex({ align: "center" })};
   gap: 8px;
+  padding: 8px 20px;
 `;
 
 export const CancelBtn = styled.button`

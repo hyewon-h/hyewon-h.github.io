@@ -208,7 +208,7 @@ const CardBannerSwiperType = ({
   // 아이템 5개 이하부터 슬라이드 2배 복사
   const paramMo: any = {
     autoplay: autoPlayEnabled
-      ? { delay: 2000, disableOnInteraction: false }
+      ? { delay: 3000, disableOnInteraction: false }
       : false,
     touchRatio: 0.7,
     spaceBetween: 0,

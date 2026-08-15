@@ -42,7 +42,7 @@ export const SwiperPagination = styled.div<IProps>`
   }
 
   &.swiper-pagination-fraction02Medium {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   &.swiper-pagination-fraction03 {

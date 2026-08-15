@@ -16,7 +16,7 @@ const Tabs = ({ tabs, initialIndex = 0 }: IProps) => {
 
   return (
     <S.TabsWrapper>
-      <S.TabList>
+      <S.TabList className="tab-list">
         {tabs.map((tab, idx) => (
           <S.TabButton
             key={tab.label}
@@ -27,7 +27,9 @@ const Tabs = ({ tabs, initialIndex = 0 }: IProps) => {
           </S.TabButton>
         ))}
       </S.TabList>
-      <S.TabPanel>{tabs[activeIndex]?.content}</S.TabPanel>
+      <S.TabPanel className="tab-panel">
+        {tabs[activeIndex]?.content}
+      </S.TabPanel>
     </S.TabsWrapper>
   );
 };

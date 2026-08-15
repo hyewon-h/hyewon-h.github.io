@@ -28,10 +28,18 @@ export const ClearButton = styled.button`
   border: none;
   background: transparent;
   cursor: pointer;
-  color: ${({ theme }) => theme.colors?.gray400 || "#9ca3af"};
+  color: ${({ theme }) => theme.colors.gray400};
 
   &:hover {
-    color: ${({ theme }) => theme.colors?.gray600 || "#4b5563"};
+    color: ${({ theme }) => theme.colors.gray600};
+  }
+
+  @media ${({ theme }) => theme.media.smMax} {
+    right: ${mixin.pxToVw("10")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    right: 12px;
   }
 `;
 
@@ -40,8 +48,7 @@ export const InputField = styled.input<IProps>`
   padding: ${({ $clearable }) =>
     $clearable ? "12px 36px 12px 16px" : "12px 16px"};
   border: 1px solid
-    ${({ $error, theme }) =>
-      $error ? "#ff4757" : theme.colors?.gray300 || "#d1d5db"};
+    ${({ $error, theme }) => ($error ? "#ff4757" : theme.colors.gray300)};
   font-size: 16px;
   font-family: inherit;
   background: #fff;
@@ -50,20 +57,32 @@ export const InputField = styled.input<IProps>`
   &:focus {
     outline: none;
     border-color: ${({ $error, theme }) =>
-      $error ? "#ff4757" : theme.colors?.primary || "#3b82f6"};
+      $error ? "#ff4757" : theme.colors.primary};
     box-shadow: 0 0 0 1px
       ${({ $error, theme }) =>
-        $error ? "#ff475720" : theme.colors?.primaryLight || "#3b82f620"};
+        $error ? "#ff475720" : theme.colors.primaryLight};
   }
 
   &:disabled {
-    background: ${({ theme }) => theme.colors?.gray100 || "#f3f4f6"};
-    color: ${({ theme }) => theme.colors?.gray500 || "#6b7280"};
+    background: ${({ theme }) => theme.colors.gray100};
+    color: ${({ theme }) => theme.colors.gray500};
     cursor: not-allowed;
   }
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors?.gray400 || "#9ca3af"};
+    color: ${({ theme }) => theme.colors.gray400};
+  }
+
+  @media ${({ theme }) => theme.media.smMax} {
+    padding: ${({ $clearable }) =>
+      $clearable ? mixin.pxToVw("12 36 12 16") : mixin.pxToVw("12 16")};
+    font-size: ${mixin.pxToVw("16")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    padding: ${({ $clearable }) =>
+      $clearable ? "14px 41px 14px 18px" : "14px 18px"};
+    font-size: 16px;
   }
 `;
 
@@ -71,4 +90,14 @@ export const ErrorMessage = styled.span`
   color: #ff4757;
   font-size: 14px;
   margin-top: 4px;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("14")};
+    margin-top: ${mixin.pxToVw("4")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    font-size: 14px;
+    margin-top: 5px;
+  }
 `;

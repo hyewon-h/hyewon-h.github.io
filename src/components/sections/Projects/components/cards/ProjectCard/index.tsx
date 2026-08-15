@@ -28,9 +28,9 @@ const ProjectCard = ({ project, className, onClick }: IProps) => {
       )}
 
       <S.ProjectCardBody>
-        <S.ProjectMeta>
+        {/* <S.ProjectMeta>
           <span>{project.period}</span>
-        </S.ProjectMeta>
+        </S.ProjectMeta> */}
         <S.ProjectTitle>{project.title}</S.ProjectTitle>
         <S.ProjectDesc>{project.description}</S.ProjectDesc>
         <S.ProjectTags>

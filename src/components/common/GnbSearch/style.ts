@@ -5,6 +5,14 @@ export const GnbSearch = styled.div`
   position: relative;
   width: 400px;
   max-width: 100%;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    width: ${mixin.pxToVw("400")};
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    width: 460px;
+  }
 `;
 
 export const SearchField = styled.div`
@@ -53,6 +61,48 @@ export const SearchField = styled.div`
     border: none;
     border-radius: 50%;
     cursor: pointer;
+  }
+
+  @media ${({ theme }) => theme.media.smMax} {
+    gap: ${mixin.pxToVw("8")};
+    height: ${mixin.pxToVw("44")};
+    padding: ${mixin.pxToVw("0 12")};
+    border-radius: ${mixin.pxToVw("22")};
+
+    .icon {
+      font-size: ${mixin.pxToVw("16")};
+    }
+
+    input {
+      font-size: ${mixin.pxToVw("14")};
+    }
+
+    .clear {
+      width: ${mixin.pxToVw("18")};
+      height: ${mixin.pxToVw("18")};
+      font-size: ${mixin.pxToVw("12")};
+    }
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    gap: 9px;
+    height: 51px;
+    padding: 0 14px;
+    border-radius: 25px;
+
+    .icon {
+      font-size: 16px;
+    }
+
+    input {
+      font-size: 14px;
+    }
+
+    .clear {
+      width: 21px;
+      height: 21px;
+      font-size: 12px;
+    }
   }
 `;
 
@@ -123,6 +173,72 @@ export const Dropdown = styled.div`
       cursor: pointer;
     }
   }
+
+  @media ${({ theme }) => theme.media.smMax} {
+    width: ${mixin.pxToVw("541")};
+    top: calc(100% + ${mixin.pxToVw("8")});
+    border-radius: ${mixin.pxToVw("8")};
+
+    h3 {
+      margin-bottom: ${mixin.pxToVw("16")};
+      font-size: ${mixin.pxToVw("15")};
+    }
+
+    .recent,
+    .popular {
+      padding: ${mixin.pxToVw("24")};
+      min-height: ${mixin.pxToVw("320")};
+    }
+
+    .head .clear-all {
+      font-size: ${mixin.pxToVw("13")};
+    }
+
+    .is-empty {
+      font-size: ${mixin.pxToVw("14")};
+    }
+
+    .bottom {
+      padding: ${mixin.pxToVw("12 20")};
+
+      button {
+        font-size: ${mixin.pxToVw("13")};
+      }
+    }
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    width: 622px;
+    top: calc(100% + 9px);
+    border-radius: 9px;
+
+    h3 {
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    .recent,
+    .popular {
+      padding: 28px;
+      min-height: 368px;
+    }
+
+    .head .clear-all {
+      font-size: 13px;
+    }
+
+    .is-empty {
+      font-size: 14px;
+    }
+
+    .bottom {
+      padding: 14px 23px;
+
+      button {
+        font-size: 13px;
+      }
+    }
+  }
 `;
 
 export const RecentList = styled.ul`
@@ -155,6 +271,42 @@ export const RecentList = styled.ul`
     background: none;
     border: none;
     cursor: pointer;
+  }
+
+  @media ${({ theme }) => theme.media.smMax} {
+    gap: ${mixin.pxToVw("12")};
+
+    li {
+      gap: ${mixin.pxToVw("8")};
+    }
+
+    .word {
+      font-size: ${mixin.pxToVw("15")};
+    }
+
+    .del {
+      width: ${mixin.pxToVw("19")};
+      height: ${mixin.pxToVw("19")};
+      font-size: ${mixin.pxToVw("12")};
+    }
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    gap: 14px;
+
+    li {
+      gap: 9px;
+    }
+
+    .word {
+      font-size: 15px;
+    }
+
+    .del {
+      width: 22px;
+      height: 22px;
+      font-size: 12px;
+    }
   }
 `;
 
@@ -189,5 +341,47 @@ export const PopularList = styled.ol`
     font-size: 11px;
     font-weight: 700;
     color: ${({ theme }) => theme.colors.primary};
+  }
+
+  @media ${({ theme }) => theme.media.smMax} {
+    gap: ${mixin.pxToVw("12")};
+
+    li button {
+      gap: ${mixin.pxToVw("10")};
+    }
+
+    .rank {
+      min-width: ${mixin.pxToVw("18")};
+      font-size: ${mixin.pxToVw("14")};
+    }
+
+    .word {
+      font-size: ${mixin.pxToVw("15")};
+    }
+
+    .new {
+      font-size: ${mixin.pxToVw("11")};
+    }
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    gap: 14px;
+
+    li button {
+      gap: 12px;
+    }
+
+    .rank {
+      min-width: 21px;
+      font-size: 14px;
+    }
+
+    .word {
+      font-size: 15px;
+    }
+
+    .new {
+      font-size: 11px;
+    }
   }
 `;

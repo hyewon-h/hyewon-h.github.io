@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mixin } from "@/styles/index";
 
 export const TextEditor = styled.div`
   position: relative;
@@ -56,5 +57,49 @@ export const TextEditor = styled.div`
     right: 10px;
     font-size: 12px;
     color: #acacac;
+  }
+
+  @media ${({ theme }) => theme.media.smMax} {
+    padding: ${mixin.pxToVw("10 10 30")};
+
+    .editor-container {
+      height: ${mixin.pxToVw("126")};
+    }
+
+    .highlight-layer {
+      font-size: ${mixin.pxToVw("14")};
+    }
+
+    .editor-textarea {
+      font-size: ${mixin.pxToVw("14")};
+    }
+
+    .count {
+      bottom: ${mixin.pxToVw("10")};
+      right: ${mixin.pxToVw("10")};
+      font-size: ${mixin.pxToVw("12")};
+    }
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    padding: 12px 12px 34px;
+
+    .editor-container {
+      height: 145px;
+    }
+
+    .highlight-layer {
+      font-size: 14px;
+    }
+
+    .editor-textarea {
+      font-size: 14px;
+    }
+
+    .count {
+      bottom: 12px;
+      right: 12px;
+      font-size: 12px;
+    }
   }
 `;

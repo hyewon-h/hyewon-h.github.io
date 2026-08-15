@@ -10,6 +10,8 @@ export interface IProps {
   width?: string | number;
   /** 높이 */
   height?: string | number;
+  /** object-fit: cover 적용 여부 */
+  cover?: boolean;
   /** CSS 클래스명 */
   className?: string;
   /** 로딩 실패 시 콜백 */
@@ -29,24 +31,34 @@ const Img = ({
   onError,
   onLoad,
   loading = "lazy",
+  cover = true,
   ...props
 }: IProps) => {
-  // undefined 값들을 필터링
   const imgProps: any = {
     src,
     alt,
-    className,
     onError,
     onLoad,
     loading,
     ...props,
   };
 
-  // width, height가 정의된 경우에만 추가 (transient prop으로 전달해 CSS로만 적용)
-  if (width !== undefined) imgProps.$width = width;
-  if (height !== undefined) imgProps.$height = height;
+  const wrapperProps: any = {};
+  wrapperProps.className = className ? `img ${className}` : "img";
+  if (width !== undefined) wrapperProps.$width = width;
+  if (height !== undefined) wrapperProps.$height = height;
+  if (cover) wrapperProps.$cover = cover;
 
-  return <S.Img {...imgProps} />;
+  const innerImgProps: any = {
+    ...imgProps,
+    $cover: cover,
+  };
+
+  return (
+    <S.Wrapper {...wrapperProps}>
+      <S.Img {...innerImgProps} />
+    </S.Wrapper>
+  );
 };
 
 export default memo(Img);

@@ -4,7 +4,8 @@ import Modal from "@/components/common/Modal";
 import Tabs from "@/components/common/Tabs";
 import Checkbox from "@/components/common/Checkbox";
 import Input from "@/components/common/Input";
-import { IconRefresh } from "@/components/common/svg";
+import { IconX, IconRefresh } from "@/components/common/svg";
+import RangeSlider from "@/components/sections/Projects/components/filters/RangeSlider";
 import * as S from "./style";
 
 /* ------------------------------------------------------------------ *
@@ -240,9 +241,6 @@ const FilterModal = ({ isOpen, onClose, onApply, size = "medium" }: IProps) => {
     </S.Panel>
   );
 
-  const pricePercent = (v: number) =>
-    ((v - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100;
-
   const pricePanel = (
     <S.Panel>
       <S.PanelTitle>
@@ -269,34 +267,14 @@ const FilterModal = ({ isOpen, onClose, onApply, size = "medium" }: IProps) => {
             <span className="unit">원</span>
           </span>
         </S.PriceInputs>
-        <S.Slider>
-          <S.PriceTrack>
-            <S.PriceFill
-              $left={Math.max(0, pricePercent(selected.price[0]))}
-              $right={Math.min(100, pricePercent(selected.price[1]))}
-            />
-          </S.PriceTrack>
-          <input
-            type="range"
-            className="thumb thumb-min"
-            min={PRICE_MIN}
-            max={PRICE_MAX}
-            step={PRICE_STEP}
-            value={selected.price[0]}
-            aria-label="최소 가격"
-            onChange={(e) => setPriceValue(0, Number(e.target.value))}
-          />
-          <input
-            type="range"
-            className="thumb thumb-max"
-            min={PRICE_MIN}
-            max={PRICE_MAX}
-            step={PRICE_STEP}
-            value={selected.price[1]}
-            aria-label="최대 가격"
-            onChange={(e) => setPriceValue(1, Number(e.target.value))}
-          />
-        </S.Slider>
+        <RangeSlider
+          min={PRICE_MIN}
+          max={PRICE_MAX}
+          step={PRICE_STEP}
+          value={selected.price}
+          onChange={(next) => setSelected((prev) => ({ ...prev, price: next }))}
+          showLabels={false}
+        />
       </S.PriceBox>
     </S.Panel>
   );
@@ -331,7 +309,7 @@ const FilterModal = ({ isOpen, onClose, onApply, size = "medium" }: IProps) => {
                     aria-label={`${chip.label} 삭제`}
                     onClick={() => removeChip(chip.group, chip.value)}
                   >
-                    ✕
+                    <IconX />
                   </button>
                 </S.Chip>
               ))}
