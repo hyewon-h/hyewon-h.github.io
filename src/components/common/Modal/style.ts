@@ -81,6 +81,8 @@ export const ModalContainer = styled.div<{
   width: 95%;
   max-height: 95vh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
   ${({ $size }) =>
     $size === "fullscreen" &&
@@ -143,7 +145,7 @@ export const ModalContainer = styled.div<{
         width: 100%;
         max-height: 90vh;
         transform: none;
-        border-radius: 16px 16px 0 0;
+        border-radius: 4px 4px 0 0;
       `}
       ${$placement === "left" &&
       css`
@@ -183,6 +185,7 @@ export const ModalContainer = styled.div<{
 
 export const ModalHeader = styled.div`
   ${mixin.flex({ align: "center", justify: "space-between" })};
+  flex-shrink: 0;
   padding: 12px 20px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray200};
 
@@ -205,15 +208,27 @@ export const CloseButton = styled.button`
   padding: 4px;
 `;
 
-export const ModalContent = styled.div`
+export const ModalContent = styled.div<{
+  $noPadding?: boolean;
+  $contentMinHeight?: number;
+}>`
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
   overflow-y: auto;
-  max-height: calc(95vh - 100px);
+  padding: ${({ $noPadding }) => ($noPadding ? "0" : "20px 20px 140px")};
 
   @media ${({ theme }) => theme.media.smMax} {
-    max-height: calc(95vh - ${mixin.pxToVw("100")});
+    padding: ${({ $noPadding }) =>
+      $noPadding ? "0" : mixin.pxToVw("20 20 140")};
   }
 
   @media ${({ theme }) => theme.media.pc} {
-    max-height: inherit;
+    padding: ${({ $noPadding }) => ($noPadding ? "0" : "40px 40px 100px")};
+    ${({ $contentMinHeight }) =>
+      $contentMinHeight &&
+      css`
+        min-height: ${$contentMinHeight}px;
+      `}
   }
 `;

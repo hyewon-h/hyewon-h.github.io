@@ -291,7 +291,13 @@ const FilterModal = ({ isOpen, onClose, onApply, size = "medium" }: IProps) => {
   ];
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="필터" size={size}>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      title="필터"
+      size={size}
+      noPadding
+    >
       <S.FilterModal>
         <Tabs tabs={tabs} />
 

@@ -299,3 +299,69 @@ export const WorkTags = styled.div`
     gap: ${mixin.pxToVw("4")};
   }
 `;
+
+// Component Archive - productShowcase 데모
+export const ProductShowcaseWrap = styled.div`
+  ${mixin.flex({ direction: "column" })};
+  gap: 24px;
+`;
+
+export const ProductShowcaseGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+`;
+
+export const ProductShowcaseFooter = styled.div`
+  ${mixin.flex({ align: "center" })};
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid ${({ theme }) => theme.colors.gray100};
+`;
+
+// Component Archive - itemsScrollBar 데모
+export const ArchiveScrollWrap = styled.div`
+  width: 100%;
+  overflow: hidden;
+`;
+
+export const ArchiveControls = styled.div`
+  ${mixin.flex({ align: "center", wrap: "wrap" })};
+  gap: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray100};
+
+  @media ${({ theme }) => theme.media.smMax} {
+    gap: ${mixin.pxToVw("20")};
+    margin-bottom: ${mixin.pxToVw("16")};
+    padding-bottom: ${mixin.pxToVw("16")};
+  }
+`;
+
+export const ArchiveControlItem = styled.label`
+  ${mixin.flex({ align: "center" })};
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.gray700};
+
+  @media ${({ theme }) => theme.media.smMax} {
+    gap: ${mixin.pxToVw("10")};
+    font-size: ${mixin.pxToVw("13")};
+  }
+`;
+
+export const ArchiveGridItem = styled.div`
+  ${mixin.flex({ align: "center", justify: "center" })};
+  min-height: 80px;
+  background: ${({ theme }) => theme.colors.gray50};
+  color: ${({ theme }) => theme.colors.gray700};
+  font-size: 14px;
+  font-weight: 600;
+`;
+
+// Component Archive - customSelect 데모
+export const CustomSelectDemoWrap = styled.div`
+  max-width: 360px;
+`;

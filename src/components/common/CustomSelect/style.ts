@@ -100,11 +100,11 @@ export const OptionsList = styled.div`
   }
   &::-webkit-scrollbar-track {
     background: transparent;
-    border-radius: 6px;
+    border-radius: 4px;
   }
   &::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.4);
-    border-radius: 6px;
+    border-radius: 4px;
   }
 
   @media ${({ theme }) => theme.media.smMax} {
@@ -112,10 +112,10 @@ export const OptionsList = styled.div`
       width: ${mixin.pxToVw("3")};
     }
     &::-webkit-scrollbar-track {
-      border-radius: ${mixin.pxToVw("6")};
+      border-radius: ${mixin.pxToVw("4")};
     }
     &::-webkit-scrollbar-thumb {
-      border-radius: ${mixin.pxToVw("6")};
+      border-radius: ${mixin.pxToVw("4")};
     }
   }
 `;

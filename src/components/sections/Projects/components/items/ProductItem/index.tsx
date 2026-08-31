@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import Img from "@/components/common/Img";
+import Tag from "@/components/common/Tag";
 import { IconHeart } from "@/components/common/svg";
 import { classNameBind } from "@/utils/commonUtils";
 import * as S from "./style";
@@ -84,12 +85,6 @@ const ProductItem = ({
         )}
 
         <Img className="thumb" src={imgSrc} alt={name} />
-
-        {soldOut && (
-          <div className="area-soldout">
-            <span>품절</span>
-          </div>
-        )}
       </div>
 
       <div className="area-info">
@@ -102,6 +97,7 @@ const ProductItem = ({
             <span className="origin">{formatPrice(originPrice!)}원</span>
           )}
         </div>
+        {soldOut && <Tag className="tag-soldout">품절</Tag>}
       </div>
     </S.Card>
   );

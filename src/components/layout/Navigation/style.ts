@@ -19,7 +19,7 @@ export const NavLink = styled.a<{ $isActive: boolean }>`
   font-weight: ${({ $isActive }) => ($isActive ? 600 : 400)};
   color: ${({ $isActive, theme }) =>
     $isActive ? theme.colors.primary : theme.colors.gray700};
-  border-radius: 6px;
+  border-radius: 4px;
   transition:
     color 0.2s,
     background-color 0.2s;

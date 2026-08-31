@@ -1,4 +1,5 @@
 import React, { memo, useCallback } from "react";
+import { IconMinus, IconPlus } from "@/components/common/svg";
 import * as S from "./style";
 
 export interface IProps {
@@ -62,7 +63,7 @@ const QuantityStepper = ({
         onClick={() => commit(value - step)}
         disabled={disabled || value <= min}
       >
-        −
+        <IconMinus />
       </button>
       <input
         className="value"
@@ -84,7 +85,7 @@ const QuantityStepper = ({
         onClick={() => commit(value + step)}
         disabled={disabled || value >= max}
       >
-        +
+        <IconPlus />
       </button>
     </S.Stepper>
   );

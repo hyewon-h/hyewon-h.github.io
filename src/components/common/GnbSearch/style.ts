@@ -115,7 +115,7 @@ export const Dropdown = styled.div`
   max-width: 92vw;
   background: #fff;
   border: 1px solid ${({ theme }) => theme.colors.gray200};
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   ${mixin.flex({ wrap: "wrap" })};
@@ -177,7 +177,7 @@ export const Dropdown = styled.div`
   @media ${({ theme }) => theme.media.smMax} {
     width: ${mixin.pxToVw("541")};
     top: calc(100% + ${mixin.pxToVw("8")});
-    border-radius: ${mixin.pxToVw("8")};
+    border-radius: ${mixin.pxToVw("4")};
 
     h3 {
       margin-bottom: ${mixin.pxToVw("16")};
@@ -210,7 +210,7 @@ export const Dropdown = styled.div`
   @media ${({ theme }) => theme.media.pc} {
     width: 622px;
     top: calc(100% + 9px);
-    border-radius: 9px;
+    border-radius: 4px;
 
     h3 {
       margin-bottom: 18px;

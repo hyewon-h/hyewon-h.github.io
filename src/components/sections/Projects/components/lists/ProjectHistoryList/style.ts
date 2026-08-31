@@ -119,8 +119,8 @@ export const HistoryAside = styled.div`
       top: 12px;
       right: -28px;
       left: auto;
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
     }
   }
 `;
@@ -185,6 +185,36 @@ export const Title = styled.h4`
 
   @media ${({ theme }) => theme.media.pc} {
     font-size: 22px;
+  }
+`;
+
+export const SiteLink = styled.a`
+  ${mixin.flex({ align: "center" })};
+  gap: 2px;
+  font-size: 13px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.primary};
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @media ${({ theme }) => theme.media.smMax} {
+    font-size: ${mixin.pxToVw("13")};
+
+    svg {
+      width: ${mixin.pxToVw("14")};
+      height: ${mixin.pxToVw("14")};
+    }
+  }
+
+  @media ${({ theme }) => theme.media.pc} {
+    font-size: 13px;
   }
 `;
 

@@ -37,7 +37,7 @@ export const Card = styled.div<{ $clickable: boolean }>`
     ${mixin.flex({ align: "center", justify: "center" })};
     height: 20px;
     padding: 0 6px;
-    border-radius: 4px;
+    border-radius: 0;
     font-size: 11px;
     font-weight: 700;
     line-height: 1;
@@ -54,7 +54,6 @@ export const Card = styled.div<{ $clickable: boolean }>`
     .badge {
       height: ${mixin.pxToVw("20")};
       padding: ${mixin.pxToVw("0 6")};
-      border-radius: ${mixin.pxToVw("4")};
       font-size: ${mixin.pxToVw("11")};
     }
   }
@@ -64,13 +63,6 @@ export const Card = styled.div<{ $clickable: boolean }>`
       top: 9px;
       left: 9px;
       gap: 5px;
-    }
-
-    .badge {
-      height: 23px;
-      padding: 0 7px;
-      border-radius: 5px;
-      font-size: 13px;
     }
   }
 
@@ -106,7 +98,6 @@ export const Card = styled.div<{ $clickable: boolean }>`
     svg path {
       stroke: ${({ theme }) => theme.colors.white};
       stroke-width: 1.8;
-      fill: rgba(0, 0, 0, 0.25);
       transition: fill 0.15s ease;
     }
 
@@ -116,17 +107,8 @@ export const Card = styled.div<{ $clickable: boolean }>`
     }
   }
 
-  .area-soldout {
-    position: absolute;
-    inset: 0;
-    ${mixin.flex({ align: "center", justify: "center" })};
-    background: rgba(255, 255, 255, 0.65);
-
-    span {
-      font-size: 14px;
-      font-weight: 700;
-      color: ${({ theme }) => theme.colors.gray800};
-    }
+  .tag-soldout {
+    margin-top: 6px;
   }
 
   .area-info {
@@ -186,8 +168,8 @@ export const Card = styled.div<{ $clickable: boolean }>`
       }
     }
 
-    .area-soldout span {
-      font-size: ${mixin.pxToVw("14")};
+    .tag-soldout {
+      margin-top: ${mixin.pxToVw("6")};
     }
 
     .area-info {
@@ -219,20 +201,8 @@ export const Card = styled.div<{ $clickable: boolean }>`
   }
 
   @media ${({ theme }) => theme.media.pc} {
-    .btn-like {
-      top: 7px;
-      right: 7px;
-      width: 37px;
-      height: 37px;
-
-      svg {
-        width: 25px;
-        height: 25px;
-      }
-    }
-
-    .area-soldout span {
-      font-size: 16px;
+    .tag-soldout {
+      margin-top: 7px;
     }
 
     .area-info {

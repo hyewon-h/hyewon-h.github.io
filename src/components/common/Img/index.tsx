@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { classNameBind } from "@/utils/commonUtils";
 import * as S from "./style";
 
 export interface IProps {
@@ -44,7 +45,7 @@ const Img = ({
   };
 
   const wrapperProps: any = {};
-  wrapperProps.className = className ? `img ${className}` : "img";
+  wrapperProps.className = classNameBind(["img", className || ""]);
   if (width !== undefined) wrapperProps.$width = width;
   if (height !== undefined) wrapperProps.$height = height;
   if (cover) wrapperProps.$cover = cover;

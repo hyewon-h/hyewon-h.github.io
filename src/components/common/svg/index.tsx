@@ -16,7 +16,9 @@ import { ReactComponent as icon_headphones } from "./icon/icon_headphones.svg";
 import { ReactComponent as icon_heart } from "./icon/icon_heart.svg";
 import { ReactComponent as icon_loader } from "./icon/icon_loader.svg";
 import { ReactComponent as icon_mail } from "./icon/icon_mail.svg";
+import { ReactComponent as icon_minus } from "./icon/icon_minus.svg";
 import { ReactComponent as icon_move_right } from "./icon/icon_move_right.svg";
+import { ReactComponent as icon_plus } from "./icon/icon_plus.svg";
 import { ReactComponent as icon_phone } from "./icon/icon_phone.svg";
 import { ReactComponent as icon_smartphone } from "./icon/icon_smartphone.svg";
 import { ReactComponent as icon_square_x } from "./icon/icon_square_x.svg";
@@ -74,7 +76,13 @@ export const IconLoader = styled(icon_loader)`
 export const IconMail = styled(icon_mail)`
   ${mixin.getSizeBox(20, 20)}
 `;
+export const IconMinus = styled(icon_minus)`
+  ${mixin.getSizeBox(20, 20)}
+`;
 export const IconMoveRight = styled(icon_move_right)`
+  ${mixin.getSizeBox(20, 20)}
+`;
+export const IconPlus = styled(icon_plus)`
   ${mixin.getSizeBox(20, 20)}
 `;
 export const IconPhone = styled(icon_phone)`

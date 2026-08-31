@@ -5,13 +5,6 @@ export const ShowcaseBannerItem = styled.div`
   position: relative;
   margin: 0 20px;
 
-  .area-click {
-    position: relative;
-    display: block;
-    width: 100%;
-    z-index: 1;
-  }
-
   .title-mobile {
     ${mixin.flex({ align: "center", justify: "center" })};
     position: absolute;
@@ -36,6 +29,15 @@ export const ShowcaseBannerItem = styled.div`
     }
   }
 
+  /* 배너 영역 높이: 375px 기준 400px을 vw로 유동 처리해
+     375 이하/이상 구간 모두 화면 폭에 비례해서 늘고 줄어들도록 유지한다.
+     (pc 브레이크포인트에서만 638px 고정) */
+  .banner-box {
+    position: relative;
+    height: ${mixin.pxToVw("400")};
+    overflow: hidden;
+  }
+
   .banner-btn {
     position: relative;
     display: block;
@@ -45,7 +47,7 @@ export const ShowcaseBannerItem = styled.div`
 
   .banner-img {
     width: 100%;
-    height: 400px;
+    height: ${mixin.pxToVw("400")};
     transform: translate3d(0, 0, 0);
     will-change: opacity;
   }
@@ -76,51 +78,6 @@ export const ShowcaseBannerItem = styled.div`
         );
       }
     }
-
-    .product-item {
-      padding-top: 10px;
-      padding-bottom: 10px;
-      padding-right: 12px;
-
-      &:last-child {
-        min-width: 100%;
-        padding-right: 0;
-
-        .area-info .like-pick {
-          right: 5px;
-        }
-      }
-
-      .area-img {
-        width: 54px !important;
-      }
-
-      .area-info {
-        .area-click {
-          padding: 4px 16px 0 14px;
-        }
-
-        .like-pick {
-          right: 10px;
-
-          &:not(.active) {
-            svg {
-              path {
-                stroke: #bbb;
-              }
-            }
-          }
-        }
-      }
-
-      + .product-item {
-        border-left: 1px solid rgba(255, 255, 255, 0.3);
-      }
-
-      .detail {
-        color: #e2e2e2;
-      }
-    }
   }
 
   @media ${({ theme }) => theme.media.smMax} {
@@ -128,34 +85,6 @@ export const ShowcaseBannerItem = styled.div`
       .text {
         width: ${mixin.pxToVw("230")};
         font-size: ${mixin.pxToVw("24")};
-      }
-    }
-
-    .product-scroll-area {
-      .product-item {
-        padding-top: ${mixin.pxToVw("10")};
-        padding-bottom: ${mixin.pxToVw("10")};
-        padding-right: ${mixin.pxToVw("12")};
-
-        &:last-child {
-          .area-info .like-pick {
-            right: ${mixin.pxToVw("5")};
-          }
-        }
-
-        .area-img {
-          width: ${mixin.pxToVw("54")} !important;
-        }
-
-        .area-info {
-          .area-click {
-            padding: ${mixin.pxToVw("4 16 0 14")};
-          }
-
-          .like-pick {
-            right: ${mixin.pxToVw("10")};
-          }
-        }
       }
     }
   }
@@ -195,6 +124,7 @@ export const ShowcaseBannerItem = styled.div`
 
     .banner-box {
       width: 522px;
+      height: 638px;
       z-index: 2;
     }
 
@@ -241,14 +171,6 @@ export const ShowcaseBannerItem = styled.div`
         column-gap: 18px;
         padding-top: 40px;
         z-index: 2;
-
-        .product-item {
-          width: 206px;
-
-          .detail {
-            color: #fff;
-          }
-        }
       }
     }
   }

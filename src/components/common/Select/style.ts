@@ -25,7 +25,7 @@ export const StyledSelect = styled.select`
 
   @media ${({ theme }) => theme.media.pc} {
     padding: 9px 14px;
-    border-radius: 5px;
+    border-radius: 4px;
     font-size: 14px;
   }
 `;

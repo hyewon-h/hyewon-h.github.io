@@ -161,7 +161,7 @@ export const CardTypeBannerItem = styled.div`
   &.type-listBnn {
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 4px;
 
     .btn {
       width: 100%;
@@ -290,7 +290,7 @@ export const CardTypeBannerItem = styled.div`
     }
 
     &.type-listBnn {
-      border-radius: ${mixin.pxToVw("12")};
+      border-radius: ${mixin.pxToVw("4")};
 
       .textBox {
         padding: ${mixin.pxToVw("22 14")};

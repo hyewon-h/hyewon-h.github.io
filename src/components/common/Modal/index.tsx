@@ -26,6 +26,10 @@ export interface IProps {
   className?: string;
   /** 닫기 버튼 숨김 */
   hideCloseButton?: boolean;
+  /** 컨텐츠 영역 기본 패딩 제거 (배너/스와이퍼처럼 가장자리까지 꽉 채워야 할 때) */
+  noPadding?: boolean;
+  /** PC에서 컨텐츠 영역 최소 높이(px). 내용이 적을 때 모달이 지나치게 작아 보이는 것 방지 */
+  contentMinHeight?: number;
 }
 
 const Modal = ({
@@ -40,6 +44,8 @@ const Modal = ({
   placement = "bottom",
   className,
   hideCloseButton = false,
+  noPadding = false,
+  contentMinHeight,
 }: IProps) => {
   // 언마운트를 퇴장 애니메이션이 끝난 뒤로 미루기 위한 상태
   const [shouldRender, setShouldRender] = useState(isOpen);
@@ -113,7 +119,14 @@ const Modal = ({
             )}
           </S.ModalHeader>
         )}
-        <S.ModalContent>{children}</S.ModalContent>
+        <S.ModalContent
+          $noPadding={noPadding}
+          {...(contentMinHeight !== undefined && {
+            $contentMinHeight: contentMinHeight,
+          })}
+        >
+          {children}
+        </S.ModalContent>
       </S.ModalContainer>
     </S.ModalBackdrop>
   );

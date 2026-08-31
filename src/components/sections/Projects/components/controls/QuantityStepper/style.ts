@@ -3,43 +3,53 @@ import { mixin } from "@/styles/index";
 
 export const Stepper = styled.div<{ $disabled: boolean }>`
   ${mixin.flex({ display: "inline-flex", align: "center" })};
-  height: 36px;
+  height: 28px;
   border: 1px solid ${({ theme }) => theme.colors.gray300};
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
   opacity: ${({ $disabled }) => ($disabled ? 0.5 : 1)};
 
   .btn {
     ${mixin.flex({ align: "center", justify: "center" })};
-    width: 36px;
+    width: 28px;
     height: 100%;
     padding: 0;
     border: none;
     background: ${({ theme }) => theme.colors.white};
-    font-size: 18px;
-    line-height: 1;
-    color: ${({ theme }) => theme.colors.gray800};
     cursor: pointer;
     transition: background 0.15s ease;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    svg path {
+      stroke: ${({ theme }) => theme.colors.gray800};
+      transition: stroke 0.15s ease;
+    }
 
     &:hover:not(:disabled) {
       background: ${({ theme }) => theme.colors.gray100};
     }
     &:disabled {
-      color: ${({ theme }) => theme.colors.gray300};
       cursor: not-allowed;
+
+      svg path {
+        stroke: ${({ theme }) => theme.colors.gray300};
+      }
     }
   }
 
   .value {
-    min-width: 40px;
+    min-width: 32px;
     height: 100%;
     padding: 0 4px;
     border: none;
     border-left: 1px solid ${({ theme }) => theme.colors.gray200};
     border-right: 1px solid ${({ theme }) => theme.colors.gray200};
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     font-family: inherit;
     color: ${({ theme }) => theme.colors.gray900};
@@ -60,34 +70,42 @@ export const Stepper = styled.div<{ $disabled: boolean }>`
   }
 
   @media ${({ theme }) => theme.media.smMax} {
-    height: ${mixin.pxToVw("36")};
-    border-radius: ${mixin.pxToVw("8")};
+    height: ${mixin.pxToVw("28")};
+    border-radius: ${mixin.pxToVw("4")};
 
     .btn {
-      width: ${mixin.pxToVw("36")};
-      font-size: ${mixin.pxToVw("18")};
+      width: ${mixin.pxToVw("28")};
+
+      svg {
+        width: ${mixin.pxToVw("14")};
+        height: ${mixin.pxToVw("14")};
+      }
     }
 
     .value {
-      min-width: ${mixin.pxToVw("40")};
+      min-width: ${mixin.pxToVw("32")};
       padding: ${mixin.pxToVw("0 4")};
-      font-size: ${mixin.pxToVw("14")};
+      font-size: ${mixin.pxToVw("13")};
     }
   }
 
   @media ${({ theme }) => theme.media.pc} {
-    height: 41px;
-    border-radius: 9px;
+    height: 32px;
+    border-radius: 4px;
 
     .btn {
-      width: 41px;
-      font-size: 21px;
+      width: 32px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
     }
 
     .value {
-      min-width: 46px;
-      padding: 0 5px;
-      font-size: 16px;
+      min-width: 36px;
+      padding: 0 4px;
+      font-size: 14px;
     }
   }
 `;

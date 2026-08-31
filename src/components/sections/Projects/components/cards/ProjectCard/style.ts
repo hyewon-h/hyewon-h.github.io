@@ -3,28 +3,22 @@ import { mixin } from "@/styles/index";
 
 export const ProjectCard = styled.article<{ $clickable: boolean }>`
   width: 100%;
-  background: ${({ theme }) => theme.colors.background};
-  border: 1px solid ${({ theme }) => theme.colors.gray100};
-  overflow: hidden;
   cursor: ${({ $clickable }) => ($clickable ? "pointer" : "default")};
   text-align: left;
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.gray200};
-
-    img {
-      transform: scale(1.06);
-    }
+  &:hover img {
+    transform: scale(1.06);
   }
 
   &:focus-visible {
     outline: 2px solid ${({ theme }) => theme.colors.primary};
     outline-offset: 2px;
   }
+`;
+
+export const ProjectThumbnailWrap = styled.div`
+  position: relative;
 `;
 
 export const ProjectThumbnail = styled.div`
@@ -39,6 +33,41 @@ export const ProjectThumbnail = styled.div`
     img {
       transition: transform 0.3s ease;
     }
+  }
+`;
+
+export const ProjectTags = styled.div`
+  position: absolute;
+  left: 12px;
+  bottom: 0;
+  z-index: 1;
+  transform: translateY(50%);
+  display: flex;
+  gap: 4px;
+  overflow: hidden;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    left: ${mixin.pxToVw("12")};
+    gap: ${mixin.pxToVw("4")};
+  }
+`;
+
+export const ProjectTag = styled.span`
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  background: ${({ theme }) => theme.colors.gray900};
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+
+  @media ${({ theme }) => theme.media.smMax} {
+    height: ${mixin.pxToVw("22")};
+    padding: ${mixin.pxToVw("0 8")};
+    font-size: ${mixin.pxToVw("11")};
   }
 `;
 
@@ -77,7 +106,9 @@ export const ProjectMeta = styled.div`
 export const ProjectTitle = styled.h3`
   font-size: 17px;
   font-weight: 600;
+  line-height: 130%;
   color: ${({ theme }) => theme.colors.gray900};
+  ${mixin.ellipsis(1)};
 
   @media ${({ theme }) => theme.media.smMax} {
     font-size: ${mixin.pxToVw("17")};
@@ -87,18 +118,11 @@ export const ProjectTitle = styled.h3`
 export const ProjectDesc = styled.p`
   font-size: 14px;
   line-height: 170%;
+  min-height: 6.8em;
   color: ${({ theme }) => theme.colors.gray600};
+  ${mixin.ellipsis(4)};
 
   @media ${({ theme }) => theme.media.smMax} {
     font-size: ${mixin.pxToVw("14")};
-  }
-`;
-
-export const ProjectTags = styled.div`
-  ${mixin.flex({ wrap: "wrap" })};
-  gap: 6px;
-
-  @media ${({ theme }) => theme.media.smMax} {
-    gap: ${mixin.pxToVw("6")};
   }
 `;

@@ -36,6 +36,40 @@ export interface ProjectCardBannerItem {
   subTitle?: string;
 }
 
+export interface ProjectShowcaseBanner {
+  title: string;
+  bannerImgSrc: string[];
+  products: string[];
+}
+
+export interface ProjectQuickMenuItem {
+  text: string;
+  imgSrc?: string;
+  isAd?: boolean;
+}
+
+export interface ProjectShowcaseProduct {
+  imgSrc: string;
+  brand?: string;
+  name: string;
+  price: number;
+  originPrice?: number;
+  isNew?: boolean;
+  isAd?: boolean;
+  soldOut?: boolean;
+}
+
+export interface ProjectCustomSelectOption {
+  value: string;
+  label: string;
+  optionvalue?: string;
+  disabled?: boolean;
+  deliveryDate?: string;
+  surcharge?: string;
+  restockBtn?: boolean;
+  restockUrl?: string;
+}
+
 // Modal 안에 어떤 컴포넌트로 상세를 보여줄지: type으로 분기
 export type ProjectDetail =
   | {
@@ -47,6 +81,30 @@ export type ProjectDetail =
   | {
       type: "cardBanner";
       items: ProjectCardBannerItem[];
+    }
+  | {
+      type: "filterModal";
+    }
+  | {
+      type: "showcaseBanner";
+      banners: ProjectShowcaseBanner[];
+    }
+  | {
+      type: "quickMenu";
+      row1: ProjectQuickMenuItem[];
+      row2: ProjectQuickMenuItem[];
+    }
+  | {
+      type: "productShowcase";
+      items: ProjectShowcaseProduct[];
+    }
+  | {
+      type: "itemsScrollBar";
+      items: string[];
+    }
+  | {
+      type: "customSelect";
+      options: ProjectCustomSelectOption[];
     };
 
 export interface Project {
@@ -86,4 +144,6 @@ export interface WorkProject {
   tasks: string[];
   achievements: string[];
   tags: string[];
+  /** 실제 운영 중인 페이지 링크 (있을 때만 타이틀 옆에 바로가기 노출) */
+  siteUrl?: string;
 }

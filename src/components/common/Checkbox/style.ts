@@ -55,7 +55,7 @@ export const CheckboxCustom = styled.div`
   @media ${({ theme }) => theme.media.pc} {
     width: 23px;
     height: 23px;
-    border-radius: 5px;
+    border-radius: 4px;
   }
 `;
 

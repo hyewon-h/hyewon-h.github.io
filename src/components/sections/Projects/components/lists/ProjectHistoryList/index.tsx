@@ -1,5 +1,6 @@
 import { memo, useMemo } from "react";
 import Tag from "@/components/common/Tag";
+import { IconMoveRight } from "@/components/common/svg";
 import { WorkProject, WorkProjectCategory } from "@/data/types";
 import * as S from "./style";
 
@@ -36,6 +37,16 @@ const ProjectHistoryList = ({ items, categories }: IProps) => {
                 <S.HistoryContent>
                   <S.TitleRow>
                     <S.Title>{project.title}</S.Title>
+                    {project.siteUrl && (
+                      <S.SiteLink
+                        href={project.siteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        바로가기
+                        <IconMoveRight />
+                      </S.SiteLink>
+                    )}
                   </S.TitleRow>
 
                   <S.Summary>{project.summary}</S.Summary>

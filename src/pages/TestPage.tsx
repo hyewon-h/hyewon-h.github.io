@@ -18,6 +18,7 @@ import CardBannerSwiperType from "@/components/sections/Projects/components/list
 import CardTypeBannerItem from "@/components/sections/Projects/components/items/CardTypeBannerItem";
 import ShowcaseBannerList from "@/components/sections/Projects/components/lists/ShowcaseBannerList";
 import ShowcaseBannerItem from "@/components/sections/Projects/components/items/ShowcaseBannerItem";
+import ShowcaseProductItem from "@/components/sections/Projects/components/items/ShowcaseProductItem";
 import ItemsScrollBar from "@/components/common/ItemsScrollBar";
 import ItemsSwiper from "@/components/common/ItemsSwiper";
 import FilterModal from "@/components/sections/Projects/components/modals/FilterModal";
@@ -119,24 +120,6 @@ const quickMenuRow2 = [
   { text: "매거진" },
   { text: "고객센터" },
 ];
-
-// 쇼케이스 배너 데모용 상품 아이템 (실제 상품 컴포넌트 대체)
-const renderShowcaseProducts = (images: string[]) =>
-  images.map((img, index) => (
-    <div className="item product-item" key={img}>
-      <Img className="area-img" src={img} alt={`상품 ${index + 1}`} />
-      <div className="area-info">
-        <div className="area-click">
-          <Text block className="brand">
-            브랜드 {index + 1}
-          </Text>
-          <Text block className="detail">
-            상품명 {index + 1}
-          </Text>
-        </div>
-      </div>
-    </div>
-  ));
 
 // Toast 데모: useToast는 ToastProvider 하위에서만 호출 가능하므로 별도 컴포넌트로 분리
 const ToastDemo = () => {
@@ -512,7 +495,7 @@ const TestPage = () => {
           <h2>Modal</h2>
           <Button onClick={() => setModalOpen(true)}>모달 열기</Button>
           <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-            <div style={{ padding: 24 }}>모달 내용입니다.</div>
+            <div>모달 내용입니다.</div>
           </Modal>
         </TestSection>
         <TestSection>
@@ -687,7 +670,7 @@ const TestPage = () => {
             placement={drawerPlacement}
             title={`${drawerPlacement} drawer`}
           >
-            <div style={{ padding: 24, minHeight: 160 }}>
+            <div style={{ minHeight: 160 }}>
               {drawerPlacement} 방향 드로어 내용입니다.
             </div>
           </Modal>
@@ -902,21 +885,26 @@ const TestPage = () => {
 
         <TestSection>
           <h2>ShowcaseBannerList</h2>
-          <ShowcaseBannerDemo>
-            <ShowcaseBannerList
-              isDesktop={isDesktop}
-              items={showcaseBannerData.map((banner) => (
-                <ShowcaseBannerItem
-                  key={banner.title}
-                  isDesktop={isDesktop}
-                  title={banner.title}
-                  bannerImgSrc={banner.bannerImgSrc}
-                  productItems={renderShowcaseProducts(banner.products)}
-                  onClickBanner={() => alert(`${banner.title} 클릭`)}
-                />
-              ))}
-            />
-          </ShowcaseBannerDemo>
+          <ShowcaseBannerList
+            isDesktop={isDesktop}
+            items={showcaseBannerData.map((banner) => (
+              <ShowcaseBannerItem
+                key={banner.title}
+                isDesktop={isDesktop}
+                title={banner.title}
+                bannerImgSrc={banner.bannerImgSrc}
+                productItems={banner.products.map((img, index) => (
+                  <ShowcaseProductItem
+                    key={img}
+                    imgSrc={img}
+                    brand={`브랜드 ${index + 1}`}
+                    name={`상품명 ${index + 1}`}
+                  />
+                ))}
+                onClickBanner={() => alert(`${banner.title} 클릭`)}
+              />
+            ))}
+          />
         </TestSection>
       </TestPageWrapper>
     </ToastProvider>
@@ -948,35 +936,6 @@ const TestSection = styled.section`
     font-size: 16px;
     margin-bottom: 16px;
     color: #222;
-  }
-`;
-
-// 쇼케이스 배너 데모용 상품 아이템 스타일 (실제 상품 컴포넌트 대체)
-const ShowcaseBannerDemo = styled.div`
-  .product-item {
-    display: flex;
-    align-items: center;
-    color: #fff;
-
-    .area-img {
-      flex: none;
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
-    }
-
-    .area-info {
-      min-width: 0;
-    }
-
-    .brand {
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .detail {
-      font-size: 12px;
-    }
   }
 `;
 

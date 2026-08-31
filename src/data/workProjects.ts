@@ -201,6 +201,7 @@ export const workProjects: WorkProject[] = [
     ],
     achievements: ["진행률 프로그레스 바 구현"],
     tags: ["출석체크"],
+    siteUrl: "https://event.wconcept.co.kr/promo/attend",
   },
   {
     id: 12,

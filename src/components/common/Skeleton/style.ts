@@ -20,7 +20,7 @@ export const Skeleton = styled.span<IProps>`
   height: ${({ $height, $variant }) =>
     $height || ($variant === "text" ? "1em" : "100%")};
   border-radius: ${({ $radius, $variant }) =>
-    $variant === "circle" ? "50%" : $radius || "6px"};
+    $variant === "circle" ? "50%" : $radius || "4px"};
   background: linear-gradient(
     90deg,
     ${({ theme }) => theme.colors.gray200} 25%,
@@ -48,7 +48,7 @@ export const Skeleton = styled.span<IProps>`
         ? "50%"
         : $radius
           ? $radius
-          : mixin.pxToVw("6")};
+          : mixin.pxToVw("4")};
 
     & + & {
       margin-top: ${mixin.pxToVw("8")};
@@ -57,7 +57,7 @@ export const Skeleton = styled.span<IProps>`
 
   @media ${({ theme }) => theme.media.pc} {
     border-radius: ${({ $radius, $variant }) =>
-      $variant === "circle" ? "50%" : $radius || "7px"};
+      $variant === "circle" ? "50%" : $radius || "4px"};
 
     & + & {
       margin-top: 9px;

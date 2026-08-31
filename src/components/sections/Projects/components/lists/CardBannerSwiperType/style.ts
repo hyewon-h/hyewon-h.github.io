@@ -13,7 +13,7 @@ export const CardBannerSwiperType = styled.div`
 
   .swiper-slide {
     position: relative;
-    border-radius: 24px;
+    border-radius: 4px;
     overflow: hidden;
 
     .video,
@@ -113,7 +113,7 @@ export const CardBannerSwiperType = styled.div`
     }
 
     .swiper-slide {
-      border-radius: ${mixin.pxToVw("24")};
+      border-radius: ${mixin.pxToVw("4")};
     }
 
     .btn-allview {
@@ -157,7 +157,7 @@ export const CardBannerSwiperType = styled.div`
       .cardtype-bnn-item {
         width: 430px;
         height: 573px;
-        border-radius: 24px;
+        border-radius: 4px;
         overflow: hidden;
       }
 

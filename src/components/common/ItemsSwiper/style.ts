@@ -22,7 +22,7 @@ export const Box = styled.div`
   .swiper-pagination-bullets {
     position: absolute;
     width: 100%;
-    bottom: 0;
+    bottom: ${mixin.pxToVw("10")};
     .swiper-pagination-bullet {
       width: ${mixin.pxToVw("6")};
       height: ${mixin.pxToVw("6")};
@@ -71,6 +71,8 @@ export const Box = styled.div`
       }
     }
     .swiper-pagination-bullets {
+      bottom: 10px;
+
       .swiper-pagination-bullet {
         width: 6px;
         height: 6px;

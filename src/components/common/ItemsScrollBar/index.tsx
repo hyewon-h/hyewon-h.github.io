@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useRef } from "react";
-
+import { classNameBind } from "@/utils/commonUtils";
 import * as S from "./style";
 
 export interface IProps {
@@ -139,9 +139,11 @@ const ItemsScrollBar = ({
 
   return (
     <S.ItemsScrollBar
-      className={`items-scrollBar list${isItemAuto ? " item-auto" : ""}${
-        className ? " " + className : ""
-      }`}
+      className={classNameBind([
+        "items-scrollBar list",
+        isItemAuto ? "item-auto" : "",
+        className || "",
+      ])}
       $perView={perView}
       $offsetLR={offsetLR}
       $gap={gap}

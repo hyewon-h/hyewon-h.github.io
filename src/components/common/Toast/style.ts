@@ -48,7 +48,7 @@ export const ToastItem = styled.div<{ $type: ToastType; $closing: boolean }>`
   align-items: center;
   gap: 10px;
   padding: 10px 14px;
-  border-radius: 8px;
+  border-radius: 4px;
   color: ${({ theme }) => theme.colors.white};
   background: ${({ theme }) => theme.colors.gray900};
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
@@ -109,7 +109,7 @@ export const ToastItem = styled.div<{ $type: ToastType; $closing: boolean }>`
   @media ${({ theme }) => theme.media.smMax} {
     gap: ${mixin.pxToVw("10")};
     padding: ${mixin.pxToVw("10 14")};
-    border-radius: ${mixin.pxToVw("8")};
+    border-radius: ${mixin.pxToVw("4")};
 
     .icon {
       width: ${mixin.pxToVw("20")};

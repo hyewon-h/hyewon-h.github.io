@@ -16,7 +16,7 @@ export const SwiperNavigation = styled.div<IProps>`
     ${mixin.flex({ display: "inline-flex" })};
     width: 36px;
     height: 36px;
-    border-radius: 5px;
+    border-radius: 4px;
     background: rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 50%;
@@ -85,7 +85,7 @@ export const SwiperNavigation = styled.div<IProps>`
     .swiper-button-prev {
       width: ${mixin.pxToVw("36")};
       height: ${mixin.pxToVw("36")};
-      border-radius: ${mixin.pxToVw("5")};
+      border-radius: ${mixin.pxToVw("4")};
 
       svg {
         width: ${mixin.pxToVw("8")};
@@ -108,7 +108,7 @@ export const SwiperNavigation = styled.div<IProps>`
     .swiper-button-prev {
       width: 41px;
       height: 41px;
-      border-radius: 6px;
+      border-radius: 4px;
 
       svg {
         width: 9px;
@@ -187,7 +187,7 @@ export const SwiperNavigation = styled.div<IProps>`
         .swiper-button-prev {
           width: 44px;
           height: 44px;
-          border-radius: 7px;
+          border-radius: 4px;
 
           svg {
             width: 9px;
@@ -210,7 +210,7 @@ export const SwiperNavigation = styled.div<IProps>`
         .swiper-button-autoplay-control,
         .swiper-button-next,
         .swiper-button-prev {
-          border-radius: 5px;
+          border-radius: 4px;
           border: 1px solid rgba(255, 255, 255, 0.2);
           background: transparent !important;
           &:not(.swiper-button-disabled):hover {
