@@ -19,7 +19,7 @@ export const CategorySection = styled.section``;
 export const CategoryTitle = styled.h3`
   margin-bottom: 18px;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: ${({ theme }) => theme.colors.gray500};
@@ -128,7 +128,6 @@ export const HistoryAside = styled.div`
 export const Period = styled.span`
   display: inline-block;
   padding: 6px 10px;
-  border-radius: 999px;
   background: ${({ theme }) => theme.colors.gray100};
   font-size: 12px;
   font-weight: 600;
@@ -262,7 +261,7 @@ export const Section = styled.section`
 export const SectionTitle = styled.h5`
   margin-bottom: 10px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.gray900};
 
@@ -293,7 +292,7 @@ export const BulletList = styled.ul`
       position: absolute;
       top: 0;
       left: 4px;
-      font-weight: 700;
+      font-weight: 600;
       color: ${({ theme }) => theme.colors.gray600};
     }
   }

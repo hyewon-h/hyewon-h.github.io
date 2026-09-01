@@ -7,6 +7,8 @@ components/
 │   ├── Button/                 # 클릭 가능한 다목적 버튼 (a 태그 겸용)
 │   ├── Checkbox/               # 체크박스 선택 컴포넌트
 │   ├── CustomSelect/           # 커스텀 스타일 드롭다운 선택창
+│   │   └── components/
+│   │       └── SelectOptions/  # 헤더 클릭 시 펼쳐지는 옵션 목록 영역
 │   ├── Img/                    # 이미지 렌더링 컴포넌트
 │   ├── Input/                  # 텍스트 입력 컴포넌트
 │   ├── ItemsScrollBar/         # 가로 스냅 스크롤 레이아웃
@@ -39,7 +41,8 @@ components/
         │   │   └── SectionTitle/       # 섹션별 공통 제목
         │   ├── lists/          # 다양한 리스트 레이아웃
         │   │   ├── MainVisualBnrList/  # 메인 비주얼 배너 슬라이드
-        │   │   └── CardBannerSwiperType/ # 카드형 배너 스와이퍼 (모바일 creative 효과 / PC 그리드+네비게이션)
+        │   │   ├── CardBannerSwiperType/ # 카드형 배너 스와이퍼 (모바일 creative 효과 / PC 그리드+네비게이션)
+        │   │   └── SelectedOptionList/  # 선택한 옵션의 옵션명/추가금/수량/총 금액 영역
         │   ├── menus/          # 네비게이션 메뉴
         │   │   └── QuickMenuBar/       # 퀵 메뉴 바 스와이퍼
         │   ├── buttons/        # Projects 전용 링크/필터 버튼들

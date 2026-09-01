@@ -211,6 +211,7 @@ export const projects: Project[] = [
     period: "2026",
     detail: {
       type: "customSelect",
+      price: 39000,
       options: [
         {
           value: "1",

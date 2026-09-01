@@ -20,7 +20,7 @@ export const ResultText = styled.p`
 
   strong {
     margin-right: 4px;
-    font-weight: 700;
+    font-weight: 600;
     color: ${({ theme }) => theme.colors.gray900};
   }
 
@@ -50,7 +50,7 @@ const chipStyle = css`
   gap: 4px;
   min-height: 32px;
   padding: 0 12px;
-  border-radius: 999px;
+  border-radius: 50px;
   font-size: 13px;
 
   @media ${({ theme }) => theme.media.smMax} {
@@ -89,8 +89,8 @@ export const ResetButton = styled.button`
   ${mixin.flex({ align: "center", justify: "center" })};
   gap: 4px;
   min-height: 32px;
+  font-size: 13px;
   padding: 0 12px;
-  border-radius: 999px;
   color: ${({ theme }) => theme.colors.gray600};
   transition: background 0.2s ease;
 
@@ -106,6 +106,7 @@ export const ResetButton = styled.button`
   @media ${({ theme }) => theme.media.smMax} {
     gap: ${mixin.pxToVw("4")};
     min-height: ${mixin.pxToVw("32")};
+    font-size: ${mixin.pxToVw("13")};
     padding: 0 ${mixin.pxToVw("12")};
 
     svg {

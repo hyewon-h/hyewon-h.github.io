@@ -1,6 +1,7 @@
 import React, { memo, useCallback, useRef, useState } from "react";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { classNameBind } from "@/utils/commonUtils";
+import { IconSearch, IconX } from "@/components/common/svg";
 import * as S from "./style";
 
 export interface PopularWord {
@@ -96,9 +97,7 @@ const GnbSearch = ({
       className={classNameBind(["gnb-search", className || ""])}
     >
       <S.SearchField>
-        <span className="icon" aria-hidden>
-          🔍
-        </span>
+        <IconSearch className="icon" />
         <input
           type="text"
           value={keyword}
@@ -115,7 +114,7 @@ const GnbSearch = ({
             aria-label="입력 지우기"
             onClick={() => setKeyword("")}
           >
-            ✕
+            <IconX />
           </button>
         )}
       </S.SearchField>
@@ -153,7 +152,7 @@ const GnbSearch = ({
                       aria-label={`${word} 삭제`}
                       onClick={() => removeRecent(word)}
                     >
-                      ✕
+                      <IconX />
                     </button>
                   </li>
                 ))}

@@ -105,6 +105,8 @@ export type ProjectDetail =
   | {
       type: "customSelect";
       options: ProjectCustomSelectOption[];
+      /** 선택 옵션 영역에서 총 금액 계산에 쓰는 상품 기본 단가 (원) */
+      price?: number;
     };
 
 export interface Project {

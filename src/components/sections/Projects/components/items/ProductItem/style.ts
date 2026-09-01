@@ -39,7 +39,7 @@ export const Card = styled.div<{ $clickable: boolean }>`
     padding: 0 6px;
     border-radius: 0;
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
     color: ${({ theme }) => theme.colors.white};
   }
@@ -118,7 +118,7 @@ export const Card = styled.div<{ $clickable: boolean }>`
   .brand {
     ${mixin.ellipsis(1)};
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 600;
     color: ${({ theme }) => theme.colors.gray900};
   }
 
@@ -139,13 +139,13 @@ export const Card = styled.div<{ $clickable: boolean }>`
 
   .discount {
     font-size: 15px;
-    font-weight: 800;
+    font-weight: 600;
     color: ${({ theme }) => theme.colors.primary};
   }
 
   .price {
     font-size: 15px;
-    font-weight: 800;
+    font-weight: 600;
     color: ${({ theme }) => theme.colors.gray900};
   }
 

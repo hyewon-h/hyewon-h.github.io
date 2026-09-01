@@ -17,6 +17,9 @@ import MainVisualBnrList from "@/components/sections/Projects/components/lists/M
 import CardBannerSwiperType from "@/components/sections/Projects/components/lists/CardBannerSwiperType";
 import ShowcaseBannerList from "@/components/sections/Projects/components/lists/ShowcaseBannerList";
 import ProjectHistoryList from "@/components/sections/Projects/components/lists/ProjectHistoryList";
+import SelectedOptionList, {
+  SelectedOptionItem,
+} from "@/components/sections/Projects/components/lists/SelectedOptionList";
 import CardTypeBannerItem from "@/components/sections/Projects/components/items/CardTypeBannerItem";
 import ShowcaseBannerItem from "@/components/sections/Projects/components/items/ShowcaseBannerItem";
 import ShowcaseProductItem from "@/components/sections/Projects/components/items/ShowcaseProductItem";
@@ -123,21 +126,68 @@ const ItemsScrollBarDemo = ({ items }: { items: string[] }) => {
   );
 };
 
-// customSelect 데모: 선택값 상태 관리
+// "+2,000원" 같은 표기용 추가금 문자열에서 숫자만 뽑아낸다
+const parseSurcharge = (surcharge?: string) =>
+  surcharge ? Number(surcharge.replace(/[^0-9]/g, "")) : 0;
+
+// customSelect 데모: 선택한 옵션을 옵션/추가금/수량/총 금액 영역으로 누적 표시
 const CustomSelectDemo = ({
   options,
+  price = 0,
 }: {
   options: ProjectCustomSelectOption[];
+  price?: number;
 }) => {
   const [value, setValue] = useState("");
+  const [selectedItems, setSelectedItems] = useState<SelectedOptionItem[]>([]);
+
+  // 옵션 선택: 이미 담긴 옵션이면 수량 +1, 아니면 새로 추가하고 셀렉트는 초기화
+  const handleSelect = (next: string) => {
+    const option = options.find(
+      (opt) => (opt.optionvalue ?? opt.value) === next,
+    );
+    if (!option) return;
+
+    setSelectedItems((prev) =>
+      prev.some((item) => item.id === next)
+        ? prev.map((item) =>
+            item.id === next ? { ...item, quantity: item.quantity + 1 } : item,
+          )
+        : [
+            ...prev,
+            {
+              id: next,
+              label: option.label,
+              quantity: 1,
+              surcharge: parseSurcharge(option.surcharge),
+            },
+          ],
+    );
+    setValue("");
+  };
+
+  const handleChangeQuantity = (id: string, quantity: number) =>
+    setSelectedItems((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, quantity } : item)),
+    );
+
+  const handleRemove = (id: string) =>
+    setSelectedItems((prev) => prev.filter((item) => item.id !== id));
 
   return (
     <S.CustomSelectDemoWrap>
       <CustomSelect
         options={options}
         value={value}
-        onChange={setValue}
+        onChange={handleSelect}
         placeholder="옵션을 선택하세요"
+      />
+      <SelectedOptionList
+        items={selectedItems}
+        price={price}
+        onChangeQuantity={handleChangeQuantity}
+        onRemove={handleRemove}
+        maxQuantity={10}
       />
     </S.CustomSelectDemoWrap>
   );
@@ -308,7 +358,12 @@ const Projects = () => {
           )}
 
           {openProject.detail.type === "customSelect" && (
-            <CustomSelectDemo options={openProject.detail.options} />
+            <CustomSelectDemo
+              options={openProject.detail.options}
+              {...(openProject.detail.price !== undefined && {
+                price: openProject.detail.price,
+              })}
+            />
           )}
         </Modal>
       )}

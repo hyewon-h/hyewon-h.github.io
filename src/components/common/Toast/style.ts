@@ -71,7 +71,7 @@ export const ToastItem = styled.div<{ $type: ToastType; $closing: boolean }>`
     height: 20px;
     border-radius: 50%;
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 600;
     color: ${({ theme }) => theme.colors.white};
     background: ${({ $type, theme }) => theme.colors[typeColor[$type]]};
   }

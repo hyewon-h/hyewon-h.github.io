@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Button from "@/components/common/Button";
+import { Button as ButtonBase } from "@/components/common/Button/style";
 import Checkbox from "@/components/common/Checkbox";
 import Img from "@/components/common/Img";
 import Video from "@/components/common/Video";
@@ -36,6 +37,9 @@ import ProductItem from "@/components/sections/Projects/components/items/Product
 import RangeSlider from "@/components/sections/Projects/components/filters/RangeSlider";
 import QuantityStepper from "@/components/sections/Projects/components/controls/QuantityStepper";
 import Rating from "@/components/sections/Projects/components/controls/Rating";
+import SelectedOptionList, {
+  SelectedOptionItem,
+} from "@/components/sections/Projects/components/lists/SelectedOptionList";
 import { ToastProvider, useToast } from "@/components/common/Toast";
 import { isDesktop } from "react-device-detect";
 
@@ -213,6 +217,13 @@ const TestPage = () => {
 
   // CustomSelect
   const [customSelectValue, setCustomSelectValue] = useState("");
+  // 선택한 옵션 영역 (옵션/추가금/수량/총 금액)
+  const [selectedOptionItems, setSelectedOptionItems] = useState<
+    SelectedOptionItem[]
+  >([]);
+  // 옵션 리스트 위치 모드 비교 (기본 absolute / static)
+  const [absoluteModeValue, setAbsoluteModeValue] = useState("");
+  const [staticModeValue, setStaticModeValue] = useState("");
   const customSelectOptions = [
     { value: "", label: "", optionvalue: "" },
     {
@@ -236,6 +247,33 @@ const TestPage = () => {
       disabled: true,
     },
   ];
+  // 옵션 선택: 이미 담긴 옵션이면 수량 +1, 아니면 새로 추가하고 셀렉트는 초기화
+  const handleCustomSelectChange = (next: string) => {
+    const option = customSelectOptions.find(
+      (opt) => (opt.optionvalue ?? opt.value) === next,
+    );
+    if (!option) return;
+
+    setSelectedOptionItems((prev) =>
+      prev.some((item) => item.id === next)
+        ? prev.map((item) =>
+            item.id === next ? { ...item, quantity: item.quantity + 1 } : item,
+          )
+        : [
+            ...prev,
+            {
+              id: next,
+              label: option.label,
+              quantity: 1,
+              // "+2,000원" 표기에서 숫자만 추출
+              surcharge: option.surcharge
+                ? Number(option.surcharge.replace(/[^0-9]/g, ""))
+                : 0,
+            },
+          ],
+    );
+    setCustomSelectValue("");
+  };
   // Accordion
   const panels = [
     { title: "Panel 1", content: <div>Accordion Panel 1</div> },
@@ -475,13 +513,65 @@ const TestPage = () => {
           />
         </TestSection>
         <TestSection>
-          <h2>CustomSelect</h2>
+          <h2>CustomSelect + SelectedOptionList</h2>
           <CustomSelect
             options={customSelectOptions}
             value={customSelectValue}
-            onChange={setCustomSelectValue}
+            onChange={handleCustomSelectChange}
             placeholder="옵션 선택"
           />
+          <SelectedOptionList
+            items={selectedOptionItems}
+            price={39000}
+            maxQuantity={10}
+            onChangeQuantity={(id, quantity) =>
+              setSelectedOptionItems((prev) =>
+                prev.map((item) =>
+                  item.id === id ? { ...item, quantity } : item,
+                ),
+              )
+            }
+            onRemove={(id) =>
+              setSelectedOptionItems((prev) =>
+                prev.filter((item) => item.id !== id),
+              )
+            }
+          />
+        </TestSection>
+        <TestSection>
+          <h2>CustomSelect - 옵션 리스트 위치 (기본 / static)</h2>
+          <SelectModeGrid>
+            <div className="mode">
+              <h3>기본 (absolute)</h3>
+              <p className="desc">
+                옵션 리스트가 헤더 아래에 겹쳐 떠서, 뒤에 오는 엘리먼트는 그
+                자리에 그대로 있습니다.
+              </p>
+              <CustomSelect
+                options={customSelectOptions}
+                value={absoluteModeValue}
+                onChange={setAbsoluteModeValue}
+                placeholder="옵션 선택"
+              />
+              <NextElementBox>다음 엘리먼트</NextElementBox>
+            </div>
+
+            <div className="mode">
+              <h3>static (className=&quot;static&quot;)</h3>
+              <p className="desc">
+                옵션 리스트가 문서 흐름에 들어가서, 펼치면 뒤에 오는 엘리먼트가
+                아래로 밀립니다.
+              </p>
+              <CustomSelect
+                className="static"
+                options={customSelectOptions}
+                value={staticModeValue}
+                onChange={setStaticModeValue}
+                placeholder="옵션 선택"
+              />
+              <NextElementBox>다음 엘리먼트</NextElementBox>
+            </div>
+          </SelectModeGrid>
         </TestSection>
         <TestSection>
           <h2>Tabs</h2>
@@ -911,31 +1001,98 @@ const TestPage = () => {
   );
 };
 
-// 스타일드 컴포넌트
 const TestPageWrapper = styled.div`
-  padding: 40px 16px;
-  max-width: 1600px;
+  counter-reset: demo;
+  max-width: 1400px;
   margin: 0 auto;
-  background: #fafbfc;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 56px 20px 120px;
+  background: #fff;
+
   h1 {
-    font-size: 20px;
-    margin-bottom: 32px;
-    text-align: center;
+    margin-bottom: 8px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #16181d;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #16181d;
+  }
+
+  @media ${({ theme }) => theme.media.smMax} {
+    padding: 32px 16px 80px;
+
+    h1 {
+      font-size: 20px;
+      padding-bottom: 14px;
+    }
   }
 `;
 
 const TestSection = styled.section`
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
-  padding: 24px 20px 16px 20px;
-  margin-bottom: 28px;
-  overflow: hidden;
+  counter-increment: demo;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  padding: 32px 0;
+  border-bottom: 1px solid #ececf0;
+  overflow-x: clip;
 
-  h2 {
-    font-size: 16px;
-    margin-bottom: 16px;
-    color: #222;
+  &:last-of-type {
+    border-bottom: none;
+  }
+
+  > h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #16181d;
+
+    &::before {
+      content: counter(demo, decimal-leading-zero);
+      font-size: 11px;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+      color: #b8bcc6;
+    }
+  }
+
+  @media ${({ theme }) => theme.media.md} {
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 14px 36px;
+    padding: 40px 0;
+
+    > h2 {
+      position: sticky;
+      top: 24px;
+      align-self: start;
+      grid-column: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    > *:not(h2) {
+      grid-column: 2;
+    }
+  }
+
+  > ${ButtonBase}, > *:not(h2) > ${ButtonBase} {
+    justify-self: start;
+    width: auto;
+    height: auto;
+    padding: 7px 13px;
+    border: 1px solid #dcdfe6;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 13px;
+    color: #16181d;
+    transition: background 0.15s ease;
+
+    &:hover:not([disabled]) {
+      background: #f5f6f8;
+    }
   }
 `;
 
@@ -949,6 +1106,38 @@ const DemoItem = styled.div`
   font-size: 18px;
   font-weight: 600;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+`;
+
+const SelectModeGrid = styled.div`
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+
+  h3 {
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: #222;
+  }
+  .desc {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #888;
+  }
+
+  @media ${({ theme }) => theme.media.md} {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+`;
+
+const NextElementBox = styled.div`
+  margin-top: 12px;
+  padding: 14px 16px;
+  border: 1px dashed #b7c3d1;
+  background: #eef2f7;
+  font-size: 13px;
+  color: #44546a;
+  text-align: center;
 `;
 
 export default TestPage;

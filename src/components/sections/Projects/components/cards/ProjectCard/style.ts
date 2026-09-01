@@ -61,7 +61,7 @@ export const ProjectTag = styled.span`
   background: ${({ theme }) => theme.colors.gray900};
   color: ${({ theme }) => theme.colors.white};
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
 
   @media ${({ theme }) => theme.media.smMax} {

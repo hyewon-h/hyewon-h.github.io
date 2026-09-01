@@ -55,7 +55,7 @@ const FilterSummaryBar = ({
         {hasFilters && onReset && (
           <S.ResetButton type="button" onClick={onReset}>
             <IconRefresh />
-            <span>초기화</span>
+            초기화
           </S.ResetButton>
         )}
       </S.FilterRow>

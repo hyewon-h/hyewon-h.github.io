@@ -1,4 +1,6 @@
 import styled from "styled-components";
+// SVGR: 크기/색상을 CSS로 제어하기 위해 raw 컴포넌트로 가져온다
+import { ReactComponent as ArrowBottomSvg } from "@/components/common/svg/icon/icon_arrow_bottom_01.svg";
 import { mixin } from "@/styles/index";
 
 export const Wrapper = styled.div`
@@ -54,156 +56,29 @@ export const Header = styled.div`
   &.placeholder {
     color: #acacac;
   }
-  &::after {
-    content: "";
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    background: url("//static.wconcept.co.kr/mobile/images/common/svg/IconAccordianArrow20.svg")
-      no-repeat center / 100%;
-  }
-  .active &::after {
-    transform: translateY(-50%) rotate(180deg);
-  }
 
   @media ${({ theme }) => theme.media.smMax} {
     height: ${mixin.pxToVw("40")};
     padding: ${mixin.pxToVw("0 45 0 15")};
     font-size: ${mixin.pxToVw("14")};
     line-height: ${mixin.pxToVw("38")};
-
-    &::after {
-      right: ${mixin.pxToVw("16")};
-      width: ${mixin.pxToVw("20")};
-      height: ${mixin.pxToVw("20")};
-    }
   }
 `;
 
-export const OptionsList = styled.div`
-  display: none;
+export const ArrowIcon = styled(ArrowBottomSvg)`
   position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: #fff;
-  border: 1px solid #000;
-  border-top: none;
-  overflow-y: visible;
-  z-index: 1;
-  /* 스크롤바 스타일 */
-  &::-webkit-scrollbar {
-    width: 3px;
-  }
-  &::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 4px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 4px;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  ${mixin.getSizeBox(20, 20)};
+  color: inherit;
+  .active & {
+    transform: translateY(-50%) rotate(180deg);
   }
 
   @media ${({ theme }) => theme.media.smMax} {
-    &::-webkit-scrollbar {
-      width: ${mixin.pxToVw("3")};
-    }
-    &::-webkit-scrollbar-track {
-      border-radius: ${mixin.pxToVw("4")};
-    }
-    &::-webkit-scrollbar-thumb {
-      border-radius: ${mixin.pxToVw("4")};
-    }
-  }
-`;
-
-export const Option = styled.div`
-  position: relative;
-  ${mixin.flex({ align: "center" })};
-  gap: 0 8px;
-  font-size: 14px;
-  padding: 13.5px 16px;
-  border-top: 1px solid #eee;
-  cursor: pointer;
-  &.disabled {
-    color: #bbb;
-    cursor: not-allowed;
-    background: #f6f6f6;
-  }
-  &.scheduled_delivery .option_name {
-    margin-bottom: 20px;
-  }
-  .option_name {
-    flex: 1;
-    font-size: 14px;
-    line-height: 130%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-  em {
-    font-size: 13px;
-    color: #555;
-  }
-  .delivery_date {
-    position: absolute;
-    bottom: 14px;
-    left: 16px;
-  }
-
-  @media ${({ theme }) => theme.media.smMax} {
-    gap: ${mixin.pxToVw("0 8")};
-    font-size: ${mixin.pxToVw("14")};
-    padding: ${mixin.pxToVw("13.5 16")};
-
-    &.scheduled_delivery .option_name {
-      margin-bottom: ${mixin.pxToVw("20")};
-    }
-    .option_name {
-      font-size: ${mixin.pxToVw("14")};
-    }
-    em {
-      font-size: ${mixin.pxToVw("13")};
-    }
-    .delivery_date {
-      bottom: ${mixin.pxToVw("14")};
-      left: ${mixin.pxToVw("16")};
-    }
-  }
-`;
-
-export const RestockAlarmBtn = styled.button`
-  width: 84px;
-  height: 22px;
-  ${mixin.flex({ display: "inline-flex", justify: "center", align: "center" })};
-  gap: 0 3px;
-  font-size: 12px;
-  border: 1px solid #000;
-  background: #fff;
-  color: #000;
-  &::before {
-    content: "";
-    display: block;
-    width: 14px;
-    height: 14px;
-    background: url("//static.wconcept.co.kr/web/images/svg/icon_notification_16.svg")
-      no-repeat center / 100%;
-  }
-
-  @media ${({ theme }) => theme.media.smMax} {
-    width: ${mixin.pxToVw("84")};
-    height: ${mixin.pxToVw("22")};
-    gap: ${mixin.pxToVw("0 3")};
-    font-size: ${mixin.pxToVw("12")};
-
-    &::before {
-      width: ${mixin.pxToVw("14")};
-      height: ${mixin.pxToVw("14")};
-    }
+    right: ${mixin.pxToVw("16")};
+    width: ${mixin.pxToVw("20")};
+    height: ${mixin.pxToVw("20")};
   }
 `;

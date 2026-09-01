@@ -121,7 +121,6 @@ export const Dropdown = styled.div`
   ${mixin.flex({ wrap: "wrap" })};
 
   h3 {
-    margin-bottom: 16px;
     font-size: 15px;
     font-weight: 600;
     color: ${({ theme }) => theme.colors.gray900};
@@ -143,7 +142,7 @@ export const Dropdown = styled.div`
   }
 
   .head {
-    ${mixin.flex({ align: "center", justify: "space-between" })};
+    ${mixin.flex({ align: "start", justify: "space-between" })};
 
     .clear-all {
       font-size: 13px;
@@ -244,6 +243,7 @@ export const Dropdown = styled.div`
 export const RecentList = styled.ul`
   ${mixin.flex({ direction: "column" })};
   gap: 12px;
+  margin-top: 16px;
 
   li {
     ${mixin.flex({ align: "center", justify: "space-between" })};
@@ -264,13 +264,8 @@ export const RecentList = styled.ul`
   .del {
     flex-shrink: 0;
     ${mixin.flex({ align: "center", justify: "center" })};
-    width: 19px;
-    height: 19px;
-    font-size: 12px;
-    color: ${({ theme }) => theme.colors.gray400};
-    background: none;
-    border: none;
-    cursor: pointer;
+    width: 12px;
+    height: 12px;
   }
 
   @media ${({ theme }) => theme.media.smMax} {
@@ -285,9 +280,8 @@ export const RecentList = styled.ul`
     }
 
     .del {
-      width: ${mixin.pxToVw("19")};
-      height: ${mixin.pxToVw("19")};
-      font-size: ${mixin.pxToVw("12")};
+      width: ${mixin.pxToVw("12")};
+      height: ${mixin.pxToVw("12")};
     }
   }
 
@@ -313,6 +307,7 @@ export const RecentList = styled.ul`
 export const PopularList = styled.ol`
   ${mixin.flex({ direction: "column" })};
   gap: 12px;
+  margin-top: 16px;
 
   li button {
     ${mixin.flex({ align: "center" })};
@@ -339,7 +334,7 @@ export const PopularList = styled.ol`
 
   .new {
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 600;
     color: ${({ theme }) => theme.colors.primary};
   }
 
