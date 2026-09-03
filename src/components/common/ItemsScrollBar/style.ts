@@ -6,6 +6,8 @@ export interface IProps {
   $offsetLR?: number;
   $gap?: number;
   $rowGap?: number;
+  $marginT?: number;
+  $marginB?: number;
   $line?: number;
   $snap?: boolean;
   $scrollAlign?: "left" | "center";
@@ -16,6 +18,9 @@ export const ItemsScrollBar = styled.div<IProps>`
   ${mixin.flex({ align: "flex-start", justify: "flex-start" })};
   overflow-x: auto;
   overflow-y: hidden;
+  overscroll-behavior: contain auto;
+  margin: ${({ $marginT = 0 }) => ($marginT / 375) * 100}vw 0
+    ${({ $marginB = 0 }) => ($marginB / 375) * 100}vw;
 
   ${({ $line = 1, $rowGap = 24 }) =>
     $line !== 1 &&
@@ -86,6 +91,9 @@ export const ItemsScrollBar = styled.div<IProps>`
   }
 
   @media ${({ theme }) => theme.media.sm} {
+    margin: ${({ $marginT = 0 }) => $marginT}px 0
+      ${({ $marginB = 0 }) => $marginB}px;
+
     &:not(.item-auto) > .item,
     &:not(.item-auto) .inner-items-scrollBar > .item {
       ${({ $offsetLR = 20, $gap = 5, $perView = 2 }) => {

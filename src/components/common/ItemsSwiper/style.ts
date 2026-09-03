@@ -4,6 +4,14 @@ import { mixin } from "@/styles/index";
 export const Box = styled.div`
   position: relative;
 
+  &.center > .items-swiper > .swiper-wrapper {
+    justify-content: center;
+  }
+
+  &.pagination-bullets {
+    padding-bottom: ${mixin.pxToVw("36")};
+  }
+
   .items-swiper {
     &.pagination-bullets {
       padding-bottom: ${mixin.pxToVw("36")};
@@ -65,11 +73,16 @@ export const Box = styled.div`
   }
 
   @media ${({ theme }) => theme.media.sm} {
+    &.pagination-bullets {
+      padding-bottom: 36px;
+    }
+
     .items-swiper {
       &.pagination-bullets {
         padding-bottom: 36px;
       }
     }
+
     .swiper-pagination-bullets {
       bottom: 10px;
 
@@ -78,6 +91,7 @@ export const Box = styled.div`
         height: 6px;
       }
     }
+
     .swiper-pagination-fraction {
       top: 12px;
       right: 20px;

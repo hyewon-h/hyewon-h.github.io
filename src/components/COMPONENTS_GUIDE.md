@@ -7,10 +7,12 @@ components/
 │   ├── Button/                 # 클릭 가능한 다목적 버튼 (a 태그 겸용)
 │   ├── Checkbox/               # 체크박스 선택 컴포넌트
 │   ├── CustomSelect/           # 커스텀 스타일 드롭다운 선택창
+│   ├── DraggableScroller/      # PC 마우스 드래그 가로 스크롤 래퍼
 │   │   └── components/
 │   │       └── SelectOptions/  # 헤더 클릭 시 펼쳐지는 옵션 목록 영역
 │   ├── Img/                    # 이미지 렌더링 컴포넌트
 │   ├── Input/                  # 텍스트 입력 컴포넌트
+│   ├── InputFile/              # 파일 선택 인풋 (텍스트 버튼형)
 │   ├── ItemsScrollBar/         # 가로 스냅 스크롤 레이아웃
 │   ├── ItemsSwiper/            # 스와이퍼 슬라이드 컴포넌트
 │   ├── Modal/                  # 팝업 모달창 컴포넌트

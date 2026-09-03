@@ -14,6 +14,8 @@ import Tabs from "@/components/common/Tabs";
 import Accordion from "@/components/common/Accordion";
 import TextEditor from "@/components/common/TextEditor";
 import CustomSelect from "@/components/common/CustomSelect";
+import InputFile from "@/components/common/InputFile";
+import DraggableScroller from "@/components/common/DraggableScroller";
 import MainVisualBnrList from "@/components/sections/Projects/components/lists/MainVisualBnrList";
 import CardBannerSwiperType from "@/components/sections/Projects/components/lists/CardBannerSwiperType";
 import CardTypeBannerItem from "@/components/sections/Projects/components/items/CardTypeBannerItem";
@@ -224,6 +226,8 @@ const TestPage = () => {
   // 옵션 리스트 위치 모드 비교 (기본 absolute / static)
   const [absoluteModeValue, setAbsoluteModeValue] = useState("");
   const [staticModeValue, setStaticModeValue] = useState("");
+  // InputFile 선택된 파일명
+  const [fileNames, setFileNames] = useState<string[]>([]);
   const customSelectOptions = [
     { value: "", label: "", optionvalue: "" },
     {
@@ -483,6 +487,33 @@ const TestPage = () => {
             clearable
             onClear={() => setClearInputValue("")}
           />
+        </TestSection>
+        <TestSection>
+          <h2>InputFile</h2>
+          <div
+            style={{
+              display: "flex",
+              gap: 12,
+              alignItems: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <InputFile
+              text="파일 선택"
+              multiple
+              onChange={(e) =>
+                setFileNames(
+                  Array.from(e.target.files ?? []).map((file) => file.name),
+                )
+              }
+            />
+            <InputFile text="비활성화" disabled />
+          </div>
+          <p style={{ fontSize: 13, color: "#666" }}>
+            {fileNames.length
+              ? `선택됨: ${fileNames.join(", ")}`
+              : "input[type=file]을 투명하게 덮어 텍스트 버튼처럼 보이게 합니다"}
+          </p>
         </TestSection>
         <TestSection>
           <h2>Radio</h2>
@@ -789,6 +820,24 @@ const TestPage = () => {
           <TextEditor placeholder="해시태그 입력 테스트" />
         </TestSection>
 
+        <TestSection>
+          <h2>DraggableScroller</h2>
+          <p style={{ fontSize: 13, color: "#666" }}>
+            PC에서 마우스로 끌어 가로 스크롤. 10px 이상 움직여야 드래그로 보고
+            자식 클릭을 막으므로, 살짝 눌렀다 떼면 클릭은 그대로 동작합니다.
+          </p>
+          <DraggableScroller>
+            {Array.from({ length: 12 }).map((_, i) => (
+              <DemoItem
+                key={i}
+                style={{ minWidth: 140, marginRight: 8 }}
+                onClick={() => alert(`Item ${i + 1} 클릭`)}
+              >
+                Item {i + 1}
+              </DemoItem>
+            ))}
+          </DraggableScroller>
+        </TestSection>
         <TestSection>
           <h2>ItemsScrollBar</h2>
           <div style={{ width: "100%", overflow: "hidden" }}>
